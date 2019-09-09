@@ -75,6 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sliderTouchBegan:(VHPlaySlider *)slider;
 - (void)sliderValueChanged:(VHPlaySlider *)slider;
 - (void)sliderTouchEnded:(VHPlaySlider *)slider;
+- (void)sliderSignleTouch:(VHPlaySlider *)slider;
 
 
 ///子类继承父类以下两个方法做横竖屏适配

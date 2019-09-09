@@ -8,6 +8,13 @@
 
 #import "VHPlaySlider.h"
 
+@interface VHPlaySlider ()
+
+@property (nonatomic, strong) UITapGestureRecognizer *sliderTap;
+
+@end
+
+
 @implementation VHPlaySlider
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -30,7 +37,8 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    _progressView.frame = CGRectMake(0.5, CGRectGetHeight(self.frame)*0.5-1, CGRectGetWidth(self.frame)-1, 2);
+    //坐标x 预留出滑块的宽度
+    _progressView.frame = CGRectMake(20, CGRectGetHeight(self.frame)*0.5-1, CGRectGetWidth(self.frame)-20, 2);
 }
 
 //设置进度条高度为2
@@ -39,12 +47,12 @@
     CGRect suBounds = [super trackRectForBounds:bounds];
     return CGRectMake(suBounds.origin.x, suBounds.origin.y, suBounds.size.width, 2);
 }
-////设置滑块可触摸范围大小
-//- (CGRect)thumbRectForBounds:(CGRect)bounds trackRect:(CGRect)rect value:(float)value
-//{
-//    CGRect suBounds = [super thumbRectForBounds:bounds trackRect:rect value:value];
-//    return CGRectMake(suBounds.origin.x, suBounds.origin.y, 20, 20);
-//}
+//设置滑块可触摸范围大小
+- (CGRect)thumbRectForBounds:(CGRect)bounds trackRect:(CGRect)rect value:(float)value
+{
+    CGRect suBounds = [super thumbRectForBounds:bounds trackRect:rect value:value];
+    return CGRectMake(suBounds.origin.x-15, suBounds.origin.y-15, suBounds.size.width+30, suBounds.size.height+30);
+}
 
 - (void)addInitUI {
     _progressView                   = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
@@ -64,6 +72,9 @@
     [self addTarget:self action:@selector(progressSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     // slider结束滑动事件
     [self addTarget:self action:@selector(progressSliderTouchEnded:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchUpOutside];
+    // slider点击事件
+    self.sliderTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sliderTapAction:)];
+    [self addGestureRecognizer:self.sliderTap];
 }
 - (void)sliderDefaultSet {
     [self setMinimumTrackTintColor:[UIColor colorWithRed:0/255.0 green:122/255.0 blue:255/255.0 alpha:1.0]];
@@ -72,6 +83,7 @@
 }
 
 - (void)progressSliderTouchBegan:(UISlider *)sender {
+    self.sliderTap.enabled = NO;
     self.isDragging = YES;
     if ([self.delegate respondsToSelector:@selector(sliderTouchBegan:)]) {
         [self.delegate sliderTouchBegan:self];
@@ -83,11 +95,27 @@
     }
 }
 - (void)progressSliderTouchEnded:(UISlider *)sender {
-    self.isDragging = NO;
     if ([self.delegate respondsToSelector:@selector(sliderTouchEnded:)]) {
         [self.delegate sliderTouchEnded:self];
     }
+    self.sliderTap.enabled = YES;
+    self.isDragging = NO;
 }
 
+- (void)sliderTapAction:(UITapGestureRecognizer *)tap
+{
+    self.isDragging = YES;
+    
+    CGPoint point = [tap locationInView:self];
+    CGFloat value = (self.maximumValue - self.minimumValue) * (point.x / self.frame.size.width );
+    [self setValue:value animated:YES];
+
+
+    if ([self.delegate respondsToSelector:@selector(sliderSignleTouch:)]) {
+        [self.delegate sliderSignleTouch:self];
+    }
+    
+    self.isDragging = NO;
+}
 
 @end

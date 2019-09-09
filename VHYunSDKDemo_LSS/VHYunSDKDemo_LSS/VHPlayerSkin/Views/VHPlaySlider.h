@@ -14,9 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol VHPlaySliderDelegate <NSObject>
 
+@optional
+
 - (void)sliderTouchBegan:(VHPlaySlider *)slider;
 - (void)sliderValueChanged:(VHPlaySlider *)slider;
 - (void)sliderTouchEnded:(VHPlaySlider *)slider;
+
+- (void)sliderSignleTouch:(VHPlaySlider *)slider;
 
 @end
 

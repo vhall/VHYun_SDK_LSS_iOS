@@ -12,11 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol VHCstomMoreViewDelegate <NSObject>
 
+@optional
+
 - (void)cyclePlaySwitchOn:(BOOL)isOn;
 
 @end
 
 @interface VHCstomMoreView : VHSkinCoverView
+
+- (instancetype)initWithFrame:(CGRect)frame isLive:(BOOL)live;
 
 @property (nonatomic, weak) id <VHCstomMoreViewDelegate> delegate;
 

@@ -1,5 +1,5 @@
 //
-//  VHPlayerSkinVodController.h
+//  VHPlayerSkinViewController.h
 //  VHYunSDKDemo_LSS
 //
 //  Created by vhall on 2019/8/2.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VHPlayerSkinVodController : VHBaseViewController
+@interface VHPlayerSkinViewController : VHBaseViewController
 
 - (instancetype)initWithLiveId:(NSString *)liveId accessToken:(NSString *)token;
 - (instancetype)initWithrecordId:(NSString *)recordId accessToken:(NSString *)token;

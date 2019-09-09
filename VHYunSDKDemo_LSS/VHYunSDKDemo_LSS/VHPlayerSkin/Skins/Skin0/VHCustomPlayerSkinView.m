@@ -56,7 +56,7 @@
 }
 - (VHCstomMoreView *)moreView {
     if (!_moreView) {
-        _moreView = [[VHCstomMoreView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame)-375, 0, 375, CGRectGetHeight(self.frame))];
+        _moreView = [[VHCstomMoreView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame)-375, 0, 375, CGRectGetHeight(self.frame)) isLive:self.isLive];
         _moreView.delegate = self;
         [self insertSubview:_moreView aboveSubview:self.bottomImageView];
     }
@@ -193,7 +193,9 @@
                 btn.enabled = (btn != sender);
             }
         }
+        [self.vodRateBtn setTitle:sender.titleLabel.text forState:UIControlStateNormal];
     }
+    self.rateView.hidden = YES;
 }
 
 #pragma mark - VHCstomResolutionViewDelegate
@@ -203,12 +205,10 @@
         self.resolutionView.hidden = YES;
     }
 }
+
 #pragma mark - VHCstomMoreViewDelegate
 - (void)cyclePlaySwitchOn:(BOOL)isOn {
-//    if ([self.delegate respondsToSelector:@selector(skinView:cyclePlaySwitchOn:)]) {
-//        [self.delegate skinView:self cyclePlaySwitchOn:isOn];
-//    }
-//    [self setCyclePlay:isOn];
+    [self setCyclePlay:isOn];
 }
 
 @end

@@ -15,7 +15,7 @@
 #import "PublishViewController.h"
 #import "WatchViewController.h"
 #import "WatchVodViewController.h"
-#import "VHPlayerSkinVodController.h"
+#import "VHPlayerSkinViewController.h"
 #import "VHSettingViewController.h"
 
 
@@ -55,7 +55,7 @@
     VHSettingViewController * settingVC = [[VHSettingViewController alloc] init];
     [self presentViewController:settingVC animated:YES completion:nil];
 }
-
+//发直播
 - (void)publishBtnClicked:(UIButton*)sender
 {
     if(![self isCaptureDeviceOK])
@@ -86,7 +86,7 @@
     
     [self presentViewController:rtmpLivedemoVC animated:YES completion:nil];
 }
-
+//直播
 - (void)playerBtnClicked:(UIButton*)sender
 {
     if(_businessIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
@@ -105,7 +105,7 @@
     watchVC.bufferTime  = DEMO_Setting.bufferTime;
     [self presentViewController:watchVC animated:YES completion:nil];
 }
-
+//点播
 - (void)vodBtnClicked:(UIButton*)sender
 {
     if(_recordIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
@@ -123,7 +123,7 @@
     watchVC.seekMode    = DEMO_Setting.seekMode;
     [self presentViewController:watchVC animated:YES completion:nil];
 }
-
+//点播皮肤
 - (void)vodBtn1Clicked:(UIButton *)sender {
     if(_recordIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
     {
@@ -134,21 +134,21 @@
     DEMO_Setting.recordID = _recordIDTextField.text;
     DEMO_Setting.accessToken =_accessTokenTextField.text;
     
-    VHPlayerSkinVodController * vc = [[VHPlayerSkinVodController alloc] initWithrecordId:DEMO_Setting.recordID accessToken:DEMO_Setting.accessToken];
+    VHPlayerSkinViewController * vc = [[VHPlayerSkinViewController alloc] initWithrecordId:DEMO_Setting.recordID accessToken:DEMO_Setting.accessToken];
     [self presentViewController:vc animated:YES completion:nil];
 }
-
+//直播皮肤
 - (void)liveSkinBtnClicked:(UIButton *)sender {
-    if(_recordIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
+    if(_businessIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
     {
         [self showMsg:@"参数不能为空" afterDelay:1.5];
         return;
     }
-    
+
     DEMO_Setting.playerRoomID = _businessIDTextField.text;
     DEMO_Setting.accessToken =_accessTokenTextField.text;
 
-    VHPlayerSkinVodController * vc = [[VHPlayerSkinVodController alloc] initWithLiveId:DEMO_Setting.playerRoomID accessToken:DEMO_Setting.accessToken];
+    VHPlayerSkinViewController * vc = [[VHPlayerSkinViewController alloc] initWithLiveId:DEMO_Setting.playerRoomID accessToken:DEMO_Setting.accessToken];
     [self presentViewController:vc animated:YES completion:nil];
 }
 

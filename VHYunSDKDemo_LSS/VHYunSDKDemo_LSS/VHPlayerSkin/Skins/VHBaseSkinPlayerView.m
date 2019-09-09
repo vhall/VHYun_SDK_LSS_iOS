@@ -34,7 +34,7 @@ static UISlider * _volumeSlider;
         [self.bottomImageView addSubview:self.playBtn];
         [self.bottomImageView addSubview:self.fullScreenBtn];
         [self.bottomImageView addSubview:self.resolutionBtn];
-        [self addSubview:self.loadingView];
+        [self insertSubview:self.loadingView atIndex:0];//防止loading时，其他按钮无法点击
         
         //设置默认为直播皮肤
         self.isLive = YES;
@@ -48,6 +48,11 @@ static UISlider * _volumeSlider;
                 break;
             }
         }
+        
+        
+//        self.bottomImageView.backgroundColor = [UIColor redColor];
+//        self.vodRateBtn.backgroundColor = [UIColor purpleColor];
+//        self.resolutionBtn.backgroundColor = [UIColor brownColor];
     }
     return self;
 }
@@ -64,7 +69,7 @@ static UISlider * _volumeSlider;
     self.returnBtn.frame = CGRectMake(10, 0, 38, CGRectGetHeight(self.topImageView.frame));
     self.fullScreenBtn.frame = CGRectMake(CGRectGetWidth(self.bottomImageView.frame)-15-36, CGRectGetHeight(self.bottomImageView.frame)-36, 36, 36);
     self.playBtn.frame = CGRectMake(15, CGRectGetMidY(self.fullScreenBtn.frame)-36*0.5, 32, 36);
-    self.resolutionBtn.frame = CGRectMake(CGRectGetWidth(self.bottomImageView.frame)-15-36, CGRectGetHeight(self.bottomImageView.frame)-36, 36, 36);
+    self.resolutionBtn.frame = CGRectMake(CGRectGetWidth(self.bottomImageView.frame)-15-72, CGRectGetHeight(self.bottomImageView.frame)-36, 72, 36);
     self.loadingView.frame = self.bounds;
     
     UIInterfaceOrientation currentOrientation = [UIApplication sharedApplication].statusBarOrientation;
@@ -109,7 +114,7 @@ static UISlider * _volumeSlider;
     self.titleLabel.frame = CGRectMake(CGRectGetMaxX(self.returnBtn.frame), 0,  CGRectGetWidth(self.topImageView.frame)*0.65, CGRectGetHeight(self.topImageView.frame));
     
     if (!self.isLive) {
-        self.vodRateBtn.frame = CGRectMake(CGRectGetWidth(self.bottomImageView.frame)-78-60, CGRectGetMidY(self.playBtn.frame)-10, 60, 20);
+        self.vodRateBtn.frame = CGRectMake(CGRectGetWidth(self.bottomImageView.frame)-78-60, CGRectGetMinY(self.resolutionBtn.frame), 60, self.resolutionBtn.frame.size.height);
         self.vodfullScreenTimeLabel.frame = CGRectMake(CGRectGetMinX(self.vodCurrentTimeLabel.frame), CGRectGetMidY(self.vodCurrentTimeLabel.frame)-10, 200, 20);
         self.vodSlider.frame = CGRectMake(0, 2, CGRectGetWidth(self.frame),20);
         
@@ -181,6 +186,7 @@ static UISlider * _volumeSlider;
     if (!_resolutionBtn) {
         _resolutionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _resolutionBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [_resolutionBtn setTitle:@"原画" forState:UIControlStateNormal];
         _resolutionBtn.backgroundColor = [UIColor clearColor];
         [_returnBtn.titleLabel setTextAlignment:NSTextAlignmentRight];
         [_resolutionBtn addTarget:self action:@selector(resolutionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -204,6 +210,7 @@ static UISlider * _volumeSlider;
         _vodSlider.delegate = self;
         _vodSlider.value                    = 0;
         _vodSlider.progressView.progress    = 0;
+        _vodSlider.enabled = NO;//未获取到播放总时长前，禁止滑动，否则会出bug
     }
     return _vodSlider;
 }
@@ -259,6 +266,7 @@ static UISlider * _volumeSlider;
 #pragma mark - public
 
 - (void)setIsLive:(BOOL)isLive {
+    _isLive = isLive;
     _vodRateBtn.hidden = isLive;
     _vodTotalTimeLabel.hidden = isLive;
     _vodCurrentTimeLabel.hidden = isLive;
@@ -327,9 +335,13 @@ static UISlider * _volumeSlider;
             break;
     }
 }
+- (void)playerError:(NSError *)error {
+    [self.loadingView stopAnimating];
+}
 - (void)setProgressTime:(CGFloat)currentTime totalTime:(CGFloat)totalTime playableValue:(CGFloat)playable
 {
-    if (!self.vodSlider.isDragging) {
+    if (!self.vodSlider.isDragging && currentTime > 0 && totalTime > 0) {
+        self.vodSlider.enabled = YES;
         //总时长
         self.vodTotalTimeLabel.text = [VHPlayerSkinTool timeFormat:totalTime];
         //更新当前播放时间
@@ -337,12 +349,16 @@ static UISlider * _volumeSlider;
         //全屏显示时间
         self.vodfullScreenTimeLabel.text = [NSString stringWithFormat:@"%@/%@",self.vodCurrentTimeLabel.text,self.vodTotalTimeLabel.text];
         // 更新slider
-        self.vodSlider.maximumValue = 100;
+        self.vodSlider.maximumValue = totalTime;
         self.vodSlider.minimumValue = 0.0;
-        self.vodSlider.value        = currentTime*100/totalTime;
+        self.vodSlider.value        = currentTime;
     }
-    //更新缓存时长
-    [self.vodSlider.progressView setProgress:playable/totalTime animated:NO];
+    
+    //NSLog(@"******* playable %f %f %f",playable,currentTime,totalTime);
+    //更新缓存时长，播放出错时，播放器返回的playable和totalTime是0。
+    if (playable > 0 && totalTime > 0) {
+        [self.vodSlider.progressView setProgress:playable/totalTime animated:NO];
+    }
 }
 
 - (void)setFullScreen:(BOOL)fullScreen {
@@ -365,6 +381,7 @@ static UISlider * _volumeSlider;
 #pragma mark - action
 
 - (void)playBtnClick:(UIButton *)sender {
+    [self.loadingView startAnimating];
     if ([self.delegate respondsToSelector:@selector(skinViewPlayButtonAction:)]) {
         [self.delegate skinViewPlayButtonAction:self];
     }
@@ -380,7 +397,7 @@ static UISlider * _volumeSlider;
     
 }
 - (void)rateBtnBtnClick:(UIButton *)sender {
-
+    
 }
 - (void)sliderTouchBegan:(VHPlaySlider *)slider {
     [self cancelFadeOut];
@@ -397,6 +414,10 @@ static UISlider * _volumeSlider;
         [self.delegate skinViewSliderTouchEnded:self currentTime:slider.value];
     }
 }
-
+- (void)sliderSignleTouch:(VHPlaySlider *)slider {
+    if ([self.delegate respondsToSelector:@selector(skinViewSliderTouchEnded:currentTime:)]) {
+        [self.delegate skinViewSliderTouchEnded:self currentTime:slider.value];
+    }
+}
 
 @end

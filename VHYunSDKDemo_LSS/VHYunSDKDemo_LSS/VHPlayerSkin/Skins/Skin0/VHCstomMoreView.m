@@ -25,20 +25,41 @@
 
 @implementation VHCstomMoreView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame isLive:(BOOL)live {
     if (self = [super initWithFrame:frame]) {
-                
-        [self addSubview:[self titleCell]];
-        [self addSubview:[self playCell]];
-        [self addSubview:[self soundCell]];
-        [self addSubview:[self ligthCell]];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(volumeChanged:)         name:@"AVSystemController_SystemVolumeDidChangeNotification"
-                                                   object:nil];
+        [self setUpUIWithOption:live];
     }
     return self;
 }
+
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        
+        [self setUpUIWithOption:NO];
+    }
+    return self;
+}
+
+- (void)setUpUIWithOption:(BOOL)isLive
+{
+    [self addSubview:[self titleCell]];
+    [self addSubview:[self playCell]];
+    [self addSubview:[self soundCell]];
+    [self addSubview:[self ligthCell]];
+    
+    if (isLive) {
+        self.playCell.hidden = YES;
+        _soundCell.frame = CGRectMake(0, 56, CGRectGetWidth(self.frame), 56);
+        _ligthCell.frame = CGRectMake(0, 56*2, CGRectGetWidth(self.frame), 56);
+    }
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(volumeChanged:)         name:@"AVSystemController_SystemVolumeDidChangeNotification"
+                                               object:nil];
+}
+
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -57,6 +78,7 @@
 - (UIView *)titleCell {
     if (!_titleCell) {
         _titleCell = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), 56)];
+        _titleCell.userInteractionEnabled = NO;
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 25, CGRectGetWidth(self.frame)-40, 21)];
         label.text = @"播放设置";
@@ -100,7 +122,7 @@
         soundImage2.frame = CGRectMake(CGRectGetWidth(self.frame)-20-22, 56*0.5-9, 22, 18);
         [_soundCell addSubview:soundImage2];
         
-        VHPlaySlider *slider = [[VHPlaySlider alloc] initWithFrame:CGRectMake(60, 56*0.5-5, CGRectGetWidth(self.frame)-120, 10)];
+        VHPlaySlider *slider = [[VHPlaySlider alloc] initWithFrame:CGRectMake(60, 56*0.5-CGRectGetHeight(_soundCell.frame)*0.5, CGRectGetWidth(self.frame)-120, CGRectGetHeight(_soundCell.frame))];
         slider.maximumValue          = 1;
         slider.minimumValue          = 0;
         slider.delegate = self;
@@ -123,7 +145,7 @@
         lightImage2.frame = CGRectMake(CGRectGetWidth(self.frame)-20-27, 56*0.5-13, 27, 26);
         [_ligthCell addSubview:lightImage2];
         
-        VHPlaySlider *slider = [[VHPlaySlider alloc] initWithFrame:CGRectMake(60, 56*0.5-5, CGRectGetWidth(_ligthCell.frame)-120, 10)];
+        VHPlaySlider *slider = [[VHPlaySlider alloc] initWithFrame:CGRectMake(60, 56*0.5-CGRectGetHeight(_ligthCell.frame)*0.5, CGRectGetWidth(_ligthCell.frame)-120, CGRectGetHeight(_ligthCell.frame))];
         slider.maximumValue          = 1;
         slider.minimumValue          = 0;
         slider.delegate = self;
@@ -188,8 +210,13 @@
         self.volumeEndTime = [NSDate date];
     }
 }
-
-
-
+- (void)sliderSignleTouch:(VHPlaySlider *)slider {
+    if (slider.tag == 100201) { //音量
+        [VHBaseSkinPlayerView volumeViewSlider].value = slider.value;
+    }
+    else if (slider.tag == 100202) { //亮度
+        [UIScreen mainScreen].brightness = slider.value;
+    }
+}
 
 @end

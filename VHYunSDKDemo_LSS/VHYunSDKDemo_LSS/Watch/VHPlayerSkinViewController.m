@@ -1,28 +1,37 @@
 //
-//  VHPlayerSkinVodController.m
+//  VHPlayerSkinViewController.m
 //  VHYunSDKDemo_LSS
 //
 //  Created by vhall on 2019/8/2.
 //  Copyright © 2019 vhall. All rights reserved.
 //
 
-#import "VHPlayerSkinVodController.h"
+#import "VHPlayerSkinViewController.h"
 #import <VHLSS/VHVodPlayer.h>
 #import <VHLSS/VHLivePlayer.h>
 #import "VHCustomPlayerSkinView.h"
+#import "VHSkinCoverView.h"
 
-@interface VHPlayerSkinVodController ()
-
+@interface VHPlayerSkinViewController ()<UIGestureRecognizerDelegate,VHVodPlayerDelegate,VHLivePlayerDelegate>
+{
+    VHCustomPlayerSkinView *_skinView;
+}
 @property (nonatomic, strong) VHVodPlayer *vodPlayer;
 @property (nonatomic, strong) VHLivePlayer *livePlayer;
 
-@property (nonatomic) BOOL isLive;
+@property (nonatomic) BOOL isLive;//是否是直播
 
+/** 返回*/
 @property (nonatomic, strong) UIButton *backBtn;
+
+/** 单击 */
+@property (nonatomic, strong) UITapGestureRecognizer *singleTap;
 
 @end
 
-@implementation VHPlayerSkinVodController
+@implementation VHPlayerSkinViewController
+
+#pragma nark - creat
 
 - (instancetype)initWithLiveId:(NSString *)liveId accessToken:(NSString *)token {
     if (self = [super init]) {
@@ -40,18 +49,30 @@
     }
     return self;
 }
-
 - (VHVodPlayer *)vodPlayer {
     if (!_vodPlayer) {
         _vodPlayer = [[VHVodPlayer alloc] init];
+        _vodPlayer.delegate = self;
     }
     return _vodPlayer;
 }
 - (VHLivePlayer *)livePlayer {
     if (!_livePlayer) {
         _livePlayer = [[VHLivePlayer alloc] init];
+        _livePlayer.delegate = self;
     }
     return _livePlayer;
+}
+
+- (UITapGestureRecognizer *)singleTap {
+    if (!_singleTap) {
+        _singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(singleTapAction:)];
+        _singleTap.delegate                = self;
+        _singleTap.numberOfTouchesRequired = 1; //手指数
+        _singleTap.numberOfTapsRequired    = 1;
+        [self.singleTap setDelaysTouchesBegan:YES];
+    }
+    return _singleTap;
 }
 
 - (void)viewDidLoad {
@@ -67,14 +88,21 @@
     
     VHCustomPlayerSkinView *skinView = [[VHCustomPlayerSkinView alloc] initWithFrame:self.livePlayer.view.bounds];
     skinView.isLive = self.isLive;
+    _skinView = skinView;
 
-    if (self.isLive) {
+    if (self.isLive)
+    {
         [self.view addSubview:self.livePlayer.view];
         [self.livePlayer setPlayerSkinView:skinView];
+        //添加点击手势
+        [self.livePlayer.view addGestureRecognizer:self.singleTap];
     }
-    else {
+    else
+    {
         [self.view addSubview:self.vodPlayer.view];
         [self.vodPlayer setPlayerSkinView:skinView];
+        //添加点击手势
+        [self.vodPlayer.view addGestureRecognizer:self.singleTap];
     }
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -85,6 +113,9 @@
     self.backBtn = backBtn;
 }
 
+
+
+#pragma mark - layout
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
@@ -115,6 +146,28 @@
     self.backBtn.hidden = YES;
 }
 
+#pragma mark - 点击手势
+#pragma mark - UIGestureRecognizerDelegate gesAction
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if ([touch.view isKindOfClass:[UISlider class]] || [touch.view isKindOfClass:[VHSkinCoverView class]]) {
+        return NO;
+    }
+    return YES;
+}
+
+- (void)singleTapAction:(UITapGestureRecognizer *)gesture {
+    if (gesture.state == UIGestureRecognizerStateRecognized) {
+        if (_skinView) {
+            if (_skinView.hidden) {
+                [[_skinView fadeShow] fadeOut:5];
+            } else {
+                [_skinView fadeOut:0.2];
+            }
+        }
+    }
+}
+
+#pragma mark - 支持横屏设置
 - (BOOL)shouldAutorotate {
     return YES;
 }
@@ -125,6 +178,8 @@
     return UIInterfaceOrientationPortrait;
 }
 
+
+#pragma mark - 其他
 - (void)goBack:(UIButton *)btn {
     if (self.isLive) {
         [_livePlayer stopPlay];
@@ -137,14 +192,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark -
+- (void)player:(VHVodPlayer *)player stoppedWithError:(NSError *)error {
+    [self showMsg:error.description afterDelay:2];
 }
-*/
 
 @end
