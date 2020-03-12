@@ -16,6 +16,7 @@
 @interface WatchViewController ()<VHLivePlayerDelegate>
 {
     NSArray *_definitionBtns;
+    int loadingCnt;
 }
 
 @property (strong, nonatomic)VHLivePlayer *player;
@@ -50,6 +51,7 @@
     _player = [[VHLivePlayer alloc]init];
     _player.delegate = self;
     _player.bufferTime = self.bufferTime;
+    _player.defaultDefinition = VHDefinitionHD;
     
     [self.preView insertSubview:_player.view atIndex:0];
     _player.view.frame = _preView.bounds;
@@ -106,6 +108,7 @@
         [self showProgressDialog:self.preView];
         _logView.hidden = YES;
         _infoLabel.text = @"";
+        loadingCnt = 0;
         [_player startPlay:self.roomId accessToken:self.accessToken];
     }
     else
@@ -180,6 +183,7 @@
         {
             _operationView.hidden = NO;
             _stratBtn.selected = YES;
+            loadingCnt++;
             [self showProgressDialog:self.preView];
         }
             break;
@@ -218,11 +222,11 @@
 
 - (void)player:(VHLivePlayer *)player downloadSpeed:(NSString*)speed
 {
-    _downloadSpeedLabel.text = [NSString stringWithFormat:@"%@ kb/s",speed];
+    _downloadSpeedLabel.text = [NSString stringWithFormat:@"%@ kb/s(%d)",speed,loadingCnt];
     
 //测试代码
     if([speed rangeOfString:@"-"].location == NSNotFound)
-        _downloadSpeedLabel.text = [NSString stringWithFormat:@"%@ kb/s",speed];
+        _downloadSpeedLabel.text = [NSString stringWithFormat:@"%@ kb/s(%d)",speed,loadingCnt];
     else
     {
         NSRange r = [speed rangeOfString:@"_" options:NSBackwardsSearch];

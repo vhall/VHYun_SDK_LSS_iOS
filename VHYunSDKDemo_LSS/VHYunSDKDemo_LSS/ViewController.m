@@ -53,6 +53,7 @@
 - (void)settingBtnClicked:(UIButton*)sender
 {
     VHSettingViewController * settingVC = [[VHSettingViewController alloc] init];
+    settingVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:settingVC animated:YES completion:nil];
 }
 //发直播
@@ -83,7 +84,7 @@
     rtmpLivedemoVC.beautifyFilterEnable  = DEMO_Setting.isBeautifyFilterEnable;
     rtmpLivedemoVC.volumeAmplificateSize = DEMO_Setting.volumeAmplificateSize;
     rtmpLivedemoVC.isOnlyAudio           = DEMO_Setting.isOnlyAudio;
-    
+    rtmpLivedemoVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:rtmpLivedemoVC animated:YES completion:nil];
 }
 //直播
@@ -103,6 +104,7 @@
     watchVC.roomId      = DEMO_Setting.playerRoomID;
     watchVC.accessToken = DEMO_Setting.accessToken;
     watchVC.bufferTime  = DEMO_Setting.bufferTime;
+    watchVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:watchVC animated:YES completion:nil];
 }
 //点播
@@ -121,6 +123,7 @@
     watchVC.recordID    = DEMO_Setting.recordID;
     watchVC.accessToken = DEMO_Setting.accessToken;
     watchVC.seekMode    = DEMO_Setting.seekMode;
+    watchVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:watchVC animated:YES completion:nil];
 }
 //点播皮肤
@@ -135,6 +138,7 @@
     DEMO_Setting.accessToken =_accessTokenTextField.text;
     
     VHPlayerSkinViewController * vc = [[VHPlayerSkinViewController alloc] initWithrecordId:DEMO_Setting.recordID accessToken:DEMO_Setting.accessToken];
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }
 //直播皮肤
@@ -149,6 +153,7 @@
     DEMO_Setting.accessToken =_accessTokenTextField.text;
 
     VHPlayerSkinViewController * vc = [[VHPlayerSkinViewController alloc] initWithLiveId:DEMO_Setting.playerRoomID accessToken:DEMO_Setting.accessToken];
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }
 

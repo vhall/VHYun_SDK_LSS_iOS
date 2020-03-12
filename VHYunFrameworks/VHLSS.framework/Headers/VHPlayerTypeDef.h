@@ -33,6 +33,8 @@ typedef NS_ENUM(NSInteger,VHDefinition) {
     VHDefinitionHD                 = 2,    //高清
     VHDefinitionSD                 = 3,    //标清
     VHDefinitionAudio              = 4,    //纯音频
+    VHDefinition916crop            = 5,    //特殊裁剪分辨率,普通视频设置无效
+    VHDefinition1080p              = 6,    //1080p
 };
 
 #endif /* VHPlayerTypeDef_h */

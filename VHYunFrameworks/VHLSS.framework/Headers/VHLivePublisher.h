@@ -157,12 +157,17 @@ typedef NS_ENUM(NSInteger, VHPublishError) {
 - (void)setVolumeAmplificateSize:(float)size;
 
 /**
+ *  曝光档数  < 0 会变暗   >0会变亮  类似于iPhone相机手动对焦后左侧弹出的调光按钮。0为默认没有补偿  ((注意每次调用对焦方法都会重置为0)
+ */
+- (void)setExposureTargetBias:(float)bias;
+
+/**
  *  美颜参数设置
  *  VHPublishConfig beautifyFilterEnable为YES时设置生效 根据具体使用情况微调
- *  @param beautify   磨皮   默认 2.0f  取值范围[1.0, 10.0]  10.0 正常图片没有磨皮
- *  @param brightness 亮度   默认 1.20f 取值范围[0.0, 2.0]  1.0 正常亮度
- *  @param saturation 饱和度 默认 1.0f  取值范围[0.0, 2.0]  1.0 正常饱和度
- *  @param sharpness  锐化   默认 0.5f  取值范围[-4.0，4.0] 0.0 正常锐化
+ *  @param beautify   磨皮   默认 4.0f  取值范围[1.0, 10.0]  10.0 正常图片没有磨皮
+ *  @param brightness 亮度   默认 1.05f 取值范围[0.0, 2.0]  1.0 正常亮度
+ *  @param saturation 饱和度 默认 1.1f  取值范围[0.0, 2.0]  1.0 正常饱和度
+ *  @param sharpness  无效已废弃
  */
 - (void)setBeautify:(CGFloat)beautify Brightness:(CGFloat)brightness Saturation:(CGFloat)saturation Sharpness:(CGFloat)sharpness;
 

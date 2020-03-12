@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PublishViewController">
             <connections>
+                <outlet property="bisaSlider" destination="NCH-y7-rqB" id="BO1-WH-LC2"/>
                 <outlet property="bitRateLabel" destination="FYd-BF-obS" id="ZLP-dx-lLC"/>
                 <outlet property="closeBtn" destination="x9e-gF-j7G" id="4br-xz-P7d"/>
-                <outlet property="defaultFilterSelectBtn" destination="pi0-GV-LsN" id="U2Q-R9-sL6"/>
+                <outlet property="curBeautifyLabel" destination="TmT-t6-U3c" id="m4Q-Qu-i0R"/>
+                <outlet property="curBrightnessLabel" destination="aLm-Bc-yzh" id="nNI-ba-fhW"/>
+                <outlet property="curSaturationLabel" destination="4hI-LB-bmZ" id="xy6-DU-9z7"/>
                 <outlet property="filterBtn" destination="IlL-nv-WK2" id="P6R-y1-cb3"/>
                 <outlet property="filterView" destination="Upf-UN-Kou" id="HoQ-eJ-aeF"/>
-                <outlet property="hideKeyBtn" destination="PuD-Ul-jg4" id="Ig3-PQ-aJU"/>
                 <outlet property="infoView" destination="kCO-VK-gMy" id="gJf-9Z-A2F"/>
                 <outlet property="logView" destination="1nD-5A-zuQ" id="rC3-wb-q1L"/>
                 <outlet property="noiseSwitch" destination="2fn-zn-tFt" id="aSD-ll-3NF"/>
@@ -151,105 +151,6 @@
                                 <action selector="startVideoPlayer" destination="-1" eventType="touchUpInside" id="MZw-bB-Eg4"/>
                             </connections>
                         </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuD-Ul-jg4">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            <connections>
-                                <action selector="hideKey:" destination="-1" eventType="touchUpInside" id="m9h-VQ-I27"/>
-                            </connections>
-                        </button>
-                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Upf-UN-Kou">
-                            <rect key="frame" x="260" y="72" width="30" height="190"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5f-z0-f1E">
-                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                    <state key="normal" title="0"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="filterSettingBtnClick:" destination="-1" eventType="touchUpInside" id="MxX-8M-06b"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pi0-GV-LsN">
-                                    <rect key="frame" x="0.0" y="31" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                    <state key="normal" title="1"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="filterSettingBtnClick:" destination="-1" eventType="touchUpInside" id="Zw8-2z-Jb8"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6w-wQ-LZg">
-                                    <rect key="frame" x="0.0" y="62" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                    <state key="normal" title="2"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="filterSettingBtnClick:" destination="-1" eventType="touchUpInside" id="m3Q-en-TUH"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5O-LS-aTk">
-                                    <rect key="frame" x="0.0" y="93" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                    <state key="normal" title="3"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="filterSettingBtnClick:" destination="-1" eventType="touchUpInside" id="gsl-C6-bPs"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3D-Cu-SyA">
-                                    <rect key="frame" x="0.0" y="124" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                    <state key="normal" title="4"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="filterSettingBtnClick:" destination="-1" eventType="touchUpInside" id="Nwt-G9-LLM"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtu-et-Wb8">
-                                    <rect key="frame" x="0.0" y="155" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                    <state key="normal" title="5"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="filterSettingBtnClick:" destination="-1" eventType="touchUpInside" id="PuH-AN-D2S"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="190" id="I6R-iO-qut"/>
-                                <constraint firstAttribute="width" constant="30" id="hk9-4R-iGA"/>
-                            </constraints>
-                        </view>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fn-zn-tFt">
                             <rect key="frame" x="153" y="40" width="51" height="31"/>
                             <connections>
@@ -262,30 +163,86 @@
                             <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-4" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="NCH-y7-rqB">
+                            <rect key="frame" x="151" y="80" width="216" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="212" id="8vj-Ea-Duq"/>
+                            </constraints>
+                            <connections>
+                                <action selector="biasChange:" destination="-1" eventType="valueChanged" id="QyV-62-p32"/>
+                                <action selector="biasClose:" destination="-1" eventType="touchUpOutside" id="9AV-dT-BkZ"/>
+                                <action selector="biasClose:" destination="-1" eventType="touchUpInside" id="qE8-Ec-P5W"/>
+                            </connections>
+                        </slider>
+                        <view autoresizesSubviews="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Upf-UN-Kou">
+                            <rect key="frame" x="185" y="72" width="180" height="149"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="磨皮:4.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TmT-t6-U3c">
+                                    <rect key="frame" x="106" y="25" width="73" height="15"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="亮度:1.05" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-Bc-yzh">
+                                    <rect key="frame" x="106" y="70" width="74" height="15"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="饱和度:1.10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hI-LB-bmZ">
+                                    <rect key="frame" x="106" y="114" width="73" height="15"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="4" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="6vI-T5-Bje">
+                                    <rect key="frame" x="-2" y="18" width="135" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <action selector="filterChange:" destination="-1" eventType="valueChanged" id="Nca-m3-ptR"/>
+                                    </connections>
+                                </slider>
+                                <slider opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.05" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="y8o-vB-5pb">
+                                    <rect key="frame" x="-1" y="63" width="134" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <action selector="filterChange:" destination="-1" eventType="touchUpInside" id="JXD-Wd-CtS"/>
+                                    </connections>
+                                </slider>
+                                <slider opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.1000000000000001" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="SQH-Ho-u9a">
+                                    <rect key="frame" x="-2" y="107" width="135" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <action selector="filterChange:" destination="-1" eventType="touchUpInside" id="hR4-je-Mqb"/>
+                                    </connections>
+                                </slider>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="2fn-zn-tFt" firstAttribute="top" secondItem="21q-gG-MX0" secondAttribute="top" id="2ic-o2-15c"/>
                         <constraint firstItem="1nD-5A-zuQ" firstAttribute="leading" secondItem="2b8-7E-grG" secondAttribute="leading" id="5Mf-Pt-R1R"/>
-                        <constraint firstItem="Upf-UN-Kou" firstAttribute="centerX" secondItem="IlL-nv-WK2" secondAttribute="centerX" id="ASA-XZ-D28"/>
-                        <constraint firstAttribute="trailing" secondItem="PuD-Ul-jg4" secondAttribute="trailing" id="IP4-JQ-tft"/>
-                        <constraint firstAttribute="bottom" secondItem="PuD-Ul-jg4" secondAttribute="bottom" id="IYC-2g-Xvf"/>
                         <constraint firstItem="IlL-nv-WK2" firstAttribute="top" secondItem="9dh-OI-54m" secondAttribute="top" id="IzF-gZ-qVV"/>
-                        <constraint firstItem="PuD-Ul-jg4" firstAttribute="top" secondItem="2b8-7E-grG" secondAttribute="top" id="JeW-Ti-8Hd"/>
                         <constraint firstItem="9dh-OI-54m" firstAttribute="leading" secondItem="IlL-nv-WK2" secondAttribute="trailing" constant="10" id="SLl-IG-LGX"/>
                         <constraint firstItem="1nD-5A-zuQ" firstAttribute="top" secondItem="2b8-7E-grG" secondAttribute="top" id="TjG-bZ-SXq"/>
+                        <constraint firstItem="NCH-y7-rqB" firstAttribute="trailing" secondItem="HAA-iG-sEr" secondAttribute="trailing" id="Tuh-sL-fQV"/>
                         <constraint firstItem="21q-gG-MX0" firstAttribute="top" secondItem="IlL-nv-WK2" secondAttribute="top" id="USL-0K-0nI"/>
                         <constraint firstAttribute="bottom" secondItem="gUq-Kw-mgv" secondAttribute="bottom" constant="10" id="Wek-n1-aqx"/>
                         <constraint firstItem="kCO-VK-gMy" firstAttribute="centerY" secondItem="x9e-gF-j7G" secondAttribute="centerY" id="WlG-RG-qk4"/>
                         <constraint firstAttribute="bottom" secondItem="1nD-5A-zuQ" secondAttribute="bottom" id="X40-2j-eiT"/>
-                        <constraint firstItem="PuD-Ul-jg4" firstAttribute="leading" secondItem="2b8-7E-grG" secondAttribute="leading" id="Z5j-8w-PBh"/>
-                        <constraint firstItem="Upf-UN-Kou" firstAttribute="top" secondItem="IlL-nv-WK2" secondAttribute="bottom" constant="4" id="ZPU-8h-339"/>
                         <constraint firstItem="9dh-OI-54m" firstAttribute="top" secondItem="HAA-iG-sEr" secondAttribute="top" id="ZYp-b4-q0I"/>
                         <constraint firstAttribute="trailing" secondItem="gUq-Kw-mgv" secondAttribute="trailing" constant="10" id="ccw-vX-UF5"/>
                         <constraint firstItem="kCO-VK-gMy" firstAttribute="leading" secondItem="x9e-gF-j7G" secondAttribute="leading" id="gL5-6U-u3B"/>
                         <constraint firstItem="M0M-I6-5sb" firstAttribute="leading" secondItem="2fn-zn-tFt" secondAttribute="leading" constant="5" id="iNH-lh-Spl"/>
                         <constraint firstAttribute="trailing" secondItem="1nD-5A-zuQ" secondAttribute="trailing" id="kW1-Qy-b6j"/>
                         <constraint firstItem="HAA-iG-sEr" firstAttribute="leading" secondItem="9dh-OI-54m" secondAttribute="trailing" constant="10" id="qfh-Ny-EWV"/>
+                        <constraint firstItem="NCH-y7-rqB" firstAttribute="top" secondItem="2fn-zn-tFt" secondAttribute="bottom" constant="9" id="ql5-lb-Xmc"/>
                         <constraint firstItem="x9e-gF-j7G" firstAttribute="top" secondItem="2b8-7E-grG" secondAttribute="top" constant="40" id="ry5-h1-j7p"/>
                         <constraint firstAttribute="trailing" secondItem="HAA-iG-sEr" secondAttribute="trailing" constant="10" id="sxH-PC-DF8"/>
                         <constraint firstItem="x9e-gF-j7G" firstAttribute="leading" secondItem="2b8-7E-grG" secondAttribute="leading" constant="10" id="tYT-Jn-c1s"/>
@@ -303,7 +260,7 @@
                 <constraint firstItem="2b8-7E-grG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fI2-GJ-lf4"/>
                 <constraint firstAttribute="trailing" secondItem="2b8-7E-grG" secondAttribute="trailing" id="yA9-nB-bsQ"/>
             </constraints>
-            <point key="canvasLocation" x="-175.5" y="319.5"/>
+            <point key="canvasLocation" x="-176.80000000000001" y="318.89055472263868"/>
         </view>
         <swipeGestureRecognizer direction="left" id="iz6-cd-R8U" userLabel="Swipe View Left"/>
         <swipeGestureRecognizer direction="right" id="IoC-8W-dt2" userLabel="Swipe View Right"/>

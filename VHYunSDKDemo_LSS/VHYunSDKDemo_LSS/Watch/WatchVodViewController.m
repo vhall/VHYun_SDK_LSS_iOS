@@ -56,6 +56,7 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
     _player = [[VHVodPlayer alloc]init];
     _player.delegate = self;
+    _player.defaultDefinition = VHDefinitionHD;
     
     [self.preView insertSubview:_player.view atIndex:0];
     _player.view.frame = _preView.bounds;

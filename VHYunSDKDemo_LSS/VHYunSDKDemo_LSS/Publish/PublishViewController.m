@@ -11,6 +11,8 @@
 #import <AVFoundation/AVFoundation.h>
 #include <VHLSS/VHLivePublisher.h>
 
+#define MakeColorRGBA(hex,a) ([UIColor colorWithRed:((hex>>16)&0xff)/255.0 green:((hex>>8)&0xff)/255.0 blue:(hex&0xff)/255.0 alpha:a])
+
 @interface PublishViewController ()<VHLivePublisherDelegate>
 {
     BOOL  _isVideoStart;
@@ -18,10 +20,12 @@
     BOOL  _torchType;
     BOOL  _onlyVideo;
     BOOL  _isFontVideo;
-    UIButton * _lastFilterSelectBtn;
 
     dispatch_source_t _timer;
 
+    CGFloat _curBeautify;
+    CGFloat _curBrightness;
+    CGFloat _curSaturation;
 }
 @property (assign, nonatomic)long             liveTime;
 @property (strong, nonatomic)VHLivePublisher *publisher;
@@ -32,12 +36,20 @@
 @property (weak, nonatomic) IBOutlet UIButton *torchBtn;
 @property (weak, nonatomic) IBOutlet UIButton *filterBtn;
 @property (weak, nonatomic) IBOutlet UIView *filterView;
-@property (weak, nonatomic) IBOutlet UIButton *defaultFilterSelectBtn;
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;
 @property (weak, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet UIButton *hideKeyBtn;
 @property (weak, nonatomic) IBOutlet UISwitch *noiseSwitch;
+
+@property (weak, nonatomic) IBOutlet UISlider *bisaSlider;
+@property (strong, nonatomic)UIView * focusView;
+
+@property (strong, nonatomic)UITapGestureRecognizer *tapGesture;
+
+@property (weak, nonatomic) IBOutlet UILabel *curBeautifyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *curBrightnessLabel;
+@property (weak, nonatomic) IBOutlet UILabel *curSaturationLabel;
+
 @end
 
 @implementation PublishViewController
@@ -133,6 +145,9 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(LaunchLiveWillResignActive)name:UIApplicationWillResignActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(LaunchLiveDidBecomeActive)name:UIApplicationDidBecomeActiveNotification object:nil];
+    
+    _tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(focusGesture:)];
+    [self.view addGestureRecognizer:_tapGesture];
 }
 
 -(void)initDatas
@@ -153,6 +168,12 @@
     [self.perView addSubview:_closeBtn];
     
     _filterBtn.hidden = YES;
+    
+    _focusView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+    _focusView.layer.borderWidth = 1.0;
+    _focusView.layer.borderColor =[UIColor greenColor].CGColor;
+    _focusView.backgroundColor = [UIColor clearColor];
+    _focusView.hidden = YES;
 }
 
 - (void)viewDidLayoutSubviews
@@ -189,11 +210,16 @@
         config.pushType = VHStreamTypeOnlyAudio;
     
     config.beautifyFilterEnable = self.beautifyFilterEnable;
+    _filterBtn.hidden = !self.beautifyFilterEnable;
+    _curBeautify   = 4.0;
+    _curBrightness = 1.05;
+    _curSaturation = 1.1;
 //    config.isPrintLog = YES;
     
     self.publisher = [[VHLivePublisher alloc] initWithConfig:config];
     self.publisher.delegate            = self;
     self.publisher.preView.frame = self.perView.bounds;
+    [self.publisher.preView addSubview:_focusView];
     [self.perView insertSubview:self.publisher.preView atIndex:0];
 
     [self.publisher setContentMode:VHVideoCaptureContentModeAspectFill];
@@ -287,6 +313,80 @@
     _closeBtn.hidden = NO;
 }
 
+- (void)focusGesture:(UITapGestureRecognizer*)gesture{
+    CGPoint point = [gesture locationInView:gesture.view];
+    [self.publisher focusCameraAtAdjustedPoint:point];
+    _focusView.center = point;
+    _focusView.hidden = NO;
+    _bisaSlider.hidden = NO;
+    __weak typeof(self) weakself = self;
+    [UIView animateWithDuration:0.3 animations:^{
+        weakself.focusView.transform = CGAffineTransformMakeScale(1.25, 1.25);
+    }completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5 animations:^{
+            weakself.focusView.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:5 animations:^{
+                weakself.focusView.hidden = NO;
+            } completion:^(BOOL finished) {
+                
+            }];
+        }];
+    }];
+    [self.bisaSlider setValue:0.0];
+    NSLog(@"focus x:%f, y:%f", point.x, point.y);
+}
+
+- (IBAction)biasChange:(id)sender {
+   UISlider *slider = (UISlider *)sender;
+   NSLog(@"biasChange:%f",slider.value);
+   
+   [self.publisher setExposureTargetBias:slider.value];
+}
+
+- (IBAction)biasClose:(id)sender {
+    _bisaSlider.hidden = YES;
+}
+#pragma mark - 美颜设置
+- (IBAction)filterBtnClick:(UIButton *)sender
+{
+//    [_chatMsgInput resignFirstResponder];
+    _bisaSlider.hidden = YES;
+    _focusView.hidden = YES;
+    _filterBtn.selected = !_filterBtn.selected;
+    if(_filterBtn.selected)
+    {
+        _tapGesture.enabled = NO;
+        _filterView.alpha = 0.0f;
+        [UIView animateWithDuration:0.3f animations:^{
+            self.filterView.alpha = 1.0f;
+        }];
+    }
+    else
+    {
+        _tapGesture.enabled = YES;
+        _filterView.alpha = 1.0f;
+        [UIView animateWithDuration:0.3f animations:^{
+            self.filterView.alpha = 0.0f;
+        }];
+    }
+}
+- (IBAction)filterChange:(UISlider*)sender {
+    NSLog(@"filterChange: %ld : %f",(long)sender.tag,sender.value);
+    switch (sender.tag) {
+        case 0: _curBeautify = sender.value; break;
+        case 1: _curBrightness = sender.value; break;
+        case 2: _curSaturation = sender.value; break;
+        default: break;
+    }
+    
+    _curBeautifyLabel.text   = [NSString stringWithFormat:@"磨皮:%.02f",_curBeautify];
+    _curBrightnessLabel.text = [NSString stringWithFormat:@"亮度:%.02f",_curBrightness];
+    _curSaturationLabel.text = [NSString stringWithFormat:@"饱和度:%.02f",_curSaturation];
+    
+   [self.publisher setBeautify:_curBeautify Brightness:_curBrightness Saturation:_curSaturation Sharpness:0.0f];
+}
+
 #pragma mark - VHLivePublisherDelegate
 -(void)firstCaptureImage:(UIImage *)image
 {
@@ -357,7 +457,4 @@
     dispatch_resume(_timer);
 }
 
-- (IBAction)hideKey:(id)sender {
- 
-}
 @end

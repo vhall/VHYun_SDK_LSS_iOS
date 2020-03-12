@@ -27,9 +27,12 @@
 #define OptionsUHD  @{VHVideoWidthKey:@"960",VHVideoHeightKey:@"540",VHVideoFpsKey:@(30),VHMaxVideoBitrateKey:@(200)}
 #define MakeColor(r,g,b,a)      ([UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a])
 
-#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
-#define iPhoneXR            ([UIScreen instancesRespondToSelector:@selector(currentMode)]?CGSizeEqualToSize(CGSizeMake(828, 1792),[[UIScreen mainScreen] currentMode].size):NO)
-#define iPhoneXSMAX         ([UIScreen instancesRespondToSelector:@selector(currentMode)]?CGSizeEqualToSize(CGSizeMake(1242, 2688),[[UIScreen mainScreen] currentMode].size):NO)
+#define iPhoneX \
+({BOOL isPhoneX = NO;\
+if ([[[UIDevice currentDevice] systemVersion] floatValue]>=11.0) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
 @interface VHSettingViewController()<UITableViewDataSource,UITableViewDelegate,CustomPickerViewDataSource,CustomPickerViewDelegate,UITextFieldDelegate>
 {
     NSArray * _selectArray;
@@ -107,7 +110,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeyboard:)
                                             name:UIKeyboardDidHideNotification object:nil];
     [[UIApplication sharedApplication].keyWindow setBackgroundColor:[UIColor whiteColor]];
-    UIView *headerView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, (iPhoneX ||iPhoneXR||iPhoneXSMAX)? 64+20 : 64)];
+    UIView *headerView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, (iPhoneX)? 64+20 : 64)];
     headerView.backgroundColor=[UIColor blackColor];
     headerView.tag = 100999;
     [self.view insertSubview:headerView atIndex:0];
@@ -411,6 +414,7 @@
         if (arrowItem.desVc)
         {
             UIViewController *vc =[[arrowItem.desVc alloc] init];
+            vc.modalPresentationStyle = UIModalPresentationFullScreen;
             [self presentViewController:vc animated:YES completion:nil];
         }
     }
