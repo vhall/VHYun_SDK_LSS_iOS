@@ -6,6 +6,11 @@
 
 组合 Demo https://github.com/vhall/VHYun_SDK_iOS <br>
 
+### SDK 两种引入方式
+1、pod 'VHYun_LSS','~> 2.1.0' 注意查看Framework路径是否设置成功<br>
+2、手动下载拖入工程设置路径、Embed&Sign<br>
+注意依赖 https://github.com/vhall/VHYun_SDK_Core_iOS.git VHCore库<br>
+
 
 ### APP工程集成SDK基本设置
 1、关闭bitcode 设置<br>
