@@ -34,6 +34,11 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 @property (nonatomic) float rate;//播放速率  0.50, 0.67, 0.80, 1.0, 1.25, 1.50, and 2.0
 
 /**
+ * 静音
+ */
+@property(nonatomic,assign)BOOL                     mute;
+
+/**
  *  设置默认播放的清晰度 默认原画
  */
 @property(nonatomic,assign)VHDefinition             defaultDefinition;
