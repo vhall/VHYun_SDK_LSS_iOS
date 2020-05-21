@@ -260,7 +260,7 @@ static VHStystemSetting *pub_sharedSetting = nil;
 {
     if(videoResolution == nil || videoResolution.length == 0)
         return;
-    if([videoResolution integerValue]<0 || [videoResolution integerValue]>3)
+    if([videoResolution integerValue]<0 || [videoResolution integerValue]>4)
         return;
     
     _videoResolution = videoResolution;

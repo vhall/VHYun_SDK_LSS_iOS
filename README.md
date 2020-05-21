@@ -7,7 +7,7 @@
 组合 Demo https://github.com/vhall/VHYun_SDK_iOS <br>
 
 ### SDK 两种引入方式
-1、pod 'VHYun_LSS','~> 2.1.0' 注意查看Framework路径是否设置成功<br>
+1、pod 'VHYun_LSS' 注意查看Framework路径是否设置成功<br>
 2、手动下载拖入工程设置路径、Embed&Sign<br>
 注意依赖 https://github.com/vhall/VHYun_SDK_Core_iOS.git VHCore库<br>
 
@@ -22,6 +22,12 @@
 
 
 ### 版本更新信息
+#### 版本 v2.1.3 更新时间：2019.05.21
+更新内容：<br>
+1、支持1080p推流<br>
+2、新增观看视频宽髙回调<br>
+3、新增点播静音功能<br>
+
 #### 版本 v2.1.1 更新时间：2019.04.10
 更新内容：<br>
 1、直播库优化<br>

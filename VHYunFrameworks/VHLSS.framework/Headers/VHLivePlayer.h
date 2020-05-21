@@ -159,4 +159,11 @@ typedef NS_ENUM(NSInteger,VHLivePlayErrorType)
  *  @param msg         类型VHMessage.h 消息包括 MSG_Service_Type_Room 和 MSG_Service_Type_Online 消息 
  */
 - (void)player:(VHLivePlayer *)player roomMessage:(id)msg;
+
+/**
+ *  视频宽髙回调
+ *  @param player   播放器实例
+ *  @param size    当前播放视频宽髙
+ */
+- (void)player:(VHLivePlayer*)player videoSize:(CGSize)size;
 @end

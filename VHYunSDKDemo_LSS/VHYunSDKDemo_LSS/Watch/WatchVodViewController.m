@@ -219,8 +219,7 @@
     [_player resume];
     [self performSelector:@selector(hideControls) withObject:nil afterDelay:CONTROLS_SHOW_TIME];
 }
-- (IBAction)takeAPhotoBtnClicked:(id)sender {
-    
+- (IBAction)takeAPhotoBtnClicked:(UIButton*)sender {
     __weak typeof(self) wf = self;
     [_player takeVideoScreenshot:^(UIImage *image) {
         if(image)
@@ -231,6 +230,12 @@
         }
     }];
 }
+
+- (IBAction)muteBtnClicked:(UIButton*)sender {
+    sender.selected =  !sender.selected;
+    _player.mute = sender.selected;
+}
+
 - (void)saveImage:(UIImage *)image
 {
     [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
@@ -313,15 +318,10 @@
             _curTimeSlider.value =_player.currentPlaybackTime/_player.duration;
     }
 }
-//测试代码
--(void)cdnSwitch:(VHVodPlayer *)player info:(NSDictionary *)info
+
+- (void)player:(VHVodPlayer*)player videoSize:(CGSize)size
 {
-    NSString *cdn = info[@"cdn"];
-    if(cdn)
-    {
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"当前正在播放" message:cdn delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
-    }
+    NSLog(@"video size: %@",NSStringFromCGSize(size));
 }
 
 -(BOOL)shouldAutorotate

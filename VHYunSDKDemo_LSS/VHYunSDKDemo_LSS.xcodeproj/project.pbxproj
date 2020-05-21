@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70CC165FE2EEBC47FC0D4ECF /* libPods-VHYunSDKDemo_LSS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C3FC9F7F58383D3A0BB57BB /* libPods-VHYunSDKDemo_LSS.a */; };
 		C009D546230BDB2000F22516 /* VHSkinCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C009D530230BDB2000F22516 /* VHSkinCoverView.m */; };
 		C009D547230BDB2000F22516 /* VHCstomMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = C009D532230BDB2000F22516 /* VHCstomMoreView.m */; };
 		C009D548230BDB2000F22516 /* VHCstomResolutionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C009D536230BDB2000F22516 /* VHCstomResolutionView.m */; };
@@ -72,6 +73,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		13BB1A023B6241FC763472C7 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_LSS.release.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS.release.xcconfig"; sourceTree = "<group>"; };
+		26E11C73D3B72EDFFA657BF8 /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_LSS.debug.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS.debug.xcconfig"; sourceTree = "<group>"; };
+		9C3FC9F7F58383D3A0BB57BB /* libPods-VHYunSDKDemo_LSS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VHYunSDKDemo_LSS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C009D530230BDB2000F22516 /* VHSkinCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSkinCoverView.m; sourceTree = "<group>"; };
 		C009D532230BDB2000F22516 /* VHCstomMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHCstomMoreView.m; sourceTree = "<group>"; };
 		C009D533230BDB2000F22516 /* VHCustomPlayerSkinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHCustomPlayerSkinView.h; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0200D962326495A0074C488 /* libc++.1.tbd in Frameworks */,
+				70CC165FE2EEBC47FC0D4ECF /* libPods-VHYunSDKDemo_LSS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				C0200D952326495A0074C488 /* libc++.1.tbd */,
+				9C3FC9F7F58383D3A0BB57BB /* libPods-VHYunSDKDemo_LSS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -246,6 +252,7 @@
 				C051421222E1723A004E89D6 /* VHYunSDKDemo_LSS */,
 				C051421122E1723A004E89D6 /* Products */,
 				C0200D942326495A0074C488 /* Frameworks */,
+				ECD2A192233DDDFA1126A083 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -428,6 +435,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		ECD2A192233DDDFA1126A083 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26E11C73D3B72EDFFA657BF8 /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */,
+				13BB1A023B6241FC763472C7 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -435,10 +451,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C051422622E17249004E89D6 /* Build configuration list for PBXNativeTarget "VHYunSDKDemo_LSS" */;
 			buildPhases = (
+				774A3AEBBF957A8593F0D548 /* [CP] Check Pods Manifest.lock */,
 				C051420C22E1723A004E89D6 /* Sources */,
 				C051420D22E1723A004E89D6 /* Frameworks */,
 				C051420E22E1723A004E89D6 /* Resources */,
 				C051426B22E1B9BA004E89D6 /* Embed Frameworks */,
+				4E52F0B4F2C47F4E9E75EA0B /* [CP] Embed Pods Frameworks */,
+				D6B9E2C563D597BEAEDB7625 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -501,6 +520,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E52F0B4F2C47F4E9E75EA0B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		774A3AEBBF957A8593F0D548 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VHYunSDKDemo_LSS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6B9E2C563D597BEAEDB7625 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C051420C22E1723A004E89D6 /* Sources */ = {
@@ -683,18 +761,20 @@
 		};
 		C051422722E17249004E89D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26E11C73D3B72EDFFA657BF8 /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = VHYunSDKDemo_LSS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.lss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -703,18 +783,20 @@
 		};
 		C051422822E17249004E89D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13BB1A023B6241FC763472C7 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = VHYunSDKDemo_LSS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.lss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

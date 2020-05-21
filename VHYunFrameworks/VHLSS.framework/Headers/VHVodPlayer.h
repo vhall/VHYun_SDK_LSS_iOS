@@ -153,5 +153,12 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
  */
 - (void)player:(VHVodPlayer*)player docChannels:(NSArray*)docChannels;
 
+/**
+ *  视频宽髙回调
+ *  @param player   播放器实例
+ *  @param size    当前播放视频宽髙
+ */
+- (void)player:(VHVodPlayer*)player videoSize:(CGSize)size;
+
 @end
 

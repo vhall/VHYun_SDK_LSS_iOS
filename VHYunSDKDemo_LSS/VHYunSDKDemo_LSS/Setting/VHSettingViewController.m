@@ -174,7 +174,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
-    _selectArray = @[@"352X288",@"640X480",@"960X540",@"1280X720"];
+    _selectArray = @[@"352X288",@"640X480",@"960X540",@"1280X720",@"1920X1080"];
     self.title = @"设置";
     [self setupGroup0];
     [self setupGroup1];

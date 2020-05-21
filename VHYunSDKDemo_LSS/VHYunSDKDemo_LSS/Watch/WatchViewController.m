@@ -284,6 +284,11 @@
     }
 }
 
+- (void)player:(VHLivePlayer*)player videoSize:(CGSize)size
+{
+    NSLog(@"video size: %@",NSStringFromCGSize(size));
+}
+
 #pragma mark - shouldAutorotate
 -(BOOL)shouldAutorotate
 {
