@@ -6,7 +6,7 @@
 //  Copyright © 2019 vhall. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 //+ (NSInteger)resolutonWithVhallDefinition:(int)definition;
 
 + (NSString *)defination:(NSInteger)defination;
+
+///获取当前活动的控制器
++ (UIViewController *)getCurrentActivityViewController;
 
 @end
 

@@ -103,6 +103,12 @@ typedef NS_ENUM(NSInteger,VHLivePlayErrorType)
  *  获得当前SDK版本号
  */
 + (NSString *) getSDKVersion;
+
+/**
+ DLNA 投屏接口
+ @param DLNAobj 投屏对象 配合微吼提供投屏库使用。
+ */
+- (BOOL)dlnaMappingObject:(id)DLNAobj;
 @end
 
 @protocol VHLivePlayerDelegate <NSObject>

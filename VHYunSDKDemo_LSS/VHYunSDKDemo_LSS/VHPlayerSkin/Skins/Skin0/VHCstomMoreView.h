@@ -7,6 +7,7 @@
 //
 
 #import "VHSkinCoverView.h"
+#import <VHLSS/VHPlayerCommonModel.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +15,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
+//是否循环播放
 - (void)cyclePlaySwitchOn:(BOOL)isOn;
+
+//是否显示打点
+- (void)showPointSwitchOn:(BOOL)isOn;
+
+//显示字幕
+- (void)showSubtitle:(BOOL)open completion:(void(^_Nullable)(VHVidoeSubtitleModel *_Nullable subtitle))completion;
+
+//选择字幕
+- (void)selelectSubtitle:(VHVidoeSubtitleModel *_Nullable)subtitle;
 
 @end
 
@@ -27,6 +38,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UISlider *soundSlider;
 
 @property (nonatomic, strong) UISlider *lightSlider;
+
+//设置字幕列表
+- (void)setSubtitleArr:(NSArray <VHVidoeSubtitleModel *> *)array;
 
 @end
 

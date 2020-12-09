@@ -193,9 +193,10 @@
 }
 
 
-#pragma mark -
+#pragma mark - VHLivePlayerDelegate
 - (void)player:(VHVodPlayer *)player stoppedWithError:(NSError *)error {
     [self showMsg:error.description afterDelay:2];
 }
+
 
 @end

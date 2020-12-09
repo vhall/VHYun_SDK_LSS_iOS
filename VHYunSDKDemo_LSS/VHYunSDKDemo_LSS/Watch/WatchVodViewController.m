@@ -9,6 +9,7 @@
 #import "WatchVodViewController.h"
 #import <VHLSS/VHVodPlayer.h>
 #import <Photos/Photos.h>
+#import "DLNAView.h"
 
 #define CONTROLS_SHOW_TIME  10  //底部进度条显示时间
 
@@ -42,7 +43,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *definitionBtn4;
 @property (weak, nonatomic) IBOutlet UIButton *rateBtn;
 
-
+@property (weak, nonatomic) IBOutlet UIButton *screenShareBtn;
+@property(nonatomic,strong)   DLNAView           *dlnaView;
 
 @end
 
@@ -249,8 +251,37 @@
     }];
 }
 
+- (IBAction)screenShareBtnClicked:(UIButton *)sender {
+//    sender.selected = !sender.selected;
+    
+//    if (!self.isCast_screen) {
+//        [self showMsg:@"无投屏权限，如需使用请咨询您的销售人员或拨打客服电话：400-888-9970" afterDelay:1];
+//        return;
+//    }
+    if(![self.dlnaView showInView:self.view moviePlayer:self.player])
+    {
+        [self showMsg:@"投屏失败，投屏前请确保当前视频正在播放" afterDelay:1];
+        return;
+    }
+    
+    [self.player pause];
+    
+    __weak typeof(self)wf = self;
+    self.dlnaView.closeBlock = ^{
+        [wf.player resume];
+    };
+}
+-(DLNAView *)dlnaView
+{
+    if (!_dlnaView) {
+        _dlnaView = [[DLNAView alloc] initWithFrame:self.view.bounds];
+        _dlnaView.delegate = self;
+    }
+    return _dlnaView;
+}
+
 #pragma mark - VHVodPlayerDelegate
-- (void)player:(VHVodPlayer *)player statusDidChange:(int)state
+- (void)player:(VHVodPlayer *)player statusDidChange:(VHPlayerStatus)state
 {
     switch (state) {
         case VHPlayerStatusLoading:
@@ -322,6 +353,11 @@
 - (void)player:(VHVodPlayer*)player videoSize:(CGSize)size
 {
     NSLog(@"video size: %@",NSStringFromCGSize(size));
+}
+
+//打点数据
+- (void)player:(VHVodPlayer *)player videoPointArr:(NSArray <VHVidoePointModel *> *)pointArr {
+    
 }
 
 -(BOOL)shouldAutorotate

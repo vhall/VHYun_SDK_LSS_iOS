@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "VHPlayerTypeDef.h"
-
+#import "VHPlayerCommonModel.h"
 @class VHPlayerSkinView;
 @protocol VHVodPlayerDelegate;
 
@@ -21,22 +21,17 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 
 @interface VHVodPlayer : NSObject
 - (instancetype)initWithLogParam:(NSDictionary*)logParam;
-@property (nonatomic,weak)id <VHVodPlayerDelegate>      delegate;
-@property (nonatomic,strong,readonly)UIView             *view;
-@property (nonatomic,assign,readonly)int                playerState;//播放器状态  详见 VHPlayerStatus 的定义.
-
-@property (nonatomic, readonly) NSTimeInterval          duration;
-@property (nonatomic, readonly) NSTimeInterval          playableDuration;
-@property (nonatomic, assign)   NSTimeInterval          currentPlaybackTime;
-@property (nonatomic,assign)    int                     scalingMode;//设置画面的裁剪模式 VHPlayerScalingMode
-@property (nonatomic) NSTimeInterval initialPlaybackTime;//初始化要播放的位置
-@property(nonatomic,assign)int timeout;                 //链接的超时时间 默认10000毫秒，单位为毫秒
-@property (nonatomic) float rate;//播放速率  0.50, 0.67, 0.80, 1.0, 1.25, 1.50, and 2.0
-
-/**
- * 静音
- */
-@property(nonatomic,assign)BOOL                     mute;
+@property (nonatomic,weak) id <VHVodPlayerDelegate>      delegate;
+@property (nonatomic,strong,readonly) UIView             *view;
+@property (nonatomic,assign,readonly) VHPlayerStatus     playerState; //播放器状态  详见 VHPlayerStatus 的定义.
+@property (nonatomic, readonly) NSTimeInterval          duration;  //点播视频总时长
+@property (nonatomic, readonly) NSTimeInterval          playableDuration; //点播可播放时长
+@property (nonatomic, assign) NSTimeInterval           currentPlaybackTime;  //点播当前播放时间
+@property (nonatomic,assign) VHPlayerScalingMode       scalingMode; //设置画面的裁剪模式   详见 VHPlayerScalingMode 的定义.
+@property (nonatomic,assign) NSTimeInterval     initialPlaybackTime; //初始化要播放的位置
+@property(nonatomic,assign) int timeout;        //链接的超时时间 默认10000毫秒，单位为毫秒
+@property (nonatomic,assign) float rate;        //播放速率  0.50, 0.67, 0.80, 1.0, 1.25, 1.50, and 2.0
+@property(nonatomic,assign) BOOL mute;  //是否静音
 
 /**
  *  设置默认播放的清晰度 默认原画
@@ -53,7 +48,7 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 @property (nonatomic, assign) VHVodPlayerSeeekModel seekModel;
 
 /**
- * 水印 ImageView 设置水印图片 及显示位置  注：只要使用了改属性 PaaS 控制台设置图片方式便失效
+ * 水印 ImageView 设置水印图片 及显示位置  注：只要使用了该属性 PaaS 控制台设置图片方式便失效
  */
 @property (nonatomic,readonly) UIImageView* watermarkImageView;
 
@@ -113,6 +108,24 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
  */
 - (void)setPlayerSkinView:(VHPlayerSkinView *)skinView;
 
+
+/// 是否显示播放器自带字幕，如果未选择字幕，则显示默认字幕
+/// @param show YES：开启 NO：关闭
+/// @param completion 完成回调，回调当前字幕
+- (void)showSubTitle:(BOOL)show completion:(void(^)(VHVidoeSubtitleModel *subtitle))completion;
+
+
+/// 选择字幕
+/// @param subtitleModel 选择字幕（可从字幕列表回调中获取）
+/// @param success 成功回调，回调该字幕详情，可先关闭SDK自带字幕显示后，通过此数据自定义字幕UI
+/// @param fail 失败回调
+- (void)selectSubtitleModel:(VHVidoeSubtitleModel *)subtitleModel success:(void(^)(NSArray <VHVidoeSubtitleItemModel *> *subtitleItems))success fail:(void(^)(NSError *error))fail;
+
+/**
+ DLNA 投屏接口
+ @param DLNAobj 投屏对象 配合微吼提供投屏库使用。
+ */
+- (BOOL)dlnaMappingObject:(id)DLNAobj;
 @end
 
 @protocol VHVodPlayerDelegate <NSObject>
@@ -123,7 +136,7 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
  *  @param player   播放器实例
  *  @param state   状态类型
  */
-- (void)player:(VHVodPlayer *)player statusDidChange:(int)state;
+- (void)player:(VHVodPlayer *)player statusDidChange:(VHPlayerStatus)state;
 
 /**
  *  当前点播支持的清晰度列表
@@ -160,5 +173,23 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
  */
 - (void)player:(VHVodPlayer*)player videoSize:(CGSize)size;
 
+
+#pragma mark - 打点
+
+/// 返回视频打点数据（若存在打点信息）
+/// @param player 播放器实例
+/// @param pointArr 已打点的数据
+- (void)player:(VHVodPlayer *)player videoPointArr:(NSArray <VHVidoePointModel *> *)pointArr;
+
+
+
+#pragma mark - 字幕
+
+/// 当前视频所支持的字幕列表 
+/// @param player 播放器实例
+/// @param subTitleArr 当前视频支持的字幕数组（若无字幕，则返回空）
+- (void)player:(VHVodPlayer *)player videoSubtitleArr:(NSArray <VHVidoeSubtitleModel *> *)subTitleArr;
+
 @end
+
 

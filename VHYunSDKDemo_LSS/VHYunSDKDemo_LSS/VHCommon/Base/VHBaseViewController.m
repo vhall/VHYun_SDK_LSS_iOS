@@ -82,11 +82,11 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
-        hud.labelText = msg;
+        hud.label.text = msg;
         hud.margin = 10.f;
         //            hud.yOffset = 150.f;
         hud.removeFromSuperViewOnHide = YES;
-        [hud hide:YES afterDelay:delay];
+        [hud hideAnimated:YES afterDelay:delay];
     });
 }
 
@@ -94,11 +94,11 @@
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeText;
-    hud.labelText = msg;
+    hud.label.text = msg;
     hud.margin = 30.f;
     //            hud.yOffset = 150.f;
     hud.removeFromSuperViewOnHide = YES;
-    [hud hide:YES afterDelay:delay];
+    [hud hideAnimated:YES afterDelay:delay];
 }
 
 -(void)showProgressDialog:(UIView*)view

@@ -159,7 +159,12 @@
 
 - (void)initSDKView
 {
-    UITextField *businessIDTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 60, VHScreenWidth/2-30, 30)];
+    UILabel* lable = [[UILabel alloc] initWithFrame:CGRectMake(20, 60, VHScreenWidth - 40, 20)];
+    lable.text = @"请输入roomID lss_xxxx:";
+    lable.textColor = [UIColor grayColor];
+    [self.view addSubview:lable];
+    
+    UITextField *businessIDTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, lable.bottom, VHScreenWidth - 40, 30)];
     businessIDTextField.placeholder = @"请输入roomID lss_xxxx";
     businessIDTextField.text = DEMO_Setting.playerRoomID;
     businessIDTextField.borderStyle = UITextBorderStyleRoundedRect;
@@ -168,7 +173,12 @@
     _businessIDTextField = businessIDTextField;
     [self.view addSubview:businessIDTextField];
     
-    UITextField *recordIDTextField = [[UITextField alloc] initWithFrame:CGRectMake(businessIDTextField.right+20, businessIDTextField.top, businessIDTextField.width, businessIDTextField.height)];
+    UILabel* lable1 = [[UILabel alloc] initWithFrame:CGRectMake(20, businessIDTextField.bottom+10, businessIDTextField.width, 20)];
+    lable1.text = @"请输入recordID:";
+    lable1.textColor = [UIColor grayColor];
+    [self.view addSubview:lable1];
+    
+    UITextField *recordIDTextField = [[UITextField alloc] initWithFrame:CGRectMake(businessIDTextField.left, lable1.bottom, businessIDTextField.width, businessIDTextField.height)];
     recordIDTextField.placeholder = @"请输入recordID";
     recordIDTextField.text = DEMO_Setting.recordID;
     recordIDTextField.borderStyle = UITextBorderStyleRoundedRect;
@@ -177,7 +187,12 @@
     _recordIDTextField = recordIDTextField;
     [self.view addSubview:recordIDTextField];
     
-    UITextField *accessTokenTextField = [[UITextField alloc] initWithFrame:CGRectMake(businessIDTextField.left, businessIDTextField.bottom+10, VHScreenWidth - 40, businessIDTextField.height)];
+    UILabel* lable2 = [[UILabel alloc] initWithFrame:CGRectMake(20, recordIDTextField.bottom+10, businessIDTextField.width, 20)];
+    lable2.text = @"请输入accessToken:";
+    lable2.textColor = [UIColor grayColor];
+    [self.view addSubview:lable2];
+    
+    UITextField *accessTokenTextField = [[UITextField alloc] initWithFrame:CGRectMake(businessIDTextField.left, lable2.bottom, VHScreenWidth - 40, businessIDTextField.height)];
     accessTokenTextField.placeholder = @"请输入accessToken";
     accessTokenTextField.text = DEMO_Setting.accessToken;
     accessTokenTextField.borderStyle = UITextBorderStyleRoundedRect;

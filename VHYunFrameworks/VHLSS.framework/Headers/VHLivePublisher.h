@@ -132,9 +132,16 @@ typedef NS_ENUM(NSInteger, VHPublishError) {
 
 /**
  *  手动对焦
- *  @param point 对焦点 [x,y] [0.0 - 1.0]
+ *  @param point 对焦点 [x,y] [0.0 - 1.0] 对焦完成后默认回复成自动连续对焦
  */
 - (BOOL)focusCameraAtAdjustedPoint:(CGPoint)point;
+
+/**
+ *  手动对焦
+ *  @param point 对焦点 [x,y] [0.0 - 1.0] 对焦完成后默认回复成自动连续对焦
+ *  @param focusMode 手动对焦后对焦方式
+ */
+- (BOOL)focusCameraAtAdjustedPoint:(CGPoint)point focusMode:(AVCaptureFocusMode)focusMode;
 
 /**
  *  闪光灯开关 前置摄像头时无效

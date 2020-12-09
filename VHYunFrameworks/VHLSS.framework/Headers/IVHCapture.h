@@ -128,7 +128,7 @@ typedef void(^OnErrorBlock)(NSDictionary* errorInfo);
  */
 - (BOOL)switchCamera:(AVCaptureDevicePosition)captureDevicePosition;//切换前后摄像头
 - (BOOL)zoomCamera:(CGFloat)zoomSize;   // 缩放摄像头
-- (BOOL)focusCameraAtAdjustedPoint:(CGPoint)point;//手动对焦 对焦完成后变为自动对焦
+- (BOOL)focusCameraAtAdjustedPoint:(CGPoint)point focusMode:(AVCaptureFocusMode)focusMode;//手动对焦 对焦完成后变为自动对焦
 - (BOOL)torchMode:(AVCaptureTorchMode)captureTorchMode;//前置摄像头无效
 /**
  *  曝光档数范围在minExposureTargetBias和maxExposureTargetBias之间。0为默认没有补偿0为默认没有补偿(注意每次调用对焦方法都会重置为0)

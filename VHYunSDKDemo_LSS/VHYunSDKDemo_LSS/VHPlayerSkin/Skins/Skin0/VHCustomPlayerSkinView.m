@@ -10,6 +10,7 @@
 #import "VHPlayerSkinTool.h"
 #import "UIView+Fade.h"
 #import "VHSkinCoverView.h"
+#import "MBHUDHelper.h"
 
 @interface VHCustomPlayerSkinView ()<VHCstomResolutionViewDelegate,VHCstomMoreViewDelegate>
 
@@ -136,9 +137,15 @@
 
 - (void)setIsLive:(BOOL)isLive {
     [super setIsLive:isLive];
-    
 }
 
+//字幕数据
+- (void)videoSubtitleArr:(NSArray <VHVidoeSubtitleModel *> *)subtitleArr {
+    //设置可选的字幕列表，添加字幕开关
+    [self.moreView setSubtitleArr:subtitleArr];
+}
+
+//支持的分辨率
 - (void)resolutionArray:(NSArray *)definitions curDefinition:(NSInteger)definition {
     //更新分辨率列表
     [self.resolutionView resolutionArray:definitions curDefinition:definition];
@@ -146,9 +153,8 @@
     [self.resolutionBtn setTitle:[VHPlayerSkinTool defination:definition] forState:UIControlStateNormal];
 }
 
-- (void)playerStatus:(int)state {
+- (void)playerStatus:(VHPlayerStatus)state {
     [super playerStatus:state];
-    
 }
 
 #pragma mark - action
@@ -207,8 +213,32 @@
 }
 
 #pragma mark - VHCstomMoreViewDelegate
+//循环播放
 - (void)cyclePlaySwitchOn:(BOOL)isOn {
-    [self setCyclePlay:isOn];
+    self.isCyclePlay = isOn;
+}
+
+//是否显示打点
+- (void)showPointSwitchOn:(BOOL)isOn {
+    self.isShowPoint = isOn;
+}
+
+//选择字幕
+- (void)selelectSubtitle:(VHVidoeSubtitleModel  *_Nullable)subtitle {
+    if([self.delegate respondsToSelector:@selector(skinView:selectSubtitle:success:fail:)]) {
+        [self.delegate skinView:self selectSubtitle:subtitle success:^(NSArray<VHVidoeSubtitleItemModel *> * _Nonnull subtitleItems) {
+            
+        } fail:^(NSError * _Nonnull error) {
+            [MBHUDHelper showWarningWithText:error.localizedDescription];
+        }];
+    }
+}
+
+//显示字幕
+- (void)showSubtitle:(BOOL)open completion:(void(^_Nullable)(VHVidoeSubtitleModel * subtitle))completion {
+    if([self.delegate respondsToSelector:@selector(skinView:showSubtitle:completion:)]) {
+        [self.delegate skinView:self showSubtitle:open completion:completion];
+    }
 }
 
 @end

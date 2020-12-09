@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		70CC165FE2EEBC47FC0D4ECF /* libPods-VHYunSDKDemo_LSS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C3FC9F7F58383D3A0BB57BB /* libPods-VHYunSDKDemo_LSS.a */; };
+		038B30071D2DB7500473A9DC /* libPods-VHYunSDKDemo_LSS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC34CF209675D77B7AA5B051 /* libPods-VHYunSDKDemo_LSS.a */; };
+		03CFE47A25502AAD00111B52 /* VHVideoPointPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CFE47925502AAD00111B52 /* VHVideoPointPopView.m */; };
+		03CFE47D25502FC900111B52 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CFE47B25502FC800111B52 /* MBProgressHUD.m */; };
 		C009D546230BDB2000F22516 /* VHSkinCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C009D530230BDB2000F22516 /* VHSkinCoverView.m */; };
 		C009D547230BDB2000F22516 /* VHCstomMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = C009D532230BDB2000F22516 /* VHCstomMoreView.m */; };
 		C009D548230BDB2000F22516 /* VHCstomResolutionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C009D536230BDB2000F22516 /* VHCstomResolutionView.m */; };
@@ -26,6 +28,25 @@
 		C051421D22E17249004E89D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C051421C22E17249004E89D6 /* Assets.xcassets */; };
 		C051422022E17249004E89D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C051421E22E17249004E89D6 /* LaunchScreen.storyboard */; };
 		C051422322E17249004E89D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C051422222E17249004E89D6 /* main.m */; };
+		C051B81E256B93E7007B2CD6 /* libVHDLNA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C051B807256B93E7007B2CD6 /* libVHDLNA.a */; };
+		C051B81F256B93E7007B2CD6 /* DLNAView.m in Sources */ = {isa = PBXBuildFile; fileRef = C051B808256B93E7007B2CD6 /* DLNAView.m */; };
+		C051B820256B93E7007B2CD6 /* DLNA_sound_max@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B80A256B93E7007B2CD6 /* DLNA_sound_max@2x.png */; };
+		C051B821256B93E7007B2CD6 /* DLNA_Play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B80B256B93E7007B2CD6 /* DLNA_Play@2x.png */; };
+		C051B822256B93E7007B2CD6 /* DLNA_sound_min@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B80C256B93E7007B2CD6 /* DLNA_sound_min@2x.png */; };
+		C051B823256B93E7007B2CD6 /* DLNA_sound_min@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B80D256B93E7007B2CD6 /* DLNA_sound_min@3x.png */; };
+		C051B824256B93E7007B2CD6 /* DLNA_Play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B80E256B93E7007B2CD6 /* DLNA_Play@3x.png */; };
+		C051B825256B93E7007B2CD6 /* DLNA_sound_max@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B80F256B93E7007B2CD6 /* DLNA_sound_max@3x.png */; };
+		C051B826256B93E7007B2CD6 /* DLNA_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B810256B93E7007B2CD6 /* DLNA_close@2x.png */; };
+		C051B827256B93E7007B2CD6 /* DLNA_hide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B811256B93E7007B2CD6 /* DLNA_hide@2x.png */; };
+		C051B828256B93E7007B2CD6 /* DLNA_hide@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B812256B93E7007B2CD6 /* DLNA_hide@3x.png */; };
+		C051B829256B93E7007B2CD6 /* DLNA_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B813256B93E7007B2CD6 /* DLNA_close@3x.png */; };
+		C051B82A256B93E7007B2CD6 /* DLNA_Pause@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B814256B93E7007B2CD6 /* DLNA_Pause@3x.png */; };
+		C051B82B256B93E7007B2CD6 /* DLNA_show@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B815256B93E7007B2CD6 /* DLNA_show@3x.png */; };
+		C051B82C256B93E7007B2CD6 /* DLNA_show@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B816256B93E7007B2CD6 /* DLNA_show@2x.png */; };
+		C051B82D256B93E7007B2CD6 /* DLNA_Pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B817256B93E7007B2CD6 /* DLNA_Pause@2x.png */; };
+		C051B82E256B93E7007B2CD6 /* DLNA_seekbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B818256B93E7007B2CD6 /* DLNA_seekbar@2x.png */; };
+		C051B82F256B93E7007B2CD6 /* DLNA_seekbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B819256B93E7007B2CD6 /* DLNA_seekbar@3x.png */; };
+		C051B830256B93E7007B2CD6 /* DeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C051B81D256B93E7007B2CD6 /* DeviceTableViewCell.m */; };
 		C0958D29231548500008BF75 /* VHPlayerSkinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0958D27231548500008BF75 /* VHPlayerSkinViewController.m */; };
 		C0B8784022E5C4A000054CA8 /* ViewController+vhall.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8782722E5C4A000054CA8 /* ViewController+vhall.m */; };
 		C0B8784122E5C4A000054CA8 /* InitSDKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8782822E5C4A000054CA8 /* InitSDKViewController.m */; };
@@ -34,7 +55,6 @@
 		C0B8784422E5C4A000054CA8 /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8782F22E5C4A000054CA8 /* CALayer+XibConfiguration.m */; };
 		C0B8784522E5C4A000054CA8 /* UIAlertView+ITTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8783022E5C4A000054CA8 /* UIAlertView+ITTAdditions.m */; };
 		C0B8784622E5C4A000054CA8 /* UIView+ITTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8783422E5C4A000054CA8 /* UIView+ITTAdditions.m */; };
-		C0B8784722E5C4A000054CA8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8783722E5C4A000054CA8 /* MBProgressHUD.m */; };
 		C0B8784822E5C4A000054CA8 /* MBHUDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8783922E5C4A000054CA8 /* MBHUDHelper.m */; };
 		C0B8784922E5C4A000054CA8 /* VHStystemSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8783C22E5C4A000054CA8 /* VHStystemSetting.m */; };
 		C0B8784A22E5C4A000054CA8 /* VHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8783E22E5C4A000054CA8 /* VHBaseViewController.m */; };
@@ -73,9 +93,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		13BB1A023B6241FC763472C7 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_LSS.release.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS.release.xcconfig"; sourceTree = "<group>"; };
-		26E11C73D3B72EDFFA657BF8 /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_LSS.debug.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS.debug.xcconfig"; sourceTree = "<group>"; };
-		9C3FC9F7F58383D3A0BB57BB /* libPods-VHYunSDKDemo_LSS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VHYunSDKDemo_LSS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03CFE47825502AAD00111B52 /* VHVideoPointPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHVideoPointPopView.h; sourceTree = "<group>"; };
+		03CFE47925502AAD00111B52 /* VHVideoPointPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHVideoPointPopView.m; sourceTree = "<group>"; };
+		03CFE47B25502FC800111B52 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		03CFE47C25502FC900111B52 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		28378BEA8BE1640B26F80AB6 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_LSS.release.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS.release.xcconfig"; sourceTree = "<group>"; };
+		410EAB3E98C959F330465D54 /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_LSS.debug.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS.debug.xcconfig"; sourceTree = "<group>"; };
 		C009D530230BDB2000F22516 /* VHSkinCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSkinCoverView.m; sourceTree = "<group>"; };
 		C009D532230BDB2000F22516 /* VHCstomMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHCstomMoreView.m; sourceTree = "<group>"; };
 		C009D533230BDB2000F22516 /* VHCustomPlayerSkinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHCustomPlayerSkinView.h; sourceTree = "<group>"; };
@@ -109,6 +132,29 @@
 		C051421F22E17249004E89D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C051422122E17249004E89D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C051422222E17249004E89D6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C051B805256B93E7007B2CD6 /* VHDLNAControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHDLNAControl.h; sourceTree = "<group>"; };
+		C051B806256B93E7007B2CD6 /* VHDLNADevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHDLNADevice.h; sourceTree = "<group>"; };
+		C051B807256B93E7007B2CD6 /* libVHDLNA.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libVHDLNA.a; sourceTree = "<group>"; };
+		C051B808256B93E7007B2CD6 /* DLNAView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNAView.m; sourceTree = "<group>"; };
+		C051B80A256B93E7007B2CD6 /* DLNA_sound_max@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_sound_max@2x.png"; sourceTree = "<group>"; };
+		C051B80B256B93E7007B2CD6 /* DLNA_Play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_Play@2x.png"; sourceTree = "<group>"; };
+		C051B80C256B93E7007B2CD6 /* DLNA_sound_min@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_sound_min@2x.png"; sourceTree = "<group>"; };
+		C051B80D256B93E7007B2CD6 /* DLNA_sound_min@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_sound_min@3x.png"; sourceTree = "<group>"; };
+		C051B80E256B93E7007B2CD6 /* DLNA_Play@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_Play@3x.png"; sourceTree = "<group>"; };
+		C051B80F256B93E7007B2CD6 /* DLNA_sound_max@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_sound_max@3x.png"; sourceTree = "<group>"; };
+		C051B810256B93E7007B2CD6 /* DLNA_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_close@2x.png"; sourceTree = "<group>"; };
+		C051B811256B93E7007B2CD6 /* DLNA_hide@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_hide@2x.png"; sourceTree = "<group>"; };
+		C051B812256B93E7007B2CD6 /* DLNA_hide@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_hide@3x.png"; sourceTree = "<group>"; };
+		C051B813256B93E7007B2CD6 /* DLNA_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_close@3x.png"; sourceTree = "<group>"; };
+		C051B814256B93E7007B2CD6 /* DLNA_Pause@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_Pause@3x.png"; sourceTree = "<group>"; };
+		C051B815256B93E7007B2CD6 /* DLNA_show@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_show@3x.png"; sourceTree = "<group>"; };
+		C051B816256B93E7007B2CD6 /* DLNA_show@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_show@2x.png"; sourceTree = "<group>"; };
+		C051B817256B93E7007B2CD6 /* DLNA_Pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_Pause@2x.png"; sourceTree = "<group>"; };
+		C051B818256B93E7007B2CD6 /* DLNA_seekbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_seekbar@2x.png"; sourceTree = "<group>"; };
+		C051B819256B93E7007B2CD6 /* DLNA_seekbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DLNA_seekbar@3x.png"; sourceTree = "<group>"; };
+		C051B81A256B93E7007B2CD6 /* DLNAView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNAView.h; sourceTree = "<group>"; };
+		C051B81C256B93E7007B2CD6 /* DeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceTableViewCell.h; sourceTree = "<group>"; };
+		C051B81D256B93E7007B2CD6 /* DeviceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceTableViewCell.m; sourceTree = "<group>"; };
 		C0958D27231548500008BF75 /* VHPlayerSkinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHPlayerSkinViewController.m; sourceTree = "<group>"; };
 		C0958D28231548500008BF75 /* VHPlayerSkinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHPlayerSkinViewController.h; sourceTree = "<group>"; };
 		C0B8782622E5C4A000054CA8 /* InitSDKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitSDKViewController.h; sourceTree = "<group>"; };
@@ -125,8 +171,6 @@
 		C0B8783322E5C4A000054CA8 /* UIAlertView+ITTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+ITTAdditions.h"; sourceTree = "<group>"; };
 		C0B8783422E5C4A000054CA8 /* UIView+ITTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ITTAdditions.m"; sourceTree = "<group>"; };
 		C0B8783622E5C4A000054CA8 /* MBHUDHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBHUDHelper.h; sourceTree = "<group>"; };
-		C0B8783722E5C4A000054CA8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		C0B8783822E5C4A000054CA8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		C0B8783922E5C4A000054CA8 /* MBHUDHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHUDHelper.m; sourceTree = "<group>"; };
 		C0B8783B22E5C4A000054CA8 /* VHStystemSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHStystemSetting.h; sourceTree = "<group>"; };
 		C0B8783C22E5C4A000054CA8 /* VHStystemSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHStystemSetting.m; sourceTree = "<group>"; };
@@ -164,6 +208,7 @@
 		C0B8789522E6AAB600054CA8 /* VHSettingTextFieldItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSettingTextFieldItem.m; sourceTree = "<group>"; };
 		C0B8789622E6AAB600054CA8 /* VHSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSettingViewController.m; sourceTree = "<group>"; };
 		C0B8789722E6AAB600054CA8 /* VHSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSettingTableViewCell.m; sourceTree = "<group>"; };
+		EC34CF209675D77B7AA5B051 /* libPods-VHYunSDKDemo_LSS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VHYunSDKDemo_LSS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,13 +217,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0200D962326495A0074C488 /* libc++.1.tbd in Frameworks */,
-				70CC165FE2EEBC47FC0D4ECF /* libPods-VHYunSDKDemo_LSS.a in Frameworks */,
+				C051B81E256B93E7007B2CD6 /* libVHDLNA.a in Frameworks */,
+				038B30071D2DB7500473A9DC /* libPods-VHYunSDKDemo_LSS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AA5C0590DB8C5F8DF51D9AC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				410EAB3E98C959F330465D54 /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */,
+				28378BEA8BE1640B26F80AB6 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C009D52E230BDB2000F22516 /* VHPlayerSkin */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +252,8 @@
 				C009D53A230BDB2000F22516 /* VHBaseSkinPlayerView.m */,
 				C009D539230BDB2000F22516 /* VHSkinCoverView.h */,
 				C009D530230BDB2000F22516 /* VHSkinCoverView.m */,
+				03CFE47825502AAD00111B52 /* VHVideoPointPopView.h */,
+				03CFE47925502AAD00111B52 /* VHVideoPointPopView.m */,
 				C009D531230BDB2000F22516 /* Skin0 */,
 			);
 			path = Skins;
@@ -241,7 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				C0200D952326495A0074C488 /* libc++.1.tbd */,
-				9C3FC9F7F58383D3A0BB57BB /* libPods-VHYunSDKDemo_LSS.a */,
+				EC34CF209675D77B7AA5B051 /* libPods-VHYunSDKDemo_LSS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -252,7 +309,7 @@
 				C051421222E1723A004E89D6 /* VHYunSDKDemo_LSS */,
 				C051421122E1723A004E89D6 /* Products */,
 				C0200D942326495A0074C488 /* Frameworks */,
-				ECD2A192233DDDFA1126A083 /* Pods */,
+				5AA5C0590DB8C5F8DF51D9AC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -284,6 +341,52 @@
 				C0B8782422E5C4A000054CA8 /* VHCommon */,
 			);
 			path = VHYunSDKDemo_LSS;
+			sourceTree = "<group>";
+		};
+		C051B804256B93E7007B2CD6 /* DLNA */ = {
+			isa = PBXGroup;
+			children = (
+				C051B805256B93E7007B2CD6 /* VHDLNAControl.h */,
+				C051B806256B93E7007B2CD6 /* VHDLNADevice.h */,
+				C051B807256B93E7007B2CD6 /* libVHDLNA.a */,
+				C051B81A256B93E7007B2CD6 /* DLNAView.h */,
+				C051B808256B93E7007B2CD6 /* DLNAView.m */,
+				C051B809256B93E7007B2CD6 /* image */,
+				C051B81B256B93E7007B2CD6 /* TableViewCell */,
+			);
+			path = DLNA;
+			sourceTree = "<group>";
+		};
+		C051B809256B93E7007B2CD6 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				C051B80A256B93E7007B2CD6 /* DLNA_sound_max@2x.png */,
+				C051B80B256B93E7007B2CD6 /* DLNA_Play@2x.png */,
+				C051B80C256B93E7007B2CD6 /* DLNA_sound_min@2x.png */,
+				C051B80D256B93E7007B2CD6 /* DLNA_sound_min@3x.png */,
+				C051B80E256B93E7007B2CD6 /* DLNA_Play@3x.png */,
+				C051B80F256B93E7007B2CD6 /* DLNA_sound_max@3x.png */,
+				C051B810256B93E7007B2CD6 /* DLNA_close@2x.png */,
+				C051B811256B93E7007B2CD6 /* DLNA_hide@2x.png */,
+				C051B812256B93E7007B2CD6 /* DLNA_hide@3x.png */,
+				C051B813256B93E7007B2CD6 /* DLNA_close@3x.png */,
+				C051B814256B93E7007B2CD6 /* DLNA_Pause@3x.png */,
+				C051B815256B93E7007B2CD6 /* DLNA_show@3x.png */,
+				C051B816256B93E7007B2CD6 /* DLNA_show@2x.png */,
+				C051B817256B93E7007B2CD6 /* DLNA_Pause@2x.png */,
+				C051B818256B93E7007B2CD6 /* DLNA_seekbar@2x.png */,
+				C051B819256B93E7007B2CD6 /* DLNA_seekbar@3x.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		C051B81B256B93E7007B2CD6 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C051B81C256B93E7007B2CD6 /* DeviceTableViewCell.h */,
+				C051B81D256B93E7007B2CD6 /* DeviceTableViewCell.m */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		C0B8782422E5C4A000054CA8 /* VHCommon */ = {
@@ -338,9 +441,9 @@
 			isa = PBXGroup;
 			children = (
 				C0B8783622E5C4A000054CA8 /* MBHUDHelper.h */,
-				C0B8783722E5C4A000054CA8 /* MBProgressHUD.m */,
-				C0B8783822E5C4A000054CA8 /* MBProgressHUD.h */,
 				C0B8783922E5C4A000054CA8 /* MBHUDHelper.m */,
+				03CFE47C25502FC900111B52 /* MBProgressHUD.h */,
+				03CFE47B25502FC800111B52 /* MBProgressHUD.m */,
 			);
 			path = MBProgressHUD;
 			sourceTree = "<group>";
@@ -366,6 +469,7 @@
 		C0B8784B22E5C4E200054CA8 /* Watch */ = {
 			isa = PBXGroup;
 			children = (
+				C051B804256B93E7007B2CD6 /* DLNA */,
 				C0B8784F22E5C4E200054CA8 /* WatchViewController.h */,
 				C0B8785022E5C4E200054CA8 /* WatchViewController.m */,
 				C0B8784C22E5C4E200054CA8 /* WatchViewController.xib */,
@@ -435,15 +539,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		ECD2A192233DDDFA1126A083 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				26E11C73D3B72EDFFA657BF8 /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */,
-				13BB1A023B6241FC763472C7 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -451,13 +546,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C051422622E17249004E89D6 /* Build configuration list for PBXNativeTarget "VHYunSDKDemo_LSS" */;
 			buildPhases = (
-				774A3AEBBF957A8593F0D548 /* [CP] Check Pods Manifest.lock */,
+				B329CB1723B8F09D32AEF863 /* [CP] Check Pods Manifest.lock */,
 				C051420C22E1723A004E89D6 /* Sources */,
 				C051420D22E1723A004E89D6 /* Frameworks */,
 				C051420E22E1723A004E89D6 /* Resources */,
 				C051426B22E1B9BA004E89D6 /* Embed Frameworks */,
-				4E52F0B4F2C47F4E9E75EA0B /* [CP] Embed Pods Frameworks */,
-				D6B9E2C563D597BEAEDB7625 /* [CP] Copy Pods Resources */,
+				C01AD0A2241B764800C0DE86 /* ShellScript */,
+				2097BC4946697523C8C5E8B7 /* [CP] Embed Pods Frameworks */,
+				4C1F1AFCF85352C972480FA3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -507,22 +603,38 @@
 			files = (
 				C0B8786022E5C4E200054CA8 /* SampleScreenViewController.xib in Resources */,
 				C009D54D230BDB2000F22516 /* VHSKinBundle.bundle in Resources */,
+				C051B824256B93E7007B2CD6 /* DLNA_Play@3x.png in Resources */,
+				C051B820256B93E7007B2CD6 /* DLNA_sound_max@2x.png in Resources */,
+				C051B82C256B93E7007B2CD6 /* DLNA_show@2x.png in Resources */,
 				C0B8789C22E6AAB700054CA8 /* CustomPickerView.xib in Resources */,
 				C051422022E17249004E89D6 /* LaunchScreen.storyboard in Resources */,
+				C051B826256B93E7007B2CD6 /* DLNA_close@2x.png in Resources */,
+				C051B82D256B93E7007B2CD6 /* DLNA_Pause@2x.png in Resources */,
 				C051421D22E17249004E89D6 /* Assets.xcassets in Resources */,
 				C051421B22E1723A004E89D6 /* Main.storyboard in Resources */,
+				C051B827256B93E7007B2CD6 /* DLNA_hide@2x.png in Resources */,
+				C051B82F256B93E7007B2CD6 /* DLNA_seekbar@3x.png in Resources */,
+				C051B828256B93E7007B2CD6 /* DLNA_hide@3x.png in Resources */,
+				C051B82E256B93E7007B2CD6 /* DLNA_seekbar@2x.png in Resources */,
 				C0B8784222E5C4A000054CA8 /* InitSDKViewController.xib in Resources */,
+				C051B822256B93E7007B2CD6 /* DLNA_sound_min@2x.png in Resources */,
+				C051B823256B93E7007B2CD6 /* DLNA_sound_min@3x.png in Resources */,
 				C0B8785A22E5C4E200054CA8 /* WatchVodViewController.xib in Resources */,
+				C051B82A256B93E7007B2CD6 /* DLNA_Pause@3x.png in Resources */,
+				C051B82B256B93E7007B2CD6 /* DLNA_show@3x.png in Resources */,
 				C0B8785D22E5C4E200054CA8 /* PublishViewController.xib in Resources */,
 				C0B8789822E6AAB700054CA8 /* VHSettingViewController.xib in Resources */,
+				C051B825256B93E7007B2CD6 /* DLNA_sound_max@3x.png in Resources */,
+				C051B829256B93E7007B2CD6 /* DLNA_close@3x.png in Resources */,
 				C0B8785922E5C4E200054CA8 /* WatchViewController.xib in Resources */,
+				C051B821256B93E7007B2CD6 /* DLNA_Play@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4E52F0B4F2C47F4E9E75EA0B /* [CP] Embed Pods Frameworks */ = {
+		2097BC4946697523C8C5E8B7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -539,7 +651,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		774A3AEBBF957A8593F0D548 /* [CP] Check Pods Manifest.lock */ = {
+		4C1F1AFCF85352C972480FA3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B329CB1723B8F09D32AEF863 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -561,22 +690,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D6B9E2C563D597BEAEDB7625 /* [CP] Copy Pods Resources */ = {
+		C01AD0A2241B764800C0DE86 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+			);
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -586,11 +715,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C009D54C230BDB2000F22516 /* UIView+Fade.m in Sources */,
+				03CFE47A25502AAD00111B52 /* VHVideoPointPopView.m in Sources */,
 				C0B8788422E5D5A300054CA8 /* ITTXibViewUtils.m in Sources */,
 				C0B8784422E5C4A000054CA8 /* CALayer+XibConfiguration.m in Sources */,
 				C0B8784A22E5C4A000054CA8 /* VHBaseViewController.m in Sources */,
 				C0B8785B22E5C4E200054CA8 /* WatchViewController.m in Sources */,
 				C0B878A022E6AAB700054CA8 /* VHSettingTableViewCell.m in Sources */,
+				03CFE47D25502FC900111B52 /* MBProgressHUD.m in Sources */,
 				C0B8785F22E5C4E200054CA8 /* PublishViewController.m in Sources */,
 				C009D54A230BDB2000F22516 /* VHBaseSkinPlayerView.m in Sources */,
 				C009D549230BDB2000F22516 /* VHCustomPlayerSkinView.m in Sources */,
@@ -602,15 +733,16 @@
 				C0B8789F22E6AAB700054CA8 /* VHSettingViewController.m in Sources */,
 				C0B8789D22E6AAB700054CA8 /* VHSettingArrowItem.m in Sources */,
 				C0B8784122E5C4A000054CA8 /* InitSDKViewController.m in Sources */,
+				C051B830256B93E7007B2CD6 /* DeviceTableViewCell.m in Sources */,
 				C02F5CEF230FF3C200AE2A4B /* VHSmallPlayerWindow.m in Sources */,
 				C051422322E17249004E89D6 /* main.m in Sources */,
 				C0B8785E22E5C4E200054CA8 /* SampleScreenViewController.m in Sources */,
 				C0B8784622E5C4A000054CA8 /* UIView+ITTAdditions.m in Sources */,
 				C0B8789B22E6AAB700054CA8 /* VHSettingItem.m in Sources */,
+				C051B81F256B93E7007B2CD6 /* DLNAView.m in Sources */,
 				C0B8789A22E6AAB700054CA8 /* CustomPickerView.m in Sources */,
 				C009D54E230BDB2000F22516 /* VHPlaySlider.m in Sources */,
 				C0B8784022E5C4A000054CA8 /* ViewController+vhall.m in Sources */,
-				C0B8784722E5C4A000054CA8 /* MBProgressHUD.m in Sources */,
 				C0B8784322E5C4A000054CA8 /* VHStatisticsStystem.m in Sources */,
 				C0B8789922E6AAB700054CA8 /* VHSettingGroup.m in Sources */,
 				C009D54B230BDB2000F22516 /* VHPlayerSkinTool.m in Sources */,
@@ -761,7 +893,7 @@
 		};
 		C051422722E17249004E89D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26E11C73D3B72EDFFA657BF8 /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */;
+			baseConfigurationReference = 410EAB3E98C959F330465D54 /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -774,7 +906,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VHYunSDKDemo_LSS/Watch/DLNA",
+				);
+				MARKETING_VERSION = 2.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.lss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -783,7 +919,7 @@
 		};
 		C051422822E17249004E89D6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13BB1A023B6241FC763472C7 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */;
+			baseConfigurationReference = 28378BEA8BE1640B26F80AB6 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -796,7 +932,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VHYunSDKDemo_LSS/Watch/DLNA",
+				);
+				MARKETING_VERSION = 2.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.lss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

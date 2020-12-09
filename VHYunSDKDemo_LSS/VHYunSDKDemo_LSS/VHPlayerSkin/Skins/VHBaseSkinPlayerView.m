@@ -10,12 +10,18 @@
 #import "VHPlayerSkinTool.h"
 #import "UIView+Fade.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "MBHUDHelper.h"
+#import "VHVideoPointPopView.h"
 
 static UISlider * _volumeSlider;
 
 @interface VHBaseSkinPlayerView ()
 
 @property (nonatomic, strong) MPVolumeView *volumeView;
+/** 进度条上的打点按钮 */
+@property (nonatomic, strong) NSMutableArray <UIButton *> *pointBtnArr;
+/** 进度条上的打点按钮数据源 */
+@property (nonatomic, strong) NSArray <VHVidoePointModel *> *pointDataArr;
 
 @end
 
@@ -94,12 +100,14 @@ static UISlider * _volumeSlider;
     if (!self.isLive) {
         self.vodCurrentTimeLabel.frame = CGRectMake(50, CGRectGetHeight(self.bottomImageView.frame)-9-17, 56,17);
         self.vodTotalTimeLabel.frame = CGRectMake(CGRectGetWidth(self.bottomImageView.frame)-50-56, CGRectGetMinY(self.vodCurrentTimeLabel.frame), 56, 17);
-        self.vodSlider.frame = CGRectMake(CGRectGetMaxX(self.vodCurrentTimeLabel.frame)+7, CGRectGetMidY(self.vodCurrentTimeLabel.frame)-CGRectGetHeight(self.vodCurrentTimeLabel.frame)*0.5, CGRectGetWidth(self.bottomImageView.frame)-2*CGRectGetMaxX(self.vodCurrentTimeLabel.frame)-14,20);
+        self.vodSlider.frame = CGRectMake(CGRectGetMaxX(self.vodCurrentTimeLabel.frame)+7, CGRectGetMinY(self.vodCurrentTimeLabel.frame), CGRectGetWidth(self.bottomImageView.frame)- 2 * CGRectGetMaxX(self.vodCurrentTimeLabel.frame)-14,20);
         
         self.vodfullScreenTimeLabel.hidden = YES;
         self.vodCurrentTimeLabel.hidden = NO;
         self.vodTotalTimeLabel.hidden = NO;
         self.vodRateBtn.hidden = YES;
+        
+        [self updataPointBtnsFrame];
     }
 }
 
@@ -122,6 +130,24 @@ static UISlider * _volumeSlider;
         self.vodCurrentTimeLabel.hidden = YES;
         self.vodTotalTimeLabel.hidden = YES;
         self.vodRateBtn.hidden = NO;
+        
+        [self updataPointBtnsFrame];
+    }
+}
+
+//设置打点按钮位置
+- (void)updataPointBtnsFrame {
+    for(int i = 0 ; i < self.pointBtnArr.count ; i++) {
+        UIButton *button = self.pointBtnArr[i];
+        VHVidoePointModel *model = self.pointDataArr[i];
+        CGFloat width = 10;
+        CGFloat height = 10;
+        NSLog(@"进度条宽度：%f",self.vodSlider.frame.size.width);
+        CGFloat x = 12 + (self.vodSlider.frame.size.width - 24) * model.pointPersent - width/2.0; //slider滑块图标宽度为24
+        CGFloat y = ((self.vodSlider.frame.size.height) - height)/2.0;
+        button.frame = CGRectMake(x, y, width, height);
+        button.layer.cornerRadius = width/2.0;
+        button.clipsToBounds = YES;
     }
 }
 
@@ -263,6 +289,7 @@ static UISlider * _volumeSlider;
     [invocation invoke];
 }
 
+
 #pragma mark - public
 
 - (void)setIsLive:(BOOL)isLive {
@@ -285,44 +312,68 @@ static UISlider * _volumeSlider;
     return _volumeSlider;
 }
 
+//支持的分辨率
 - (void)resolutionArray:(NSArray *)definitions curDefinition:(NSInteger)definition {
 
 }
 
-- (void)playerStatus:(int)state {
+//字幕数据
+- (void)videoSubtitleArr:(NSArray <VHVidoeSubtitleModel *> *)subtitleArr {
+    
+}
+
+//打点数据
+- (void)videoPointData:(NSArray <VHVidoePointModel *> *)pointDataArr {
+    _pointDataArr = pointDataArr;
+    _pointBtnArr = [NSMutableArray array];
+    //在进度条上添加打点按钮
+    for(int i = 0 ; i < _pointDataArr.count ; i ++) {
+        UIButton *button = [[UIButton alloc] init];
+        button.hidden = YES; //默认隐藏打点按钮
+        button.backgroundColor = [UIColor orangeColor];
+        button.tag = 100 + i;
+        [button addTarget:self action:@selector(pointBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.vodSlider addSubview:button];
+        [_pointBtnArr addObject:button];
+    }
+    [self updataPointBtnsFrame];
+}
+
+
+- (void)playerStatus:(VHPlayerStatus)state {
     switch (state) {
-        case 0:     //unkown
+        case VHPlayerStatusUnkown:     //unkown
         {
             [self.loadingView stopAnimating];
             self.playBtn.selected = NO;
         }
             break;
-        case 1:     //loading
+        case VHPlayerStatusLoading:     //loading
         {
             [self.loadingView startAnimating];
             self.playBtn.selected = NO;
         }
             break;
-        case 2:     //playing
+        case VHPlayerStatusPlaying:     //playing
         {
             [self.loadingView stopAnimating];
             self.playBtn.selected = YES;
             [self fadeOut:3];
         }
             break;
-        case 3:     //pause
+        case VHPlayerStatusPause:     //pause
         {
             [self.loadingView stopAnimating];
             self.playBtn.selected = NO;
         }
             break;
-        case 4:     //stop
+        case VHPlayerStatusStop:     //stop
         {
             [self.loadingView stopAnimating];
             self.playBtn.selected = NO;
         }
             break;
-        case 5:     //complete
+        case VHPlayerStatusComplete:     //complete
         {
             [self.loadingView stopAnimating];
             self.playBtn.selected = NO;
@@ -338,6 +389,7 @@ static UISlider * _volumeSlider;
 - (void)playerError:(NSError *)error {
     [self.loadingView stopAnimating];
 }
+
 - (void)setProgressTime:(CGFloat)currentTime totalTime:(CGFloat)totalTime playableValue:(CGFloat)playable
 {
     if (!self.vodSlider.isDragging && currentTime > 0 && totalTime > 0) {
@@ -359,6 +411,8 @@ static UISlider * _volumeSlider;
     if (playable > 0 && totalTime > 0) {
         [self.vodSlider.progressView setProgress:playable/totalTime animated:NO];
     }
+    
+    //如果自定义字幕，则可在此添加逻辑，更新字幕显示。
 }
 
 - (void)setFullScreen:(BOOL)fullScreen {
@@ -376,6 +430,17 @@ static UISlider * _volumeSlider;
 }
 - (void)setCyclePlay:(BOOL)cyclePlay {
     _isCyclePlay = cyclePlay;
+}
+
+- (void)setShowPoint:(BOOL)showPoint {
+    _isShowPoint = showPoint;
+    if(showPoint && self.pointBtnArr.count == 0) {
+        [MBHUDHelper showWarningWithText:@"当前视频暂无打点信息"];
+    }else {
+        for(UIButton *button in self.pointBtnArr) {
+            button.hidden = !showPoint;
+        }
+    }
 }
 
 #pragma mark - action
@@ -418,6 +483,13 @@ static UISlider * _volumeSlider;
     if ([self.delegate respondsToSelector:@selector(skinViewSliderTouchEnded:currentTime:)]) {
         [self.delegate skinViewSliderTouchEnded:self currentTime:slider.value];
     }
+}
+
+//点击视频打点按钮，弹出图片预览
+- (void)pointBtnClick:(UIButton *)button {
+    NSInteger index = button.tag - 100;
+    NSLog(@"点击打点按钮：%zd---图片地址：%@",index,self.pointDataArr[index].picurl);
+    [VHVideoPointPopView showPointViewWithModel:self.pointDataArr[index]];
 }
 
 @end

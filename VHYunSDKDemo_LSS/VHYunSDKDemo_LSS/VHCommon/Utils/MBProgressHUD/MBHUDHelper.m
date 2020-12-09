@@ -18,12 +18,11 @@
 
 + (void)showWarningWithText:(NSString *)text delegate:(id<MBProgressHUDDelegate>)delegate
 {
-    UIWindow *window = [[UIApplication sharedApplication].windows objectAtIndex:0];
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
     hud.delegate = delegate;
-    hud.labelText = text;
+    hud.label.text = text;
     hud.mode = MBProgressHUDModeText;
-    hud.dimBackground = NO;
-    [hud hide:YES afterDelay:1.0];
+    [hud hideAnimated:YES afterDelay:2.0];
 }
 @end

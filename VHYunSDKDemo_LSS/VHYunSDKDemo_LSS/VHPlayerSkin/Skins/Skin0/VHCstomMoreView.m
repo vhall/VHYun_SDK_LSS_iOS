@@ -10,15 +10,28 @@
 #import "VHSwitch.h"
 #import "VHPlaySlider.h"
 #import "VHBaseSkinPlayerView.h"
+#import "VHPlayerSkinTool.h"
 
 @interface VHCstomMoreView ()<VHSwitchDelegate,VHPlaySliderDelegate>
 
 @property (nonatomic) UIView *titleCell;
 @property (nonatomic) UIView *playCell;
+@property (nonatomic) UIView *pointCell;
 @property (nonatomic) UIView *soundCell;
 @property (nonatomic) UIView *ligthCell;
+@property (nonatomic) UIView *subtitleCell;
+/** 字幕选项标题 */
+@property (nonatomic, strong) UIButton *subTtileButton;
 @property BOOL isVolume;
 @property NSDate *volumeEndTime;
+/** 循环播放开关 */
+@property (nonatomic, strong) VHSwitch *playSwitch;
+/** 打点开关 */
+@property (nonatomic, strong) VHSwitch *pointSwitch;
+/** 字幕开关 */
+@property (nonatomic, strong) VHSwitch *subtitleSwith;
+/** 可选字幕列表 */
+@property (nonatomic, strong) NSArray <VHVidoeSubtitleModel *> *subtitleArr;
 
 @end
 
@@ -46,11 +59,13 @@
 {
     [self addSubview:[self titleCell]];
     [self addSubview:[self playCell]];
+    [self addSubview:[self pointCell]];
     [self addSubview:[self soundCell]];
     [self addSubview:[self ligthCell]];
     
     if (isLive) {
         self.playCell.hidden = YES;
+        self.pointCell.hidden = YES;
         _soundCell.frame = CGRectMake(0, 56, CGRectGetWidth(self.frame), 56);
         _ligthCell.frame = CGRectMake(0, 56*2, CGRectGetWidth(self.frame), 56);
     }
@@ -105,14 +120,16 @@
         
         VHSwitch *onSwitch = [[VHSwitch alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame)-20-45, 56*0.5-11, 45, 22)];
         onSwitch.delegate = self;
+        _playSwitch = onSwitch;
         [_playCell addSubview:onSwitch];
     }
     return _playCell;
 }
 
+
 - (UIView *)soundCell {
     if (!_soundCell) {
-        _soundCell = [[UIView alloc] initWithFrame:CGRectMake(0, 56*2, CGRectGetWidth(self.frame), 56)];
+        _soundCell = [[UIView alloc] initWithFrame:CGRectMake(0, 56 * 2, CGRectGetWidth(self.frame), 56)];
         
         UIImageView *soundImage1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"VHSKinBundle.bundle/sound_min"]];
         soundImage1.frame = CGRectMake(20, 56*0.5-9, 22, 18);
@@ -135,7 +152,7 @@
 
 - (UIView *)ligthCell {
     if (!_ligthCell) {
-        _ligthCell = [[UIView alloc] initWithFrame:CGRectMake(0, 56*3, CGRectGetWidth(self.frame), 56)];
+        _ligthCell = [[UIView alloc] initWithFrame:CGRectMake(0, 56 * 3, CGRectGetWidth(self.frame), 56)];
         
         UIImageView *lightImage1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"VHSKinBundle.bundle/light_min"]];
         lightImage1.frame = CGRectMake(20, 56*0.5-13, 27, 26);
@@ -157,6 +174,63 @@
     return _ligthCell;
 }
 
+- (UIView *)pointCell {
+    if (!_pointCell) {
+        _pointCell = [[UIView alloc] initWithFrame:CGRectMake(0, 56 * 4, CGRectGetWidth(self.frame), 56)];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 56 * 0.5-10, CGRectGetWidth(self.frame)*0.5, 20)];
+        label.text = @"显示打点";
+        label.textColor = [UIColor whiteColor];
+        label.font = [UIFont systemFontOfSize:14];
+        [_pointCell addSubview:label];
+        
+        VHSwitch *onSwitch = [[VHSwitch alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame)-20-45, 56*0.5-11, 45, 22)];
+        onSwitch.delegate = self;
+        _pointSwitch = onSwitch;
+        [_pointCell addSubview:onSwitch];
+    }
+    return _pointCell;
+}
+
+- (UIView *)subtitleCell {
+    if (!_subtitleCell) {
+        _subtitleCell = [[UIView alloc] initWithFrame:CGRectMake(0, 56 * 5, CGRectGetWidth(self.frame), 56)];
+        
+        UIButton *subtitleBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, (56 - 40)/2.0, CGRectGetWidth(self.frame)*0.5, 40)];
+        [subtitleBtn setTitle:@"开启字幕" forState:UIControlStateNormal];
+        [subtitleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        subtitleBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [subtitleBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+        [subtitleBtn addTarget:self action:@selector(subtitleBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [_subtitleCell addSubview:subtitleBtn];
+        _subTtileButton = subtitleBtn;
+        
+        VHSwitch *onSwitch = [[VHSwitch alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame)-20-45, 56*0.5-11, 45, 22)];
+        onSwitch.delegate = self;
+        _subtitleSwith = onSwitch;
+        [_subtitleCell addSubview:onSwitch];
+    }
+    return _subtitleCell;
+}
+
+
+//字幕选择
+- (void)subtitleBtnClick {
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    for(int i = 0 ; i < self.subtitleArr.count ; i++) {
+        UIAlertAction *alertAction = [UIAlertAction actionWithTitle:self.subtitleArr[i].lang style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self.subTtileButton setTitle:[NSString stringWithFormat:@"开启字幕(%@)",self.subtitleArr[i].lang] forState:UIControlStateNormal];
+            if ([self.delegate respondsToSelector:@selector(selelectSubtitle:)]) {
+                [self.delegate selelectSubtitle:self.subtitleArr[i]];
+            }
+        }];
+        [alertController addAction:alertAction];
+    }
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alertController addAction:cancelAction];
+    [[VHPlayerSkinTool getCurrentActivityViewController] presentViewController:alertController animated:YES completion:nil];
+}
 
 
 - (void)update
@@ -179,12 +253,44 @@
     }
 }
 
+//设置字幕列表
+- (void)setSubtitleArr:(NSArray <VHVidoeSubtitleModel *> *)array {
+    _subtitleArr = array;
+    if(array.count > 0) {
+        //添加字幕开关
+        [self addSubview:[self subtitleCell]];
+    }
+}
 
 
 #pragma mark - VHSwitchDelegate
 - (void)switchOn:(VHSwitch *)sender isOn:(BOOL)on {
-    if ([self.delegate respondsToSelector:@selector(cyclePlaySwitchOn:)]) {
-        [self.delegate cyclePlaySwitchOn:on];
+    if(sender == self.playSwitch) {
+        if ([self.delegate respondsToSelector:@selector(cyclePlaySwitchOn:)]) {
+            [self.delegate cyclePlaySwitchOn:on];
+        }
+    }else if (sender == self.pointSwitch) {
+        if ([self.delegate respondsToSelector:@selector(showPointSwitchOn:)]) {
+            [self.delegate showPointSwitchOn:on];
+        }
+    }else if (sender == self.subtitleSwith) {
+        
+        if(on) {
+            if([self.delegate respondsToSelector:@selector(showSubtitle:completion:)]) {
+                [self.delegate showSubtitle:YES completion:^(VHVidoeSubtitleModel * subtitle) {
+                    if(subtitle) {
+                        [self.subTtileButton setTitle:[NSString stringWithFormat:@"开启字幕(%@)",subtitle.showName] forState:UIControlStateNormal];
+                    }else {
+                        [self.subTtileButton setTitle:@"开启字幕(未选择)" forState:UIControlStateNormal];
+                    }
+                }];
+            }
+        }else {
+            [self.subTtileButton setTitle:@"开启字幕" forState:UIControlStateNormal];
+            if([self.delegate respondsToSelector:@selector(showSubtitle:completion:)]) {
+                [self.delegate showSubtitle:NO completion:nil];
+            }
+        }
     }
 }
 
@@ -218,5 +324,6 @@
         [UIScreen mainScreen].brightness = slider.value;
     }
 }
+
 
 @end

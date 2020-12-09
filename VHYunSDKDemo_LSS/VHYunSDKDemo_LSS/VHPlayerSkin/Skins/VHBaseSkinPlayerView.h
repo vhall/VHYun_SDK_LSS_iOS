@@ -8,6 +8,7 @@
 
 #import <VHLSS/VHPlayerSkinView.h>
 #import "VHPlaySlider.h"
+#import <VHLSS/VHPlayerCommonModel.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -59,6 +60,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 设置循环播放 */
 @property (nonatomic, assign, setter=setCyclePlay:) BOOL isCyclePlay;
+
+/** 设置显示视频打点 */
+@property (nonatomic, assign, setter=setShowPoint:) BOOL isShowPoint;
 
 //播放按钮点击事件
 - (void)playBtnClick:(UIButton *)sender;
