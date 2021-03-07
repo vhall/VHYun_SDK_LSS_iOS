@@ -9,7 +9,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 #import "VHPlayerTypeDef.h"
-
+@class VHDLNAControl;
 @class VHPlayerSkinView;
 
 /**
@@ -104,11 +104,9 @@ typedef NS_ENUM(NSInteger,VHLivePlayErrorType)
  */
 + (NSString *) getSDKVersion;
 
-/**
- DLNA 投屏接口
- @param DLNAobj 投屏对象 配合微吼提供投屏库使用。
- */
-- (BOOL)dlnaMappingObject:(id)DLNAobj;
+/// 设置投屏对象，返回YES 可投屏，NO不可投屏 (投屏功能使用步骤：1、设置DLNAobj 2、收到DLNAobj设备列表回调后，设置投屏设备 3、DLNAobj初始化播放。如果播放过程中多个player使用对同一个DLNAobj，则DLNAobj需要重新初始化播放)
+/// @param DLNAobj 投屏VHDLNAControl对象
+- (BOOL)dlnaMappingObject:(VHDLNAControl *)DLNAobj;
 @end
 
 @protocol VHLivePlayerDelegate <NSObject>

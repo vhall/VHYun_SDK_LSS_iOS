@@ -11,6 +11,7 @@
 #import "VHPlayerTypeDef.h"
 #import "VHPlayerCommonModel.h"
 @class VHPlayerSkinView;
+@class VHDLNAControl;
 @protocol VHVodPlayerDelegate;
 
 // 点播视播放器seek模式
@@ -121,11 +122,11 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 /// @param fail 失败回调
 - (void)selectSubtitleModel:(VHVidoeSubtitleModel *)subtitleModel success:(void(^)(NSArray <VHVidoeSubtitleItemModel *> *subtitleItems))success fail:(void(^)(NSError *error))fail;
 
-/**
- DLNA 投屏接口
- @param DLNAobj 投屏对象 配合微吼提供投屏库使用。
- */
-- (BOOL)dlnaMappingObject:(id)DLNAobj;
+
+/// 设置投屏对象，返回YES 可投屏，NO不可投屏 (投屏功能使用步骤：1、设置DLNAobj 2、收到DLNAobj设备列表回调后，设置投屏设备 3、DLNAobj初始化播放。如果播放过程中多个player使用对同一个DLNAobj，则DLNAobj需要重新初始化播放)
+/// @param DLNAobj 投屏VHDLNAControl对象
+- (BOOL)dlnaMappingObject:(VHDLNAControl *)DLNAobj;
+
 @end
 
 @protocol VHVodPlayerDelegate <NSObject>
