@@ -44,8 +44,19 @@ typedef NS_ENUM(NSInteger,VHLivePlayErrorType)
  * 当前播放的清晰度 默认原画 只有在播放开始后调用 并在支持的清晰度列表中
  */
 @property(nonatomic,assign)VHDefinition             curDefinition;
-
-/*
+/**
+ * 是否使用字幕视频
+ * YES 为使用 NO 为不使用 默认为NO
+ * 播放开始后设置
+ */
+@property(nonatomic,assign) BOOL             live_subtitle;
+/**
+ * 是否使用字幕视频
+ * YES 为使用 NO 为不使用 默认为NO
+ * 播放开始前设置
+ */
+@property(nonatomic,assign) BOOL             default_live_subtitle;
+/**
  * 设置画面的裁剪模式 详见 VHPlayerScalingMode 的定义
  */
 @property(nonatomic,assign)int                      scalingMode;
@@ -170,4 +181,12 @@ typedef NS_ENUM(NSInteger,VHLivePlayErrorType)
  *  @param size    当前播放视频宽髙
  */
 - (void)player:(VHLivePlayer*)player videoSize:(CGSize)size;
+
+/**
+ *  视频是否开通字幕
+ *  @param player   播放器实例
+ *  @param isLiveSubtitle    1 开通 0 未开通
+ */
+- (void)player:(VHLivePlayer*)player isLiveSubtitle:(BOOL)isLiveSubtitle;
+
 @end

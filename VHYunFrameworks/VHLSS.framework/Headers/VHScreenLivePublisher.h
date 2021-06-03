@@ -11,6 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VHScreenLivePublisher : VHLivePublisher
+
+
+/**
+ *  initWithConfig
+ *  @param config       videoCaptureFPS 10   videoBitRate = 1200
+ */
+- (instancetype)initWithConfig:(VHPublishConfig*)config;
+
 /**
  *  开始录屏直播推流 注意必须是 iOS 12及以上系统使用
  *  @param roomID       房间ID
