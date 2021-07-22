@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)   NSString        *accessToken;
 @property(nonatomic,assign) NSInteger       videoBitRate;
 @property(nonatomic,assign) NSInteger       videoCaptureFPS;//固定15帧
+@property(nonatomic,copy)   NSString        *extensionBundleID;//Ex App BundleID
 @end
 
 NS_ASSUME_NONNULL_END

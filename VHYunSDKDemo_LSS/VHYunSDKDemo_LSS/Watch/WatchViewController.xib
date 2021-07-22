@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,6 +24,7 @@
                 <outlet property="preView" destination="UlU-vZ-Tin" id="kvz-0w-LmG"/>
                 <outlet property="screenShareBtn" destination="u7D-2T-pRz" id="nL9-mO-2k9"/>
                 <outlet property="stratBtn" destination="BY3-ik-R2r" id="VGU-TI-orH"/>
+                <outlet property="subtitle_btn" destination="pGe-Ft-NPq" id="CqB-tX-zlk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -151,6 +152,25 @@
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="screenShareBtnClicked:" destination="-1" eventType="touchUpInside" id="nvi-GL-yqx"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGe-Ft-NPq">
+                                    <rect key="frame" x="190" y="0.0" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="0.70173373279999995" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <state key="normal" title="关幕">
+                                        <color key="titleColor" red="1" green="0.046545039429999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="selected" title="开幕"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="selectSubtitle:" destination="-1" eventType="touchUpInside" id="rc4-Dz-Zc8"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -343,7 +363,7 @@
                 <constraint firstItem="UlU-vZ-Tin" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="m7s-3y-3KU"/>
                 <constraint firstItem="UlU-vZ-Tin" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="u36-QQ-hfd"/>
             </constraints>
-            <point key="canvasLocation" x="24.5" y="51.5"/>
+            <point key="canvasLocation" x="-140" y="51"/>
         </view>
     </objects>
     <resources>

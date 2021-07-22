@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name            = "VHYun_LSS"
-  s.version         = "2.3.2"
+  s.version         = "2.3.3"
   s.author          = { "wangxiaoxiang" => "xiaoxiang.wang@vhall.com" }
   s.license         = { :type => "MIT", :file => "LICENSE" }
   s.homepage        = 'https://www.vhall.com'
@@ -16,10 +16,8 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'VHYunFrameworks/VhallLiveBaseApi.framework','VHYunFrameworks/VHLSS.framework'
   s.pod_target_xcconfig = {
     'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/**',
-    'HEADER_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/**',
-    'VALID_ARCHS' => 'armv7 arm64 x86_64',
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+    'HEADER_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/**'
   }
 
-  s.dependency 'VHCore','>=2.0.3'
+  #s.dependency 'VHCore','>=2.0.3'
 end

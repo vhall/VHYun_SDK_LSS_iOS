@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../VHLssVod.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:VHYunSDKDemo_LSS.xcodeproj">
    </FileRef>
    <FileRef

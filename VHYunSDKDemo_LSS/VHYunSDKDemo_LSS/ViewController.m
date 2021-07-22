@@ -17,6 +17,7 @@
 #import "WatchVodViewController.h"
 #import "VHPlayerSkinViewController.h"
 #import "VHSettingViewController.h"
+#import "SampleScreenViewController.h"
 
 
 #define VHScreenHeight          ([UIScreen mainScreen].bounds.size.height)
@@ -87,6 +88,33 @@
     rtmpLivedemoVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:rtmpLivedemoVC animated:YES completion:nil];
 }
+
+- (void)screenBtnClicked:(UIButton*)sender
+{
+    if(![self isCaptureDeviceOK])
+        return;
+    
+    if(_businessIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
+    {
+        [self showMsg:@"参数不能为空" afterDelay:1.5];
+        return;
+    }
+
+    DEMO_Setting.publishRoomID = _businessIDTextField.text;
+    DEMO_Setting.playerRoomID = _businessIDTextField.text;
+    DEMO_Setting.accessToken =_accessTokenTextField.text;
+    
+    SampleScreenViewController * rtmpLivedemoVC = [[SampleScreenViewController alloc] init];
+    rtmpLivedemoVC.roomId           = DEMO_Setting.publishRoomID;
+    rtmpLivedemoVC.accessToken      = DEMO_Setting.accessToken;
+    rtmpLivedemoVC.videoBitRate     = 1500;
+    rtmpLivedemoVC.videoCaptureFPS  = DEMO_Setting.videoCaptureFPS;
+    rtmpLivedemoVC.extensionBundleID= @"com.vhallyun.lss.ScreenLive";
+    rtmpLivedemoVC.interfaceOrientation  = (sender.tag == 1)?UIInterfaceOrientationLandscapeRight :UIInterfaceOrientationPortrait;
+    rtmpLivedemoVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:rtmpLivedemoVC animated:YES completion:nil];
+}
+
 //直播
 - (void)playerBtnClicked:(UIButton*)sender
 {
@@ -261,6 +289,13 @@
     [vodBtn1 addTarget:self action:@selector(vodBtn1Clicked:) forControlEvents:UIControlEventTouchUpInside];
     vodBtn1.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:vodBtn1];
+    
+    UIButton *screenBtn = [[UIButton alloc] initWithFrame:CGRectMake(accessTokenTextField.left, vodBtn.bottom+20, vodBtn.width, accessTokenTextField.height)];
+    screenBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [screenBtn setTitle:@"录屏直播" forState:UIControlStateNormal];
+    [screenBtn addTarget:self action:@selector(screenBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    screenBtn.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:screenBtn];
 
     
     UILabel * label= [[UILabel alloc] initWithFrame:CGRectMake(0, VHScreenHeight - 100, VHScreenWidth, 20)];

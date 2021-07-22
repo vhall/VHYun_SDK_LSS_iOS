@@ -38,8 +38,6 @@
     [self initViews];
     //初始化CameraEngine
     [self initCameraEngine];
-    
-    [self startPublish];
 }
 
 /*
@@ -74,7 +72,7 @@
 - (void)startPublish
 {
     //开始视频采集、并显示预览界面
-    if([self.publisher startPublish:_roomId accessToken:_accessToken extension:@"com.vhallyun.sdk.VHYunSDKDemoScreenShare"]){
+    if([self.publisher startPublish:_roomId accessToken:_accessToken extension:self.extensionBundleID]){
         
     }
     else
@@ -107,8 +105,12 @@
 #pragma mark - Camera
 - (void)initCameraEngine
 {
-    self.publisher = [[VHScreenLivePublisher alloc] initWithConfig:[VHPublishConfig configWithType:VHPublishConfigTypeDefault]];
-    self.publisher.delegate            = self;
+    VHPublishConfig *config =[VHPublishConfig configWithType:VHPublishConfigTypeDefault];
+//    config.isPrintLog = YES;
+    config.videoCaptureFPS = self.videoCaptureFPS;
+    config.videoBitRate = self.videoBitRate;
+    self.publisher = [[VHScreenLivePublisher alloc] initWithConfig:config];
+    self.publisher.delegate = self;
 }
 
 #pragma mark - VHLivePublisherDelegate
@@ -139,7 +141,6 @@
         case VHPublishStatusStoped:
             _startBtn.selected = NO;
             _statueLabel.text = @"已停止共享屏幕";
-            [self closeBtnClikced:nil];
             break;
 
         default:

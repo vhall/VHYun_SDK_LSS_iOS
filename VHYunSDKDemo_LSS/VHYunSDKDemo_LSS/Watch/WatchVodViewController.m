@@ -19,6 +19,7 @@
 {
     NSTimer         *_timer;
     NSArray *_definitionBtns;
+    BOOL _enterForegroundPlay; //播放过程中进入后台暂停，进入前台是否自动播放
 }
 @property (strong, nonatomic)VHVodPlayer *player;
 
@@ -50,9 +51,29 @@
 
 @implementation WatchVodViewController
 
+//进入后台
+- (void)appDidEnterBackground {
+    if(self.player.playerState == VHPlayerStatusPlaying) {
+        _enterForegroundPlay = YES;
+        [self.player pause];
+    }
+}
+
+//进入前台
+- (void)appWillEnterForeground {
+    if(_enterForegroundPlay) {
+        [self.player resume];
+        _enterForegroundPlay = NO;
+    }
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    //前后台监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
     
     //阻止iOS设备锁屏
     [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
@@ -79,6 +100,7 @@
 
 - (void)viewDidLayoutSubviews
 {
+    [super viewDidLayoutSubviews];
     _player.view.frame = _preView.bounds;
     _fullscreenBtn.selected = ([UIApplication sharedApplication].statusBarOrientation != UIDeviceOrientationPortrait);
 }

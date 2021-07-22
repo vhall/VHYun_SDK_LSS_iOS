@@ -9,7 +9,7 @@
 #import "WatchViewController.h"
 #import <VHLSS/VHLivePlayer.h>
 #import <Photos/Photos.h>
-#import <VHLSS/VHMessage.h>
+#import <VHCore/VHMessage.h>
 #import "DLNAView.h"
 
 #define DefinitionNameList  (@[@"原画",@"超清",@"高清",@"标清",@"音频"])
@@ -41,6 +41,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *screenShareBtn;
+@property (weak, nonatomic) IBOutlet UIButton *subtitle_btn;
 @property(nonatomic,strong)   DLNAView           *dlnaView;
 
 @end
@@ -57,6 +58,7 @@
     _player.delegate = self;
     _player.bufferTime = self.bufferTime;
     _player.defaultDefinition = VHDefinitionHD;
+    _player.default_live_subtitle = NO;
     
     [self.preView insertSubview:_player.view atIndex:0];
     _player.view.frame = _preView.bounds;
@@ -206,6 +208,10 @@
     }
     return _dlnaView;
 }
+- (IBAction)selectSubtitle:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    _player.live_subtitle = sender.selected;
+}
 
 #pragma mark - VHLssPlayerDelegate
 - (void)player:(VHLivePlayer *)player statusDidChange:(int)state
@@ -321,7 +327,10 @@
 {
     NSLog(@"video size: %@",NSStringFromCGSize(size));
 }
-
+- (void)player:(VHLivePlayer*)player isLiveSubtitle:(BOOL)isLiveSubtitle
+{
+    self.subtitle_btn.hidden = !isLiveSubtitle;
+}
 #pragma mark - shouldAutorotate
 -(BOOL)shouldAutorotate
 {

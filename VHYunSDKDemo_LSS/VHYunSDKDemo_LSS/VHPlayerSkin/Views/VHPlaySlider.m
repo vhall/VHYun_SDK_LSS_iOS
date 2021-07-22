@@ -19,7 +19,6 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        [self addInitUI];
         [self addSliderTarget];
         [self sliderDefaultSet];
     }
@@ -27,7 +26,6 @@
 }
 - (instancetype)init {
     if (self = [super init]) {
-        [self addInitUI];
         [self addSliderTarget];
         [self sliderDefaultSet];
     }
@@ -36,9 +34,11 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
-    //坐标x 预留出滑块的宽度
-    _progressView.frame = CGRectMake(20, CGRectGetHeight(self.frame)*0.5-1, CGRectGetWidth(self.frame)-20, 2);
+}
+
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    [self addProgressVeiw];
 }
 
 //设置进度条高度为2
@@ -54,13 +54,26 @@
     return CGRectMake(suBounds.origin.x-15, suBounds.origin.y-15, suBounds.size.width+30, suBounds.size.height+30);
 }
 
-- (void)addInitUI {
-    _progressView                   = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+- (void)addProgressVeiw {
+
+    if(_progressView) {
+        [_progressView removeFromSuperview];
+    }
+    _progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
     _progressView.progressTintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.6];
     _progressView.trackTintColor    = [UIColor clearColor];
     _progressView.layer.masksToBounds = YES;
     _progressView.layer.cornerRadius  = 1;
     _progressView.progress = 0;
+//    _progressView.backgroundColor = [UIColor redColor];
+    //    self.backgroundColor = [UIColor blueColor];
+    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 14.0) {
+        _progressView.frame = CGRectMake(20, CGRectGetHeight(self.frame)*0.5-3, CGRectGetWidth(self.frame)-20, 5);
+        _progressView.transform = CGAffineTransformMakeScale(1.0f, 0.5f);
+    }else {
+        _progressView.frame = CGRectMake(20, CGRectGetHeight(self.frame)*0.5-1, CGRectGetWidth(self.frame)-20, 5);
+    }
+    
     [self addSubview:_progressView];
     [self sendSubviewToBack:_progressView];
 }

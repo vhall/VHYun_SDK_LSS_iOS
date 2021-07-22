@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		038B30071D2DB7500473A9DC /* libPods-VHYunSDKDemo_LSS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC34CF209675D77B7AA5B051 /* libPods-VHYunSDKDemo_LSS.a */; };
 		03CFE47A25502AAD00111B52 /* VHVideoPointPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CFE47925502AAD00111B52 /* VHVideoPointPopView.m */; };
 		03CFE47D25502FC900111B52 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CFE47B25502FC800111B52 /* MBProgressHUD.m */; };
 		C009D546230BDB2000F22516 /* VHSkinCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C009D530230BDB2000F22516 /* VHSkinCoverView.m */; };
@@ -77,7 +76,23 @@
 		C0B8789E22E6AAB700054CA8 /* VHSettingTextFieldItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8789522E6AAB600054CA8 /* VHSettingTextFieldItem.m */; };
 		C0B8789F22E6AAB700054CA8 /* VHSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8789622E6AAB600054CA8 /* VHSettingViewController.m */; };
 		C0B878A022E6AAB700054CA8 /* VHSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8789722E6AAB600054CA8 /* VHSettingTableViewCell.m */; };
+		C0D859D725DAD38100934807 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D859D625DAD38100934807 /* ReplayKit.framework */; };
+		C0D859DB25DAD38100934807 /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D859DA25DAD38100934807 /* SampleHandler.m */; };
+		C0D859DF25DAD38100934807 /* ScreenLive.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C0D859D525DAD38100934807 /* ScreenLive.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C0D859E825DD607200934807 /* VHScreenShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D859E625DD606900934807 /* VHScreenShare.framework */; };
+		C0D859E925DD607200934807 /* VHScreenShare.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0D859E625DD606900934807 /* VHScreenShare.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FE4D2980C94CFB4D0D7E43D7 /* libPods-VHYunSDKDemo_LSS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB915136CC252B59FD9BB571 /* libPods-VHYunSDKDemo_LSS.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C0D859DD25DAD38100934807 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C051420822E1723A004E89D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0D859D425DAD38100934807;
+			remoteInfo = ScreenLive;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C051426B22E1B9BA004E89D6 /* Embed Frameworks */ = {
@@ -86,6 +101,28 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0D859E025DAD38100934807 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C0D859DF25DAD38100934807 /* ScreenLive.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0D859EA25DD607200934807 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C0D859E925DD607200934807 /* VHScreenShare.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +136,8 @@
 		03CFE47C25502FC900111B52 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		28378BEA8BE1640B26F80AB6 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_LSS.release.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS.release.xcconfig"; sourceTree = "<group>"; };
 		410EAB3E98C959F330465D54 /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_LSS.debug.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS.debug.xcconfig"; sourceTree = "<group>"; };
+		9763E14BA1D1812DF75511BA /* Pods_VHYunSDKDemo_LSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VHYunSDKDemo_LSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB915136CC252B59FD9BB571 /* libPods-VHYunSDKDemo_LSS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VHYunSDKDemo_LSS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C009D530230BDB2000F22516 /* VHSkinCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSkinCoverView.m; sourceTree = "<group>"; };
 		C009D532230BDB2000F22516 /* VHCstomMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHCstomMoreView.m; sourceTree = "<group>"; };
 		C009D533230BDB2000F22516 /* VHCustomPlayerSkinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHCustomPlayerSkinView.h; sourceTree = "<group>"; };
@@ -208,7 +247,12 @@
 		C0B8789522E6AAB600054CA8 /* VHSettingTextFieldItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSettingTextFieldItem.m; sourceTree = "<group>"; };
 		C0B8789622E6AAB600054CA8 /* VHSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSettingViewController.m; sourceTree = "<group>"; };
 		C0B8789722E6AAB600054CA8 /* VHSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSettingTableViewCell.m; sourceTree = "<group>"; };
-		EC34CF209675D77B7AA5B051 /* libPods-VHYunSDKDemo_LSS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VHYunSDKDemo_LSS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0D859D525DAD38100934807 /* ScreenLive.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScreenLive.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0D859D625DAD38100934807 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		C0D859D925DAD38100934807 /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
+		C0D859DA25DAD38100934807 /* SampleHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleHandler.m; sourceTree = "<group>"; };
+		C0D859DC25DAD38100934807 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0D859E625DD606900934807 /* VHScreenShare.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VHScreenShare.framework; path = ../../../vhallyun_sdk_vrtc/VHYunFrameworks/VHScreenShare.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,7 +262,16 @@
 			files = (
 				C0200D962326495A0074C488 /* libc++.1.tbd in Frameworks */,
 				C051B81E256B93E7007B2CD6 /* libVHDLNA.a in Frameworks */,
-				038B30071D2DB7500473A9DC /* libPods-VHYunSDKDemo_LSS.a in Frameworks */,
+				FE4D2980C94CFB4D0D7E43D7 /* libPods-VHYunSDKDemo_LSS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0D859D225DAD38100934807 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0D859D725DAD38100934807 /* ReplayKit.framework in Frameworks */,
+				C0D859E825DD607200934807 /* VHScreenShare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +351,9 @@
 			isa = PBXGroup;
 			children = (
 				C0200D952326495A0074C488 /* libc++.1.tbd */,
-				EC34CF209675D77B7AA5B051 /* libPods-VHYunSDKDemo_LSS.a */,
+				C0D859D625DAD38100934807 /* ReplayKit.framework */,
+				9763E14BA1D1812DF75511BA /* Pods_VHYunSDKDemo_LSS.framework */,
+				AB915136CC252B59FD9BB571 /* libPods-VHYunSDKDemo_LSS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -307,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				C051421222E1723A004E89D6 /* VHYunSDKDemo_LSS */,
+				C0D859D825DAD38100934807 /* ScreenLive */,
 				C051421122E1723A004E89D6 /* Products */,
 				C0200D942326495A0074C488 /* Frameworks */,
 				5AA5C0590DB8C5F8DF51D9AC /* Pods */,
@@ -317,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				C051421022E1723A004E89D6 /* VHYunSDKDemo_LSS.app */,
+				C0D859D525DAD38100934807 /* ScreenLive.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -539,6 +596,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C0D859D825DAD38100934807 /* ScreenLive */ = {
+			isa = PBXGroup;
+			children = (
+				C0D859E625DD606900934807 /* VHScreenShare.framework */,
+				C0D859D925DAD38100934807 /* SampleHandler.h */,
+				C0D859DA25DAD38100934807 /* SampleHandler.m */,
+				C0D859DC25DAD38100934807 /* Info.plist */,
+			);
+			path = ScreenLive;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -554,15 +622,35 @@
 				C01AD0A2241B764800C0DE86 /* ShellScript */,
 				2097BC4946697523C8C5E8B7 /* [CP] Embed Pods Frameworks */,
 				4C1F1AFCF85352C972480FA3 /* [CP] Copy Pods Resources */,
+				C0D859E025DAD38100934807 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C0D859DE25DAD38100934807 /* PBXTargetDependency */,
 			);
 			name = VHYunSDKDemo_LSS;
 			productName = VHYunSDKDemo_LSS;
 			productReference = C051421022E1723A004E89D6 /* VHYunSDKDemo_LSS.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C0D859D425DAD38100934807 /* ScreenLive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0D859E325DAD38100934807 /* Build configuration list for PBXNativeTarget "ScreenLive" */;
+			buildPhases = (
+				C0D859D125DAD38100934807 /* Sources */,
+				C0D859D225DAD38100934807 /* Frameworks */,
+				C0D859D325DAD38100934807 /* Resources */,
+				C0D859EA25DD607200934807 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScreenLive;
+			productName = ScreenLive;
+			productReference = C0D859D525DAD38100934807 /* ScreenLive.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -570,11 +658,15 @@
 		C051420822E1723A004E89D6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Original;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = vhall;
 				TargetAttributes = {
 					C051420F22E1723A004E89D6 = {
 						CreatedOnToolsVersion = 10.2.1;
+					};
+					C0D859D425DAD38100934807 = {
+						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
@@ -592,6 +684,7 @@
 			projectRoot = "";
 			targets = (
 				C051420F22E1723A004E89D6 /* VHYunSDKDemo_LSS */,
+				C0D859D425DAD38100934807 /* ScreenLive */,
 			);
 		};
 /* End PBXProject section */
@@ -628,6 +721,13 @@
 				C051B829256B93E7007B2CD6 /* DLNA_close@3x.png in Resources */,
 				C0B8785922E5C4E200054CA8 /* WatchViewController.xib in Resources */,
 				C051B821256B93E7007B2CD6 /* DLNA_Play@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0D859D325DAD38100934807 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,7 +805,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -757,7 +858,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C0D859D125DAD38100934807 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0D859DB25DAD38100934807 /* SampleHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C0D859DE25DAD38100934807 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0D859D425DAD38100934807 /* ScreenLive */;
+			targetProxy = C0D859DD25DAD38100934807 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C051421922E1723A004E89D6 /* Main.storyboard */ = {
@@ -898,8 +1015,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
+				DEPLOYMENT_POSTPROCESSING = NO;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = VHYunSDKDemo_LSS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -910,10 +1029,30 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/VHYunSDKDemo_LSS/Watch/DLNA",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.3.3;
+				OTHER_CFLAGS = "-fembed-bitcode";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Masonry\"",
+					"-l\"SDWebImage\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"VHCore\"",
+					"-framework",
+					"\"VHLSS\"",
+					"-framework",
+					"\"VhallLiveBaseApi\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.lss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 x86_64";
 			};
 			name = Debug;
 		};
@@ -924,8 +1063,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
+				DEPLOYMENT_POSTPROCESSING = YES;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = VHYunSDKDemo_LSS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -936,9 +1077,75 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/VHYunSDKDemo_LSS/Watch/DLNA",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.3.3;
+				OTHER_CFLAGS = "-fembed-bitcode";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Masonry\"",
+					"-l\"SDWebImage\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"VHCore\"",
+					"-framework",
+					"\"VHLSS\"",
+					"-framework",
+					"\"VhallLiveBaseApi\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.lss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 x86_64";
+			};
+			name = Release;
+		};
+		C0D859E125DAD38100934807 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H49DK955B9;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/../../vhallyun_sdk_vrtc/VHYunFrameworks";
+				INFOPLIST_FILE = ScreenLive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.lss.ScreenLive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C0D859E225DAD38100934807 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H49DK955B9;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/../../vhallyun_sdk_vrtc/VHYunFrameworks";
+				INFOPLIST_FILE = ScreenLive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.lss.ScreenLive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -960,6 +1167,15 @@
 			buildConfigurations = (
 				C051422722E17249004E89D6 /* Debug */,
 				C051422822E17249004E89D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0D859E325DAD38100934807 /* Build configuration list for PBXNativeTarget "ScreenLive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0D859E125DAD38100934807 /* Debug */,
+				C0D859E225DAD38100934807 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
