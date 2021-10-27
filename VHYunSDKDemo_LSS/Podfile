@@ -6,8 +6,8 @@ target 'VHYunSDKDemo_LSS' do
 #  use_frameworks!
   platform :ios, '9.0'
   
-  pod 'VHCore',:path => '../../vhallyun_sdk_base/VHCore.podspec'
-  pod 'VHYun_LSS',:path=>'../VHYun_LSS.podspec'
+  pod 'VHCore'
+  pod 'VHYun_LSS'
   
 
   pod 'Masonry'

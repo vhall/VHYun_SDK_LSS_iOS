@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		03CFE47A25502AAD00111B52 /* VHVideoPointPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CFE47925502AAD00111B52 /* VHVideoPointPopView.m */; };
 		03CFE47D25502FC900111B52 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CFE47B25502FC800111B52 /* MBProgressHUD.m */; };
+		4EB3C8E826CA624F00F9DF71 /* WatchTimeshiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB3C8E626CA624F00F9DF71 /* WatchTimeshiftViewController.m */; };
+		4EB3C8E926CA624F00F9DF71 /* WatchTimeshiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EB3C8E726CA624F00F9DF71 /* WatchTimeshiftViewController.xib */; };
 		C009D546230BDB2000F22516 /* VHSkinCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C009D530230BDB2000F22516 /* VHSkinCoverView.m */; };
 		C009D547230BDB2000F22516 /* VHCstomMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = C009D532230BDB2000F22516 /* VHCstomMoreView.m */; };
 		C009D548230BDB2000F22516 /* VHCstomResolutionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C009D536230BDB2000F22516 /* VHCstomResolutionView.m */; };
@@ -136,6 +138,9 @@
 		03CFE47C25502FC900111B52 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		28378BEA8BE1640B26F80AB6 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_LSS.release.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS.release.xcconfig"; sourceTree = "<group>"; };
 		410EAB3E98C959F330465D54 /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_LSS.debug.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS.debug.xcconfig"; sourceTree = "<group>"; };
+		4EB3C8E526CA624F00F9DF71 /* WatchTimeshiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchTimeshiftViewController.h; sourceTree = "<group>"; };
+		4EB3C8E626CA624F00F9DF71 /* WatchTimeshiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchTimeshiftViewController.m; sourceTree = "<group>"; };
+		4EB3C8E726CA624F00F9DF71 /* WatchTimeshiftViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchTimeshiftViewController.xib; sourceTree = "<group>"; };
 		9763E14BA1D1812DF75511BA /* Pods_VHYunSDKDemo_LSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VHYunSDKDemo_LSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB915136CC252B59FD9BB571 /* libPods-VHYunSDKDemo_LSS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VHYunSDKDemo_LSS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C009D530230BDB2000F22516 /* VHSkinCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSkinCoverView.m; sourceTree = "<group>"; };
@@ -533,6 +538,9 @@
 				C0B8784E22E5C4E200054CA8 /* WatchVodViewController.h */,
 				C0B8785122E5C4E200054CA8 /* WatchVodViewController.m */,
 				C0B8784D22E5C4E200054CA8 /* WatchVodViewController.xib */,
+				4EB3C8E526CA624F00F9DF71 /* WatchTimeshiftViewController.h */,
+				4EB3C8E626CA624F00F9DF71 /* WatchTimeshiftViewController.m */,
+				4EB3C8E726CA624F00F9DF71 /* WatchTimeshiftViewController.xib */,
 				C0958D28231548500008BF75 /* VHPlayerSkinViewController.h */,
 				C0958D27231548500008BF75 /* VHPlayerSkinViewController.m */,
 				C02F5CED230FF3C200AE2A4B /* VHSmallPlayerWindow.h */,
@@ -702,6 +710,7 @@
 				C0B8789C22E6AAB700054CA8 /* CustomPickerView.xib in Resources */,
 				C051422022E17249004E89D6 /* LaunchScreen.storyboard in Resources */,
 				C051B826256B93E7007B2CD6 /* DLNA_close@2x.png in Resources */,
+				4EB3C8E926CA624F00F9DF71 /* WatchTimeshiftViewController.xib in Resources */,
 				C051B82D256B93E7007B2CD6 /* DLNA_Pause@2x.png in Resources */,
 				C051421D22E17249004E89D6 /* Assets.xcassets in Resources */,
 				C051421B22E1723A004E89D6 /* Main.storyboard in Resources */,
@@ -821,6 +830,7 @@
 				C0B8784422E5C4A000054CA8 /* CALayer+XibConfiguration.m in Sources */,
 				C0B8784A22E5C4A000054CA8 /* VHBaseViewController.m in Sources */,
 				C0B8785B22E5C4E200054CA8 /* WatchViewController.m in Sources */,
+				4EB3C8E826CA624F00F9DF71 /* WatchTimeshiftViewController.m in Sources */,
 				C0B878A022E6AAB700054CA8 /* VHSettingTableViewCell.m in Sources */,
 				03CFE47D25502FC900111B52 /* MBProgressHUD.m in Sources */,
 				C0B8785F22E5C4E200054CA8 /* PublishViewController.m in Sources */,
@@ -1019,6 +1029,11 @@
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/../../../vhallyun_sdk_base/VHYunFrameworks\"",
+					"\"${PODS_ROOT}/../../VHYunFrameworks\"",
+				);
 				INFOPLIST_FILE = VHYunSDKDemo_LSS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1029,7 +1044,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/VHYunSDKDemo_LSS/Watch/DLNA",
 				);
-				MARKETING_VERSION = 2.3.3;
+				MARKETING_VERSION = 2.4.0;
 				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1067,6 +1082,11 @@
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/../../../vhallyun_sdk_base/VHYunFrameworks\"",
+					"\"${PODS_ROOT}/../../VHYunFrameworks\"",
+				);
 				INFOPLIST_FILE = VHYunSDKDemo_LSS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1077,7 +1097,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/VHYunSDKDemo_LSS/Watch/DLNA",
 				);
-				MARKETING_VERSION = 2.3.3;
+				MARKETING_VERSION = 2.4.0;
 				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

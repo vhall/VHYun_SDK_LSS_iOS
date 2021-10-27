@@ -15,6 +15,7 @@
 #import "PublishViewController.h"
 #import "WatchViewController.h"
 #import "WatchVodViewController.h"
+#import "WatchTimeshiftViewController.h"
 #import "VHPlayerSkinViewController.h"
 #import "VHSettingViewController.h"
 #import "SampleScreenViewController.h"
@@ -154,6 +155,24 @@
     watchVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:watchVC animated:YES completion:nil];
 }
+//时移
+- (void)timeshiftBtnClicked:(UIButton *)sender
+{
+    if(_recordIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
+    {
+        [self showMsg:@"参数不能为空" afterDelay:1.5];
+        return;
+    }
+
+    DEMO_Setting.recordID = _recordIDTextField.text;
+    DEMO_Setting.accessToken =_accessTokenTextField.text;
+    
+    WatchTimeshiftViewController * watchVC = [[WatchTimeshiftViewController alloc] init];
+    watchVC.roomId      = DEMO_Setting.playerRoomID;
+    watchVC.accessToken = DEMO_Setting.accessToken;
+    watchVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:watchVC animated:YES completion:nil];
+}
 //点播皮肤
 - (void)vodBtn1Clicked:(UIButton *)sender {
     if(_recordIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
@@ -282,8 +301,15 @@
     vodBtn.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:vodBtn];
     
+    UIButton *timeShiftBtn = [[UIButton alloc] initWithFrame:CGRectMake(vodBtn.right + 10, vodBtn.top, vodBtn.width, accessTokenTextField.height)];
+    timeShiftBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [timeShiftBtn setTitle:@"观看时移" forState:UIControlStateNormal];
+    [timeShiftBtn addTarget:self action:@selector(timeshiftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    timeShiftBtn.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:timeShiftBtn];
     
-    UIButton *vodBtn1 = [[UIButton alloc] initWithFrame:CGRectMake(vodBtn.right + 10, vodBtn.top, vodBtn.width, accessTokenTextField.height)];
+    
+    UIButton *vodBtn1 = [[UIButton alloc] initWithFrame:CGRectMake(timeShiftBtn.right + 10, timeShiftBtn.top, timeShiftBtn.width, accessTokenTextField.height)];
     vodBtn1.titleLabel.font = [UIFont systemFontOfSize:15];
     [vodBtn1 setTitle:@"点播皮肤" forState:UIControlStateNormal];
     [vodBtn1 addTarget:self action:@selector(vodBtn1Clicked:) forControlEvents:UIControlEventTouchUpInside];

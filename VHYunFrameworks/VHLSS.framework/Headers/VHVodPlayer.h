@@ -54,6 +54,15 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 @property (nonatomic,readonly) UIImageView* watermarkImageView;
 
 /**
+ * 是否使用直播实移 YES:使用 NO:不使用  默认为NO
+ */
+@property(nonatomic, assign) BOOL isTimeshift;
+/**
+ * 使用直播实移 当前播放时长 (直播实移才生效)
+ */
+@property(nonatomic, assign) NSInteger live_duration;
+
+/**
  * 点播视播放器seek模式设置 注意：需要播放前调用
  * 如果是seekModel == VHVodPlayerSeeekModelPlayed 为指定播放过时间
  */

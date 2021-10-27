@@ -79,18 +79,10 @@
     DEMO_Setting.nickName = _nicknameTextField.text;
     DEMO_Setting.avatar   = _avatarTextField.text;
 
-    __weak typeof(self)wf = self;
-    [VHLiveBase registerApp:DEMO_Setting.appID host:DEMO_VhalyunHost completeBlock:^(NSError *error) {
-        if(error)
-        {
-            [wf showMsg:error.domain afterDelay:2];
-        }
-        else
-        {
-            [wf dismissViewControllerAnimated:YES completion:nil];
-        }
-    }];
+    [VHLiveBase registerApp:DEMO_Setting.appID host:DEMO_VhalyunHost];
     
+    [self dismissViewControllerAnimated:YES completion:nil];
+
     [VHLiveBase setThirdPartyUserId:DEMO_Setting.third_party_user_id context:@{@"nick_name":DEMO_Setting.nickName,@"avatar":DEMO_Setting.avatar}];
 }
 

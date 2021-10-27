@@ -72,6 +72,12 @@ typedef NS_ENUM(NSInteger, VHPublishError) {
 
 /**
  *  初始化
+ *  @param config  config参数
+ *  @param logParam 日志上报
+ */
+- (instancetype)initWithConfig:(VHPublishConfig*)config logParam:(NSDictionary*)logParam;
+/**
+ *  初始化
  *  高级功能 自定义采集器
  *  @param config  config参数
  *  @param videoCapture  自定义视频采集器
@@ -182,6 +188,8 @@ typedef NS_ENUM(NSInteger, VHPublishError) {
  *  获得当前SDK版本号
  */
 + (NSString *) getSDKVersion;
+
+
 @end
 
 @protocol VHLivePublisherDelegate <NSObject>

@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *curTimeSlider;
 @property (weak, nonatomic) IBOutlet UILabel  *maxLabel;
 @property (weak, nonatomic) IBOutlet UIButton *fullscreenBtn;
+@property (weak, nonatomic) IBOutlet UIButton *timesBtn;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *definitionBtn;

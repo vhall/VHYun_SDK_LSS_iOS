@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,6 +25,7 @@
                 <outlet property="playBtn" destination="2kW-AC-z9V" id="5zh-Ps-ZkE"/>
                 <outlet property="preView" destination="zSR-Gi-HxU" id="BL7-tS-yX6"/>
                 <outlet property="rateBtn" destination="n3l-q5-nhC" id="Ll2-ca-C3f"/>
+                <outlet property="timesBtn" destination="MqV-5X-ExV" id="C5h-Vl-WD0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -382,10 +383,32 @@
                                 <action selector="screenShareBtnClicked:" destination="-1" eventType="touchUpInside" id="6Nr-9L-5ei"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MqV-5X-ExV">
+                            <rect key="frame" x="290" y="21" width="31" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="0.70173373279999995" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="31" id="42r-29-Muz"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="GZV-r5-Oi1"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="QAA-rs-32p"/>
+                                <constraint firstAttribute="height" constant="30" id="TWR-u3-KCH"/>
+                                <constraint firstAttribute="width" constant="31" id="jxX-3Y-KOK"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="qZG-Q0-4Lr"/>
+                            </constraints>
+                            <state key="normal" title="时移">
+                                <color key="titleColor" red="1" green="0.046545039429999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Z41-7p-LOm" firstAttribute="leading" secondItem="zSR-Gi-HxU" secondAttribute="leading" constant="51" id="2Js-Ks-ba3"/>
+                        <constraint firstItem="MqV-5X-ExV" firstAttribute="leading" secondItem="bfu-59-e82" secondAttribute="trailing" constant="8" symbolic="YES" id="2OT-gB-Lx5"/>
                         <constraint firstItem="Z41-7p-LOm" firstAttribute="top" secondItem="zSR-Gi-HxU" secondAttribute="top" constant="21" id="JVn-QA-EwJ"/>
                         <constraint firstItem="J6g-TR-k8Q" firstAttribute="leading" secondItem="n3l-q5-nhC" secondAttribute="trailing" constant="16" id="KH8-hp-zYk"/>
                         <constraint firstItem="bfu-59-e82" firstAttribute="centerY" secondItem="hYi-j8-9Yw" secondAttribute="centerY" id="RMK-6O-6T0"/>
@@ -397,6 +420,7 @@
                         <constraint firstItem="OXx-Mk-bUO" firstAttribute="leading" secondItem="zSR-Gi-HxU" secondAttribute="leading" id="dCx-J7-zoc"/>
                         <constraint firstAttribute="bottom" secondItem="OXx-Mk-bUO" secondAttribute="bottom" id="dPK-md-Yxt"/>
                         <constraint firstItem="n3l-q5-nhC" firstAttribute="centerY" secondItem="Ihu-hI-KQB" secondAttribute="centerY" id="eDs-kr-d4w"/>
+                        <constraint firstItem="MqV-5X-ExV" firstAttribute="centerY" secondItem="bfu-59-e82" secondAttribute="centerY" id="kFs-gJ-Egt"/>
                         <constraint firstAttribute="trailing" secondItem="OXx-Mk-bUO" secondAttribute="trailing" id="rr2-MD-lrI"/>
                         <constraint firstItem="Ihu-hI-KQB" firstAttribute="leading" secondItem="Z41-7p-LOm" secondAttribute="trailing" constant="8" id="v0s-k3-TfO"/>
                         <constraint firstItem="bfu-59-e82" firstAttribute="leading" secondItem="hYi-j8-9Yw" secondAttribute="trailing" constant="8" symbolic="YES" id="vNs-u9-Jvp"/>
@@ -424,7 +448,7 @@
                 <constraint firstItem="zSR-Gi-HxU" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="rQL-17-Cin"/>
                 <constraint firstItem="Oxl-mX-ScB" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="zf5-Nt-zwj"/>
             </constraints>
-            <point key="canvasLocation" x="-353" y="-11"/>
+            <point key="canvasLocation" x="-196" y="-37"/>
         </view>
     </objects>
     <resources>
