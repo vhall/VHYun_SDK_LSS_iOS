@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name            = "VHYun_LSS"
-  s.version         = "2.4.1"
+  s.version         = "2.4.2"
   s.author          = { "wangxiaoxiang" => "xiaoxiang.wang@vhall.com" }
   s.license         = { :type => "MIT", :file => "LICENSE" }
   s.homepage        = 'https://www.vhall.com'
@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
     'HEADER_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/**'
   }
 
-  s.dependency 'VHCore','>=2.2.1'
+  s.dependency 'VHCore','>=2.2.2'
 end
