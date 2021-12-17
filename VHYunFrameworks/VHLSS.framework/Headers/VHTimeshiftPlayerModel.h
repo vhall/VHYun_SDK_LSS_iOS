@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign,readonly)NSInteger  stream_status; // 1推流中 2 未推流
 @property (nonatomic,assign)BOOL   cast_screen;//是否开启投屏 默认Yes
 @property(nonatomic, assign) BOOL live_subtitle;//是否开通实时字幕 1 开通 0 未开通
+@property(nonatomic, assign) BOOL live_type;//0 普通直播 1 时移直播
 
 @property (nonatomic,copy,readonly)NSDictionary *logParam;
 

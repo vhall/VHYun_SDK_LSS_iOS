@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "VHPublishConfig.h"
 #import "IVHCapture.h"
+#import "IVHBeautifyModule.h"
 
 typedef NS_ENUM(NSInteger, VHPublishStatus) {
     VHPublishStatusNone,//
@@ -69,6 +70,11 @@ typedef NS_ENUM(NSInteger, VHPublishError) {
  *  @param config  config参数
  */
 - (instancetype)initWithConfig:(VHPublishConfig*)config;
+
+/// 初始化
+/// @param config config参数
+/// @param module 高级美颜module
+- (instancetype)initWithConfig:(VHPublishConfig*)config AndvancedBeautify:(id<IVHBeautifyModule>)module;
 
 /**
  *  初始化

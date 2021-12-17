@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  直播时移播放
- *  @param roomId         房间ID
+ *  @param roomID         房间ID
  *  @param delay          时移默认90秒之前的音视频内容  90以内为直播服务
  *  @param accessToken  accessToken
  */
