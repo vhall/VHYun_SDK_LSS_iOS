@@ -74,7 +74,7 @@ typedef NS_ENUM(NSInteger, VHPublishError) {
 /// 初始化
 /// @param config config参数
 /// @param module 高级美颜module
-- (instancetype)initWithConfig:(VHPublishConfig*)config AndvancedBeautify:(id<IVHBeautifyModule>)module;
+- (instancetype)initWithConfig:(VHPublishConfig*)config AndvancedBeautify:(id<IVHBeautifyModule>)module HandleError:(void(^)(NSError *error))handle;
 
 /**
  *  初始化
@@ -82,6 +82,7 @@ typedef NS_ENUM(NSInteger, VHPublishError) {
  *  @param logParam 日志上报
  */
 - (instancetype)initWithConfig:(VHPublishConfig*)config logParam:(NSDictionary*)logParam;
+
 /**
  *  初始化
  *  高级功能 自定义采集器

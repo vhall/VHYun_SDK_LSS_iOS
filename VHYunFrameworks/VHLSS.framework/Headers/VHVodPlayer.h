@@ -136,6 +136,12 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 /// @param DLNAobj 投屏VHDLNAControl对象
 - (BOOL)dlnaMappingObject:(VHDLNAControl *)DLNAobj;
 
+/** 开启画中画 */
+- (BOOL)openPIPSupported;
+
+/** 关闭画中画 */
+- (void)closePIPSupported;
+
 @end
 
 @protocol VHVodPlayerDelegate <NSObject>
