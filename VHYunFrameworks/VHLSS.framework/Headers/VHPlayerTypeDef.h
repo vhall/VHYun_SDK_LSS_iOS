@@ -16,6 +16,10 @@ typedef NS_ENUM(NSInteger, VHPlayerStatus) {
     VHPlayerStatusPause,        //播放暂停
     VHPlayerStatusStop,         //停止播放
     VHPlayerStatusComplete,     //本次播放完
+    VHPlayerStatusfpReconnect,     // 重新连接(快直播可用)
+    VHPlayerStatusfpVideoChangeSucceed,   // 清晰度改变成功(快直播可用)
+    VHPlayerStatusfpVideoChangefailed,    // 清晰度改变失败(快直播可用)
+    VHPlayerStatusfpConnectFailed         // 连接失败(快直播可用)
 };
 
 typedef NS_ENUM(NSInteger, VHPlayerScalingMode) {
