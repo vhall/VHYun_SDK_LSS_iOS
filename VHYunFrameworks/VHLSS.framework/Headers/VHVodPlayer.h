@@ -30,9 +30,9 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 @property (nonatomic, assign) NSTimeInterval           currentPlaybackTime;  //点播当前播放时间
 @property (nonatomic,assign) VHPlayerScalingMode       scalingMode; //设置画面的裁剪模式   详见 VHPlayerScalingMode 的定义.
 @property (nonatomic,assign) NSTimeInterval     initialPlaybackTime; //初始化要播放的位置
-@property(nonatomic,assign) int timeout;        //链接的超时时间 默认10000毫秒，单位为毫秒
+@property (nonatomic,assign) int timeout;        //链接的超时时间 默认10000毫秒，单位为毫秒
 @property (nonatomic,assign) float rate;        //播放速率  0.50, 0.67, 0.80, 1.0, 1.25, 1.50, and 2.0
-@property(nonatomic,assign) BOOL mute;  //是否静音
+@property (nonatomic,assign) BOOL mute;  //是否静音
 
 /**
  *  设置默认播放的清晰度 默认原画
