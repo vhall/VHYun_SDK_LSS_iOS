@@ -1,12 +1,13 @@
 Pod::Spec.new do |s|
   s.name          = "VHYun_LSS"
-  s.version       = "2.7.1"
+  s.version       = "2.7.2"
   s.summary       = "VHall iOS SDK #{s.name.to_s}"
   s.homepage     = 'https://www.vhall.com'
   s.author       = { "LiGuoliang" => "guoliang.li@vhall.com" }
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.source          = { :git => "https://gitee.com/vhall/VHYun_SDK_LSS_iOS.git", :tag => s.version.to_s}
   s.requires_arc    = true
+  s.platform        = :ios, '8.0'
   s.module_name     = "#{s.name.to_s}"
   s.vendored_frameworks = 'VHYunFrameworks/VhallLiveBaseApi.framework','VHYunFrameworks/VHLSS.framework'
   s.pod_target_xcconfig = {

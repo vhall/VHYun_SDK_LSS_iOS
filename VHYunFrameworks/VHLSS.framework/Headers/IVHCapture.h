@@ -134,6 +134,9 @@ typedef void(^OnErrorBlock)(NSDictionary* errorInfo);
  *  曝光档数范围在minExposureTargetBias和maxExposureTargetBias之间。0为默认没有补偿0为默认没有补偿(注意每次调用对焦方法都会重置为0)
  */
 - (void)setExposureTargetBias:(float)bias;
+/// 静视
+/// @param mute 是否静视,给黑屏
+- (void)setCameraMute:(BOOL)mute;
 @end
 
 @protocol IVHAudioCapture <NSObject,IVHCapture>
