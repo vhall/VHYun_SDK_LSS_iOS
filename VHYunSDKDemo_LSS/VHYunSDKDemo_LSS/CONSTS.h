@@ -9,22 +9,14 @@
 #ifndef CONSTS_h
 #define CONSTS_h
 
-//开发说明 http://www.vhallyun.com/docs/show/26.html
-//1、关闭bitcode
-//2、设置plist中 App Transport Security Settings -> Allow Arbitrary Loads 设置为YES
-//3、设置plist中 Privacy - Camera Usage Description      是否允许使用相机
-//4、设置plist中 Privacy - Microphone Usage Description  是否允许使用麦克风
-//5、设置以下数据 检查 Bundle ID 即可观看直播
+#import "VHSystemSettings.h"
+#import <objc/message.h>
 
-#define DEMO_AppID                  @""//http://www.vhallyun.com/docs/show/26.html
-#define DEMO_AccessToken            @""
-#define DEMO_third_party_user_id    [[[UIDevice currentDevice] identifierForVendor] UUIDString]
+#import <YYModel/YYModel.h>
+#import <GLEnvs/GLEnvs.h>
+#import <GLExtensions/UIViewController+GLExtension.h>
+#import <GLExtensions/NSObject+GLExtension.h>
 
-#define DEMO_PlayerRoomID           @""//http://www.vhallyun.com/docs/show/49.html
-#define DEMO_PublishRoomID          @""
-#define DEMO_RecordID               @""
-#define DEMO_DocChannelID           @""
-#define DEMO_IMChannelID            @""
-#define DEMO_InteractiveID          @""
-#define DEMO_GroupID                @""
+#define GETTER(_TYPE_, _VAR_, _VALUE_)      -(_TYPE_)_VAR_{if(!_##_VAR_) {_##_VAR_ = _VALUE_;}return _##_VAR_;}
+
 #endif /* CONSTS_h */

@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "VHBaseViewController.h"
+
 @interface ViewController : VHBaseViewController
 
-
 @end
-

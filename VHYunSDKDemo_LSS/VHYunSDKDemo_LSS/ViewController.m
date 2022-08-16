@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "ViewController+vhall.h"
+//#import "ViewController+vhall.h"
 #import <VHLSS/VHLivePublisher.h>
 #import <VHLSS/VHLivePlayer.h>
 #import <VHLSS/VHVodPlayer.h>
@@ -50,158 +50,6 @@
     [super viewWillAppear:animated];
     
     [self showInitSDKVC];
-}
-
-- (void)settingBtnClicked:(UIButton*)sender
-{
-    VHSettingViewController * settingVC = [[VHSettingViewController alloc] init];
-    settingVC.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:settingVC animated:YES completion:nil];
-}
-//发直播
-- (void)publishBtnClicked:(UIButton*)sender
-{
-    if(![self isCaptureDeviceOK])
-        return;
-    
-    if(_businessIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
-    {
-        [self showMsg:@"参数不能为空" afterDelay:1.5];
-        return;
-    }
-
-    DEMO_Setting.publishRoomID = _businessIDTextField.text;
-    DEMO_Setting.playerRoomID = _businessIDTextField.text;
-    DEMO_Setting.accessToken =_accessTokenTextField.text;
-    
-    PublishViewController * rtmpLivedemoVC = [[PublishViewController alloc] init];
-    rtmpLivedemoVC.videoResolution  = DEMO_Setting.videoResolution.intValue;
-    rtmpLivedemoVC.roomId           = DEMO_Setting.publishRoomID;
-    rtmpLivedemoVC.accessToken      = DEMO_Setting.accessToken;
-    rtmpLivedemoVC.videoBitRate     = DEMO_Setting.videoBitRate;
-    rtmpLivedemoVC.audioBitRate     = DEMO_Setting.audioBitRate;
-    rtmpLivedemoVC.videoCaptureFPS  = DEMO_Setting.videoCaptureFPS;
-    rtmpLivedemoVC.interfaceOrientation  = (sender.tag == 1)?UIInterfaceOrientationLandscapeRight :UIInterfaceOrientationPortrait;
-    rtmpLivedemoVC.isOpenNoiseSuppresion = DEMO_Setting.isOpenNoiseSuppresion;
-    rtmpLivedemoVC.beautifyFilterEnable  = DEMO_Setting.isBeautifyFilterEnable;
-    rtmpLivedemoVC.volumeAmplificateSize = DEMO_Setting.volumeAmplificateSize;
-    rtmpLivedemoVC.isOnlyAudio           = DEMO_Setting.isOnlyAudio;
-    rtmpLivedemoVC.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:rtmpLivedemoVC animated:YES completion:nil];
-}
-
-- (void)screenBtnClicked:(UIButton*)sender
-{
-    if(![self isCaptureDeviceOK])
-        return;
-    
-    if(_businessIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
-    {
-        [self showMsg:@"参数不能为空" afterDelay:1.5];
-        return;
-    }
-
-    DEMO_Setting.publishRoomID = _businessIDTextField.text;
-    DEMO_Setting.playerRoomID = _businessIDTextField.text;
-    DEMO_Setting.accessToken =_accessTokenTextField.text;
-    
-    SampleScreenViewController * rtmpLivedemoVC = [[SampleScreenViewController alloc] init];
-    rtmpLivedemoVC.roomId           = DEMO_Setting.publishRoomID;
-    rtmpLivedemoVC.accessToken      = DEMO_Setting.accessToken;
-    rtmpLivedemoVC.videoBitRate     = 1500;
-    rtmpLivedemoVC.videoCaptureFPS  = DEMO_Setting.videoCaptureFPS;
-    rtmpLivedemoVC.extensionBundleID= @"com.vhallyun.lss.ScreenLive";
-    rtmpLivedemoVC.interfaceOrientation  = (sender.tag == 1)?UIInterfaceOrientationLandscapeRight :UIInterfaceOrientationPortrait;
-    rtmpLivedemoVC.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:rtmpLivedemoVC animated:YES completion:nil];
-}
-
-//直播
-- (void)playerBtnClicked:(UIButton*)sender
-{
-    if(_businessIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
-    {
-        [self showMsg:@"参数不能为空" afterDelay:1.5];
-        return;
-    }
-
-    DEMO_Setting.publishRoomID = _businessIDTextField.text;
-    DEMO_Setting.playerRoomID = _businessIDTextField.text;
-    DEMO_Setting.accessToken =_accessTokenTextField.text;
-    
-    WatchViewController * watchVC = [[WatchViewController alloc] init];
-    watchVC.roomId      = DEMO_Setting.playerRoomID;
-    watchVC.accessToken = DEMO_Setting.accessToken;
-    watchVC.bufferTime  = DEMO_Setting.bufferTime;
-    watchVC.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:watchVC animated:YES completion:nil];
-}
-//点播
-- (void)vodBtnClicked:(UIButton*)sender
-{
-    if(_recordIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
-    {
-        [self showMsg:@"参数不能为空" afterDelay:1.5];
-        return;
-    }
-
-    DEMO_Setting.recordID = _recordIDTextField.text;
-    DEMO_Setting.accessToken =_accessTokenTextField.text;
-    
-    WatchVodViewController * watchVC = [[WatchVodViewController alloc] init];
-    watchVC.recordID    = DEMO_Setting.recordID;
-    watchVC.accessToken = DEMO_Setting.accessToken;
-    watchVC.seekMode    = DEMO_Setting.seekMode;
-    watchVC.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:watchVC animated:YES completion:nil];
-}
-//时移
-- (void)timeshiftBtnClicked:(UIButton *)sender
-{
-    if(_recordIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
-    {
-        [self showMsg:@"参数不能为空" afterDelay:1.5];
-        return;
-    }
-
-    DEMO_Setting.recordID = _recordIDTextField.text;
-    DEMO_Setting.accessToken =_accessTokenTextField.text;
-    
-    WatchTimeshiftViewController * watchVC = [[WatchTimeshiftViewController alloc] init];
-    watchVC.roomId      = DEMO_Setting.playerRoomID;
-    watchVC.accessToken = DEMO_Setting.accessToken;
-    watchVC.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:watchVC animated:YES completion:nil];
-}
-//点播皮肤
-- (void)vodBtn1Clicked:(UIButton *)sender {
-    if(_recordIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
-    {
-        [self showMsg:@"参数不能为空" afterDelay:1.5];
-        return;
-    }
-    
-    DEMO_Setting.recordID = _recordIDTextField.text;
-    DEMO_Setting.accessToken =_accessTokenTextField.text;
-    
-    VHPlayerSkinViewController * vc = [[VHPlayerSkinViewController alloc] initWithrecordId:DEMO_Setting.recordID accessToken:DEMO_Setting.accessToken];
-    vc.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:vc animated:YES completion:nil];
-}
-//直播皮肤
-- (void)liveSkinBtnClicked:(UIButton *)sender {
-    if(_businessIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
-    {
-        [self showMsg:@"参数不能为空" afterDelay:1.5];
-        return;
-    }
-
-    DEMO_Setting.playerRoomID = _businessIDTextField.text;
-    DEMO_Setting.accessToken =_accessTokenTextField.text;
-
-    VHPlayerSkinViewController * vc = [[VHPlayerSkinViewController alloc] initWithLiveId:DEMO_Setting.playerRoomID accessToken:DEMO_Setting.accessToken];
-    vc.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)initSDKView
@@ -293,6 +141,12 @@
     playBtn.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:playBtn];
     
+    UIButton *fastPlayBtn = [[UIButton alloc] initWithFrame:CGRectMake(accessTokenTextField.left, playBtn.bottom+10, nextBtn.width, accessTokenTextField.height)];
+    fastPlayBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [fastPlayBtn setTitle:@"快直播" forState:UIControlStateNormal];
+    [fastPlayBtn addTarget:self action:@selector(fastPlayBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    fastPlayBtn.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:fastPlayBtn];
 
     UIButton *vodBtn = [[UIButton alloc] initWithFrame:CGRectMake(playBtn.right + 10, playBtn.top, playBtn.width, accessTokenTextField.height)];
     vodBtn.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -316,7 +170,7 @@
     vodBtn1.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:vodBtn1];
     
-    UIButton *screenBtn = [[UIButton alloc] initWithFrame:CGRectMake(accessTokenTextField.left, vodBtn.bottom+20, vodBtn.width, accessTokenTextField.height)];
+    UIButton *screenBtn = [[UIButton alloc] initWithFrame:CGRectMake(accessTokenTextField.left, vodBtn.bottom+50, vodBtn.width, accessTokenTextField.height)];
     screenBtn.titleLabel.font = [UIFont systemFontOfSize:15];
     [screenBtn setTitle:@"录屏直播" forState:UIControlStateNormal];
     [screenBtn addTarget:self action:@selector(screenBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -330,29 +184,6 @@
     label.textColor = [UIColor grayColor];
     label.text = [NSString stringWithFormat:@"微吼云 LSS SDK v%@",[VHLivePlayer getSDKVersion]];
     [self.view addSubview:label];
-}
-
-#pragma mark - 权限检查
-//    iOS 判断应用是否有使用相机的权限
-- (BOOL)isCaptureDeviceOK
-{
-    NSString *mediaType = AVMediaTypeVideo;//读取媒体类型
-    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];//读取设备授权状态
-    if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
-        NSString *errorStr = @"相机权限受限,请在设置中启用";
-        [self showMsg:errorStr afterDelay:2];
-        return NO;
-    }
-    
-    mediaType = AVMediaTypeAudio;//读取媒体类型
-    authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];//读取设备授权状态
-    if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
-        NSString *errorStr = @"麦克风权限受限,请在设置中启用";
-        [self showMsg:errorStr afterDelay:2];
-        return NO;
-    }
-    
-    return YES;
 }
 
 

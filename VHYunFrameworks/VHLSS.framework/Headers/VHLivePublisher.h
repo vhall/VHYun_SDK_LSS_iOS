@@ -45,15 +45,17 @@ typedef NS_ENUM(NSInteger, VHPublishError) {
  */
 @property (nonatomic,assign,readonly)AVCaptureDevicePosition captureDevicePosition;
 
+/// 静视频。回显以及观众看到的是黑屏，不影响音频相关内容
+@property (nonatomic) BOOL cameraMute;
+
+/// 静音频。不影响视频相关内容
+@property (nonatomic,assign)BOOL enableMute;
+
 /**
  *  获取推流参数
  */
 @property (nonatomic,strong,readonly)VHPublishConfig* config;
 
-/**
- *  静音
- */
-@property (nonatomic,assign)BOOL enableMute;
 
 /**
  *  推流前可设置视频码率

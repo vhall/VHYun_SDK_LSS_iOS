@@ -13,17 +13,16 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 }\
 (isPhoneX);})
 
-#import "ViewController+vhall.h"
+#import "LSSViewController+vhall.h"
 #import "InitSDKViewController.h"
 #import "VHStatisticsStystem.h"
 #import "UIView+ITTAdditions.h"
 
 #import <VHCore/VHLiveBase.h>
-#import "VHStystemSetting.h"
 
 dispatch_source_t _timer_g;
 
-@implementation ViewController (vhall)
+@implementation LSSViewController (vhall)
 - (void)showInitSDKVC
 {
     if(![VHLiveBase isInited])
@@ -105,9 +104,9 @@ dispatch_source_t _timer_g;
     
     netInfoLabel.top = h;
     netInfoLabel.text = [NSString stringWithFormat:@"(%@)%@(%@)(%@)",
-                         DEMO_Setting.appID,
+                         VHSystemInstance.appID,
                          strInfo,
-                         DEMO_Setting.third_party_user_id,
+                         VHSystemInstance.third_party_user_id,
                          [VHLiveBase getSDKVersion]];
 }
 

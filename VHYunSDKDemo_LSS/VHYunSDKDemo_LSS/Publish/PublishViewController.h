@@ -7,16 +7,11 @@
 //
 
 #import "VHBaseViewController.h"
+#import <VHLSS/VHPublishConfig.h>
 
 @interface PublishViewController : VHBaseViewController
-@property(nonatomic,copy)   NSString        *roomId;
-@property(nonatomic,copy)   NSString        *accessToken;
-@property(nonatomic,assign) NSInteger       videoBitRate;
-@property(nonatomic,assign) NSInteger       audioBitRate;
-@property(nonatomic,assign) NSInteger       videoCaptureFPS;
-@property(nonatomic,assign) BOOL            isOpenNoiseSuppresion;
-@property(nonatomic,assign) long            videoResolution;//0 352*288; 1 640*480; 2 960*540; 3 1280*720
-@property(nonatomic,assign) BOOL            beautifyFilterEnable;
-@property(nonatomic,assign) float           volumeAmplificateSize;
-@property(nonatomic,assign) BOOL            isOnlyAudio;
+
+- (instancetype)initWithRoomID:(NSString *)roomID accessToken:(NSString *)accesstoken publishConfig:(VHPublishConfig *)config;
+
+- (instancetype)init NS_UNAVAILABLE;
 @end
