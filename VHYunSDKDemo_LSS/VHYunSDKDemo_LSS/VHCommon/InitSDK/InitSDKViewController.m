@@ -9,7 +9,6 @@
 #import "InitSDKViewController.h"
 #import <objc/message.h>
 #import "UIView+ITTAdditions.h"
-#import "VHStystemSetting.h"
 
 @interface InitSDKViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *appIDTextField;
@@ -44,46 +43,37 @@
 */
 
 
-- (void)initView
-{
-    NSLog(@"微吼云 Foundation Version: %@",[VHLiveBase getSDKVersion]);
-    
-    [VHLiveBase setAppGroup:DEMO_GroupID];
-
-    _appIDTextField.text = DEMO_Setting.appID;
-    _userIDTextField.text = DEMO_Setting.third_party_user_id;
-    _nicknameTextField.text = DEMO_Setting.nickName;
-    _avatarTextField.text = DEMO_Setting.avatar;
+- (void)initView {
+    [VHLiveBase setAppGroup:VHSystemInstance.groupID];
+    _appIDTextField.text = VHSystemInstance.appID;
+    _userIDTextField.text = VHSystemInstance.third_party_user_id;
+    _nicknameTextField.text = VHSystemInstance.nickName;
+    _avatarTextField.text = VHSystemInstance.avatar;
     _bundleIDLabel.text = [NSBundle mainBundle].bundleIdentifier;
-
-    if([self respondsToSelector:@selector(initTestSwitch)])
-        [self initTestSwitch];
 }
 
 - (IBAction)nextBtnClicked:(id)sender {
     [self hideKeyBoard];
 
-    DEMO_Setting.appID = _appIDTextField.text;
-    DEMO_Setting.third_party_user_id =_userIDTextField.text;
+    VHSystemInstance.appID = _appIDTextField.text;
+    VHSystemInstance.third_party_user_id =_userIDTextField.text;
     
-    if(DEMO_Setting.appID.length<=0)
+    if(VHSystemInstance.appID.length<=0)
     {
         [self showMsg:@"appID 不能为空" afterDelay:1];
         return;
     }
-    if(DEMO_Setting.third_party_user_id.length<=0)
+    if(VHSystemInstance.third_party_user_id.length<=0)
     {
         [self showMsg:@"用户ID 不能为空" afterDelay:1];
         return;
     }
-    DEMO_Setting.nickName = _nicknameTextField.text;
-    DEMO_Setting.avatar   = _avatarTextField.text;
-
-    [VHLiveBase registerApp:DEMO_Setting.appID host:DEMO_VhalyunHost];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-
-    [VHLiveBase setThirdPartyUserId:DEMO_Setting.third_party_user_id context:@{@"nick_name":DEMO_Setting.nickName,@"avatar":DEMO_Setting.avatar}];
+    VHSystemInstance.nickName = _nicknameTextField.text;
+    VHSystemInstance.avatar   = _avatarTextField.text;
+    [VHLiveBase registerApp:VHSystemInstance.appID host:@"" completeBlock:^(NSError *error) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [VHLiveBase setThirdPartyUserId:VHSystemInstance.third_party_user_id context:@{@"nick_name":VHSystemInstance.nickName,@"avatar":VHSystemInstance.avatar}];
 }
 
 - (void)hideKeyBoard
@@ -95,36 +85,6 @@
 {
     [textField resignFirstResponder];
     return YES;
-}
-
-#pragma mark - 测试正式环境开关不可以暴露给客户
-- (void)initTestSwitch
-{
-    [VHLiveBase setLogLevel:(VHLogLevel)5];
-    [VHLiveBase printLogToConsole:YES];
-    
-    UISwitch *testSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(25,0, 10, 10)];
-    testSwitch.tag = 10099;
-    [testSwitch addTarget:self action:@selector(testSwitchValueChanged:) forControlEvents:UIControlEventValueChanged];
-    UILabel *l = [[UILabel alloc]initWithFrame:CGRectMake(testSwitch.width, 0, 80, testSwitch.height)];
-    l.text = @"Release";
-    l.textColor = [UIColor redColor];
-    [testSwitch addSubview:l];
-    [self.view addSubview:testSwitch];
-    
-    testSwitch.top = _userIDTextField.bottom-2;
-#if (VHALL_HOST_INDEX == 0)// 测试环境
-    testSwitch.on = NO;
-#elif (VHALL_HOST_INDEX == 1)// 生产环境
-    testSwitch.on = YES;
-#endif
-    
-    [self testSwitchValueChanged:testSwitch];
-}
-
-- (void)testSwitchValueChanged:(UISwitch *)uiSwitch
-{
-    ((BOOL(*)(id,SEL,BOOL))objc_msgSend)([VHLiveBase class],@selector(setTestServerUrl:),!uiSwitch.on);
 }
 
 @end

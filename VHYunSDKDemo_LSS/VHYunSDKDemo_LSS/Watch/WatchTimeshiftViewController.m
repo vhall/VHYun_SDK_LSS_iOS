@@ -8,6 +8,7 @@
 
 #import "WatchTimeshiftViewController.h"
 #import <VHLSS/VHTimeshiftPlayer.h>
+#import "BottomOptionsController.h"
 #define CONTROLS_SHOW_TIME  10  //底部进度条显示时间
 
 #define DefinitionNameList  (@[@"原画",@"超清",@"高清",@"标清",@"音频"])
@@ -31,13 +32,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *timeshiftButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *definitionBtn;
-
-@property (weak, nonatomic) IBOutlet UIView   *definitionsView;
-@property (weak, nonatomic) IBOutlet UIButton *definitionBtn0;
-@property (weak, nonatomic) IBOutlet UIButton *definitionBtn1;
-@property (weak, nonatomic) IBOutlet UIButton *definitionBtn2;
-@property (weak, nonatomic) IBOutlet UIButton *definitionBtn3;
-@property (weak, nonatomic) IBOutlet UIButton *definitionBtn4;
+@property (nonatomic) NSArray<OptItem *> *definitionList;
+@property (nonatomic) NSUInteger definitionSelectedIndex;
 
 @property (nonatomic, assign) BOOL  isChangeSlider;
 @property (nonatomic, assign) NSTimeInterval  currentTime;
@@ -94,8 +90,6 @@
     [self.preView addGestureRecognizer:singleRecognizer];
     
     [_definitionBtn setTitle:DefinitionNameList[0] forState:UIControlStateNormal];
-    _definitionsView.hidden = YES;
-    _definitionBtns = @[_definitionBtn0,_definitionBtn1,_definitionBtn2,_definitionBtn3,_definitionBtn4];
 }
 
 - (void)viewDidLayoutSubviews
@@ -118,17 +112,56 @@
     NSLog(@"%@: dealloc",[self class]);
 }
 
+
+- (NSArray<OptItem *> *)definitionList {
+    if(!_definitionList) {
+        _definitionList = @[
+            [OptItem itemWithTitle:@"原画"],
+            [OptItem itemWithTitle:@"超高清\n720p"],
+            [OptItem itemWithTitle:@"高清\n480p"],
+            [OptItem itemWithTitle:@"标清\n360p"],
+            [OptItem itemWithTitle:@"纯音频"],
+            [OptItem itemWithTitle:@"竖屏"],
+            [OptItem itemWithTitle:@"1080p"]
+        ];
+        [_definitionList enumerateObjectsUsingBlock:^(OptItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            obj.available = NO;
+        }];
+    }
+    return _definitionList;
+}
 - (IBAction)definitionsBtnClicked:(UIButton *)sender {
-    _definitionsView.hidden = !_definitionsView.hidden;
+    BottomOptionsController *options = [[BottomOptionsController alloc] initWithTitle:@"调整分辨率" dataSource:self.definitionList];
+    options.handleOnClickSure = ^(NSIndexPath *indexPath) {
+        [self definitionChangeIndex:indexPath.row];
+    };
+    options.selectedIndexPath = [NSIndexPath indexPathForRow:self.definitionSelectedIndex inSection:0];
+    [options showinViewController:self];
+}
+- (void)definitionChangeIndex:(NSUInteger)selectedIndex {
+    if(self.definitionSelectedIndex == selectedIndex) {
+        showToastMsg(@"当前清晰度已经是:%@", self.definitionList[self.definitionSelectedIndex].title);
+        return;
+    }
+    [self.player setCurDefinition:selectedIndex];
+}
+- (void)player:(VHTimeshiftPlayer *)player validDefinitions:(NSArray*)definitions curDefinition:(VHDefinition)definition {
+    __block BOOL available_definition = NO;
+    [definitions enumerateObjectsUsingBlock:^(NSNumber *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(definition == obj.intValue) {
+            available_definition = YES;
+        }
+    }];
+    if(available_definition) {
+        showToastMsg(@"当前分辨率为 : %@", [self.definitionList[(int)definition] title]);
+        self.definitionSelectedIndex = definition;
+    }
+    [definitions enumerateObjectsUsingBlock:^(NSNumber *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        self.definitionList[[obj unsignedIntegerValue]].available = YES;
+    }];
 }
 
-- (IBAction)definitionBtnClicked:(UIButton *)sender {
-    if(sender.selected) return;
-    
-    [_player setCurDefinition:sender.tag];
-    _definitionsView.hidden = YES;
-//    _logView.hidden = (sender.tag != VHDefinitionAudio);
-}
+
 - (IBAction)muteBtnClicked:(UIButton*)sender {
     sender.selected =  !sender.selected;
     _player.mute = sender.selected;
@@ -235,10 +268,7 @@
             break;
     }
 }
-- (void)player:(VHTimeshiftPlayer *)player validDefinitions:(NSArray*)definitions curDefinition:(VHDefinition)definition
-{
-    
-}
+
 - (void)player:(VHTimeshiftPlayer*)player currentTime:(NSTimeInterval)currentTime
 {
     if(_player.playerState == VHPlayerStatusPlaying)

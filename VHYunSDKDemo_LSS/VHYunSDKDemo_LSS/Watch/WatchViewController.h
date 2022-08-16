@@ -10,7 +10,10 @@
 #import "VHBaseViewController.h"
 
 @interface WatchViewController : VHBaseViewController
-@property(nonatomic,copy)NSString * roomId;
-@property(nonatomic,copy)NSString * accessToken;
-@property(nonatomic, assign)NSInteger bufferTime; 
+
+- (instancetype)initWithRoomID:(NSString *)lssID accessToken:(NSString *)accessToken BufferTime:(NSInteger)bufferTime;
+
+- (instancetype)initWithRoomID:(NSString *)lssID interactID:(NSString *)inavID accessToken:(NSString *)accessToken BufferTime:(NSInteger)bufferTime;
+
+- (instancetype)init NS_UNAVAILABLE;
 @end

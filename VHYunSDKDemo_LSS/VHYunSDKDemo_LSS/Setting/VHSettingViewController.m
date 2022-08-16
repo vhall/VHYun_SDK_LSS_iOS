@@ -13,7 +13,6 @@
 #import "VHSettingTableViewCell.h"
 #import "VHSettingArrowItem.h"
 #import "CustomPickerView.h"
-#import "VHStystemSetting.h"
 #import <VHCore/VHLiveBase.h>
 #import <VHLSS/VHLivePublisher.h>
 #import <VHLSS/VHVodPlayer.h>
@@ -216,9 +215,9 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 -(void)setupGroup0
 {
     item00 = [VHSettingTextFieldItem itemWithTitle:@"第三方ID"];
-    item00.text = DEMO_Setting.third_party_user_id;
+    item00.text = VHSystemInstance.third_party_user_id;
     item01 = [VHSettingTextFieldItem  itemWithTitle:@"AccessToken"];
-    item01.text=DEMO_Setting.accessToken;
+    item01.text=VHSystemInstance.accessToken;
     VHSettingGroup *group= [VHSettingGroup groupWithItems:@[item00,item01]];
     group.headerTitle = @"基础设置";
     [self.groups addObject:group];
@@ -226,9 +225,9 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 -(void)setupGroup1
 {
     item10 = [VHSettingTextFieldItem  itemWithTitle:@"看直播房间ID"];
-    item10.text=DEMO_Setting.playerRoomID;
+    item10.text=VHSystemInstance.playerRoomID;
     item11 = [VHSettingTextFieldItem  itemWithTitle:@"缓存时间"];
-    item11.text=[NSString stringWithFormat:@"%ld",(long)DEMO_Setting.bufferTime];
+    item11.text=[NSString stringWithFormat:@"%ld",(long)VHSystemInstance.bufferTime];
     VHSettingGroup *group= [VHSettingGroup groupWithItems:@[item10,item11]];
     group.headerTitle = @"看直播设置";
     [self.groups addObject:group];
@@ -238,24 +237,24 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 {
     __weak typeof(self) weakSelf = self;
     item20 = [VHSettingTextFieldItem  itemWithTitle:@"推流房间ID"];
-    item20.text = DEMO_Setting.publishRoomID;
+    item20.text = VHSystemInstance.publishRoomID;
     item21 = [VHSettingTextFieldItem  itemWithTitle:@"分辨率"];
-    item21.text = _selectArray[[DEMO_Setting.videoResolution intValue]];
+    item21.text = _selectArray[[VHSystemInstance.videoResolution intValue]];
     item21.operation=^(NSIndexPath *indexPath)
     {
         [weakSelf.tempTextField endEditing:YES];
         [weakSelf.pickerView showPickerView:weakSelf.view];
     };
     item22 = [VHSettingTextFieldItem  itemWithTitle:@"视频码率(kpbs)"];
-    item22.text = [NSString stringWithFormat:@"%ld",(long)DEMO_Setting.videoBitRate];
+    item22.text = [NSString stringWithFormat:@"%ld",(long)VHSystemInstance.videoBitRate];
     item23 = [VHSettingTextFieldItem  itemWithTitle:@"视频帧率(fps)"];
-    item23.text =  [NSString stringWithFormat:@"%ld",(long)DEMO_Setting.videoCaptureFPS];
+    item23.text =  [NSString stringWithFormat:@"%ld",(long)VHSystemInstance.videoCaptureFPS];
     item24 = [VHSettingTextFieldItem  itemWithTitle:@"音频码率(kpbs)"];
-    item24.text = [NSString stringWithFormat:@"%ld",(long)DEMO_Setting.audioBitRate];
+    item24.text = [NSString stringWithFormat:@"%ld",(long)VHSystemInstance.audioBitRate];
     item25 = [VHSettingTextFieldItem  itemWithTitle:@"纯音频推流"];
-    item25.text = DEMO_Setting.isOnlyAudio?@"1":@"0";
+    item25.text = VHSystemInstance.isOnlyAudio?@"1":@"0";
     item26 = [VHSettingTextFieldItem  itemWithTitle:@"开启美颜"];
-    item26.text = DEMO_Setting.isBeautifyFilterEnable?@"1":@"0";
+    item26.text = VHSystemInstance.isBeautifyFilterEnable?@"1":@"0";
     VHSettingGroup *group= [VHSettingGroup groupWithItems:@[item20,item21,item22,item23,item24,item25,item26]];
     group.headerTitle = @"推流设置";
     [self.groups addObject:group];
@@ -265,9 +264,9 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 -(void)setupGroup3
 {
     item30 = [VHSettingTextFieldItem  itemWithTitle:@"点播房间ID"];
-    item30.text=DEMO_Setting.recordID;
+    item30.text=VHSystemInstance.recordID;
     item31 = [VHSettingTextFieldItem  itemWithTitle:@"只播放过视频seek"];
-    item31.text= DEMO_Setting.seekMode?@"1":@"0";
+    item31.text= VHSystemInstance.seekMode?@"1":@"0";
     VHSettingGroup *group= [VHSettingGroup groupWithItems:@[item30,item31]];
     group.headerTitle = @"点播设置";
     [self.groups addObject:group];
@@ -276,9 +275,9 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 -(void)setupGroup4
 {
     item40 = [VHSettingTextFieldItem  itemWithTitle:@"文档channelID"];
-    item40.text=DEMO_Setting.docChannelID;
+    item40.text=VHSystemInstance.docChannelID;
     item41 = [VHSettingTextFieldItem  itemWithTitle:@"文档绑定roomID"];
-    item41.text=DEMO_Setting.docRoomID;
+    item41.text=VHSystemInstance.docRoomID;
     VHSettingGroup *group= [VHSettingGroup groupWithItems:@[item40,item41]];
     group.headerTitle = @"文档设置";
     [self.groups addObject:group];
@@ -287,7 +286,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 -(void)setupGroup5
 {
     item50 = [VHSettingTextFieldItem  itemWithTitle:@"IM channelID"];
-    item50.text=DEMO_Setting.imChannelID;
+    item50.text=VHSystemInstance.imChannelID;
     VHSettingGroup *group= [VHSettingGroup groupWithItems:@[item50]];
     group.headerTitle = @"IM设置";
     [self.groups addObject:group];
@@ -297,21 +296,21 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 {
     __weak typeof(self) weakSelf = self;
     item60 = [VHSettingTextFieldItem  itemWithTitle:@"互动房间ID"];
-    item60.text=DEMO_Setting.ilssRoomID;
+    item60.text=VHSystemInstance.ilssRoomID;
     item61 = [VHSettingTextFieldItem  itemWithTitle:@"旁路房间ID"];
-    item61.text=DEMO_Setting.ilssLiveRoomID;
+    item61.text=VHSystemInstance.ilssLiveRoomID;
     item62 = [VHSettingTextFieldItem  itemWithTitle:@"推流参数"];
-    item62.text = PushArr[DEMO_Setting.ilssType];
-    _ilssTypeSegCtrl.selectedSegmentIndex = DEMO_Setting.ilssType;
+    item62.text = PushArr[VHSystemInstance.ilssType];
+    _ilssTypeSegCtrl.selectedSegmentIndex = VHSystemInstance.ilssType;
     [self typeChanged:_ilssTypeSegCtrl];
     item62.operation=^(NSIndexPath *indexPath)
     {
         weakSelf.interactiveView.hidden = NO;
     };
     item63 = [VHSettingTextFieldItem  itemWithTitle:@"是否推双流"];
-    item63.text=DEMO_Setting.isDouble?@"1":@"0";
+    item63.text=VHSystemInstance.isDouble?@"1":@"0";
     item64 = [VHSettingTextFieldItem  itemWithTitle:@"用户自定义数据"];
-    item64.text=DEMO_Setting.userData;
+    item64.text=VHSystemInstance.userData;
     
     VHSettingGroup *group= [VHSettingGroup groupWithItems:@[item60,item61,item62,item63,item64]];
     group.headerTitle = @"互动";
@@ -342,7 +341,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
         UITableViewCell *noiseSwitchcell =[tableView dequeueReusableCellWithIdentifier:Identifier];
         if (noiseSwitchcell == nil)
             noiseSwitchcell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier];
-        _noiseSwitch.on = DEMO_Setting.isOpenNoiseSuppresion;
+        _noiseSwitch.on = VHSystemInstance.isOpenNoiseSuppresion;
         noiseSwitchcell.textLabel.text = @"音频降噪";
         noiseSwitchcell.textLabel.font = [UIFont systemFontOfSize:14];
         _noiseSwitch.left = self.view.width - 60;
@@ -357,8 +356,8 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
         UITableViewCell *volumeAmplificatecell =[tableView dequeueReusableCellWithIdentifier:Identifier];
         if (volumeAmplificatecell == nil)
             volumeAmplificatecell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier];
-        _volumeAmplificateSlider.value = DEMO_Setting.volumeAmplificateSize;
-        volumeAmplificatecell.textLabel.text = [NSString stringWithFormat:@"音频增益 -- %0.2f",DEMO_Setting.volumeAmplificateSize];
+        _volumeAmplificateSlider.value = VHSystemInstance.volumeAmplificateSize;
+        volumeAmplificatecell.textLabel.text = [NSString stringWithFormat:@"音频增益 -- %0.2f",VHSystemInstance.volumeAmplificateSize];
         volumeAmplificatecell.textLabel.font = [UIFont systemFontOfSize:14];
         _volumeAmplificateSlider.left  = 150;
         _volumeAmplificateSlider.top   = 10;
@@ -505,7 +504,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
     {
         NSString * title =_selectArray[row];
         [item21 setText:title];
-        DEMO_Setting.videoResolution =  [NSString stringWithFormat:@"%ld",(long)row];
+        VHSystemInstance.videoResolution =  [NSString stringWithFormat:@"%ld",(long)row];
         [_tableView reloadData];
     }
 }
@@ -535,14 +534,14 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
             switch (indexpath.row) {
                 case 0:
                 {
-                    DEMO_Setting.third_party_user_id = text;
-                    item00.text = DEMO_Setting.third_party_user_id;
+                    VHSystemInstance.third_party_user_id = text;
+                    item00.text = VHSystemInstance.third_party_user_id;
                 }
                     break;
                 case 1:
                 {
-                    DEMO_Setting.accessToken = text;
-                    item01.text = DEMO_Setting.accessToken;
+                    VHSystemInstance.accessToken = text;
+                    item01.text = VHSystemInstance.accessToken;
                 }
                     break;
                 default:break;
@@ -554,14 +553,14 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
             switch (indexpath.row) {
                 case 0:
                 {
-                    DEMO_Setting.playerRoomID = text;
-                    item10.text = DEMO_Setting.playerRoomID;
+                    VHSystemInstance.playerRoomID = text;
+                    item10.text = VHSystemInstance.playerRoomID;
                 }
                     break;
                 case 1:
                 {
-                    DEMO_Setting.bufferTime = [text integerValue];
-                    item11.text = [NSString stringWithFormat:@"%ld",(long)DEMO_Setting.bufferTime];
+                    VHSystemInstance.bufferTime = [text integerValue];
+                    item11.text = [NSString stringWithFormat:@"%ld",(long)VHSystemInstance.bufferTime];
                 }
                     break;
                 default:break;
@@ -573,39 +572,39 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
             switch (indexpath.row) {
                 case 0:
                 {
-                    DEMO_Setting.publishRoomID = text;
-                    item20.text = DEMO_Setting.publishRoomID;
+                    VHSystemInstance.publishRoomID = text;
+                    item20.text = VHSystemInstance.publishRoomID;
                 }
                     break;
                 case 1:break;
                 case 2:
                 {
-                    DEMO_Setting.videoBitRate= [text integerValue];
-                    item22.text = [NSString stringWithFormat:@"%ld",(long)DEMO_Setting.videoBitRate];
+                    VHSystemInstance.videoBitRate= [text integerValue];
+                    item22.text = [NSString stringWithFormat:@"%ld",(long)VHSystemInstance.videoBitRate];
                 }
                     break;
                 case 3:
                 {
-                    DEMO_Setting.videoCaptureFPS = [text integerValue];
-                    item23.text =  [NSString stringWithFormat:@"%ld",(long)DEMO_Setting.videoCaptureFPS];
+                    VHSystemInstance.videoCaptureFPS = [text integerValue];
+                    item23.text =  [NSString stringWithFormat:@"%ld",(long)VHSystemInstance.videoCaptureFPS];
                 }
                     break;
                 case 4:
                 {
-                    DEMO_Setting.audioBitRate = [text integerValue];
-                    item24.text = [NSString stringWithFormat:@"%ld",(long)DEMO_Setting.audioBitRate];
+                    VHSystemInstance.audioBitRate = [text integerValue];
+                    item24.text = [NSString stringWithFormat:@"%ld",(long)VHSystemInstance.audioBitRate];
                 }
                     break;
                 case 5:
                 {
-                    DEMO_Setting.isOnlyAudio = [text boolValue];
-                    item25.text = DEMO_Setting.isOnlyAudio?@"1":@"0";;
+                    VHSystemInstance.isOnlyAudio = [text boolValue];
+                    item25.text = VHSystemInstance.isOnlyAudio?@"1":@"0";;
                 }
                     break;
                 case 6:
                 {
-                    DEMO_Setting.isBeautifyFilterEnable = [text boolValue];
-                    item25.text = DEMO_Setting.isBeautifyFilterEnable?@"1":@"0";;
+                    VHSystemInstance.isBeautifyFilterEnable = [text boolValue];
+                    item25.text = VHSystemInstance.isBeautifyFilterEnable?@"1":@"0";;
                 }
                     break;
                 default:break;
@@ -617,14 +616,14 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
             switch (indexpath.row) {
                 case 0:
                 {
-                    DEMO_Setting.recordID = text;
-                    item30.text = DEMO_Setting.recordID;
+                    VHSystemInstance.recordID = text;
+                    item30.text = VHSystemInstance.recordID;
                 }
                     break;
                 case 1:
                 {
-                    DEMO_Setting.seekMode = [text integerValue];
-                    item31.text = DEMO_Setting.seekMode?@"1":@"0";
+                    VHSystemInstance.seekMode = [text integerValue];
+                    item31.text = VHSystemInstance.seekMode?@"1":@"0";
                 }
                     break;
                 default:break;
@@ -636,14 +635,14 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
             switch (indexpath.row) {
                 case 0:
                 {
-                    DEMO_Setting.docChannelID = text;
-                    item40.text = DEMO_Setting.docChannelID;
+                    VHSystemInstance.docChannelID = text;
+                    item40.text = VHSystemInstance.docChannelID;
                 }
                     break;
                 case 1:
                 {
-                    DEMO_Setting.docRoomID = text;
-                    item41.text = DEMO_Setting.docRoomID;
+                    VHSystemInstance.docRoomID = text;
+                    item41.text = VHSystemInstance.docRoomID;
                 }
                     break;
                 default:break;
@@ -655,8 +654,8 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
             switch (indexpath.row) {
                 case 0:
                 {
-                    DEMO_Setting.imChannelID = text;
-                    item50.text = DEMO_Setting.imChannelID;
+                    VHSystemInstance.imChannelID = text;
+                    item50.text = VHSystemInstance.imChannelID;
                 }
                     break;
                 default:break;
@@ -668,26 +667,26 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
             switch (indexpath.row) {
                 case 0:
                 {
-                    DEMO_Setting.ilssRoomID = text;
-                    item60.text = DEMO_Setting.recordID;
+                    VHSystemInstance.ilssRoomID = text;
+                    item60.text = VHSystemInstance.recordID;
                 }
                     break;
                 case 1:
                 {
-                    DEMO_Setting.ilssLiveRoomID = text;
-                    item61.text = DEMO_Setting.ilssLiveRoomID;
+                    VHSystemInstance.ilssLiveRoomID = text;
+                    item61.text = VHSystemInstance.ilssLiveRoomID;
                 }
                     break;
                 case 3:
                 {
-                    DEMO_Setting.isDouble = [text integerValue];
-                    item63.text = DEMO_Setting.isDouble?@"1":@"0";
+                    VHSystemInstance.isDouble = [text integerValue];
+                    item63.text = VHSystemInstance.isDouble?@"1":@"0";
                 }
                     break;
                 case 4:
                 {
-                    DEMO_Setting.userData = text;
-                    item64.text = DEMO_Setting.userData;
+                    VHSystemInstance.userData = text;
+                    item64.text = VHSystemInstance.userData;
                 }
                     break;
                 default:break;
@@ -701,15 +700,15 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 - (void)noiseSwitch
 {
-    DEMO_Setting.isOpenNoiseSuppresion = _noiseSwitch.on;
+    VHSystemInstance.isOpenNoiseSuppresion = _noiseSwitch.on;
 }
 
 - (void)volumeAmplificate
 {
-    DEMO_Setting.volumeAmplificateSize = _volumeAmplificateSlider.value;
+    VHSystemInstance.volumeAmplificateSize = _volumeAmplificateSlider.value;
     NSIndexPath *indexpath = [NSIndexPath indexPathForRow: ((VHSettingGroup*)self.groups[2]).items.count+1 inSection:2];
     UITableViewCell * cell = [_tableView cellForRowAtIndexPath:indexpath];
-    cell.textLabel.text = [NSString stringWithFormat:@"音频增益 -- %0.2f",DEMO_Setting.volumeAmplificateSize];
+    cell.textLabel.text = [NSString stringWithFormat:@"音频增益 -- %0.2f",VHSystemInstance.volumeAmplificateSize];
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -726,10 +725,10 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 - (IBAction)savePushParamBtn:(id)sender {
     [self.view endEditing:YES];
     
-    DEMO_Setting.ilssType = _ilssTypeSegCtrl.selectedSegmentIndex;
-    item62.text = PushArr[DEMO_Setting.ilssType];
+    VHSystemInstance.ilssType = _ilssTypeSegCtrl.selectedSegmentIndex;
+    item62.text = PushArr[VHSystemInstance.ilssType];
     [_tableView reloadData];
-    if(DEMO_Setting.ilssType == 4)
+    if(VHSystemInstance.ilssType == 4)
     {
         NSString *dpi = _dpiTextField.text;
         NSArray *params = [dpi componentsSeparatedByString:@"*"];
@@ -744,7 +743,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
         _fpsTextField.text  = [NSString stringWithFormat:@"%d",fps];
         _rateTextField.text = [NSString stringWithFormat:@"%d",rate];
 //        if(params.count>1 && fps)
-//            DEMO_Setting.ilssOptions =  @{VHVideoWidthKey:params[0],
+//            VHSystemInstance.ilssOptions =  @{VHVideoWidthKey:params[0],
 //                                          VHVideoHeightKey:params[1],
 //                                          VHVideoFpsKey:@(fps),
 //                                          VHMaxVideoBitrateKey:@(rate)};
@@ -800,9 +799,9 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
             _fpsTextField.enabled = YES;
             _rateTextField.enabled = YES;
             
-//            _dpiTextField.text  = [NSString stringWithFormat:@"%@*%@",DEMO_Setting.ilssOptions[VHVideoWidthKey],DEMO_Setting.ilssOptions[VHVideoHeightKey]];
-//            _fpsTextField.text  = [NSString stringWithFormat:@"%@",DEMO_Setting.ilssOptions[VHVideoFpsKey]];
-//            _rateTextField.text = [NSString stringWithFormat:@"%@",DEMO_Setting.ilssOptions[VHMaxVideoBitrateKey]];
+//            _dpiTextField.text  = [NSString stringWithFormat:@"%@*%@",VHSystemInstance.ilssOptions[VHVideoWidthKey],VHSystemInstance.ilssOptions[VHVideoHeightKey]];
+//            _fpsTextField.text  = [NSString stringWithFormat:@"%@",VHSystemInstance.ilssOptions[VHVideoFpsKey]];
+//            _rateTextField.text = [NSString stringWithFormat:@"%@",VHSystemInstance.ilssOptions[VHMaxVideoBitrateKey]];
             
             _dpiTextField.backgroundColor = [UIColor whiteColor];
             _fpsTextField.backgroundColor = [UIColor whiteColor];

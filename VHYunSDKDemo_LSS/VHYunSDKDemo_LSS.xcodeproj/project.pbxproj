@@ -9,6 +9,22 @@
 /* Begin PBXBuildFile section */
 		03CFE47A25502AAD00111B52 /* VHVideoPointPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CFE47925502AAD00111B52 /* VHVideoPointPopView.m */; };
 		03CFE47D25502FC900111B52 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CFE47B25502FC800111B52 /* MBProgressHUD.m */; };
+		21013E56282E0C6D00CF0A04 /* OptItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 21013E55282E0C6D00CF0A04 /* OptItem.m */; };
+		2169453227D8D08000A597FB /* LSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DB1CA227D8C22A00F18102 /* LSSViewController.m */; };
+		217B3B3527CDACFA00A6BD95 /* OptionRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 217B3B2C27CDACFA00A6BD95 /* OptionRowCell.m */; };
+		217B3B3627CDACFA00A6BD95 /* OptionBaseRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 217B3B2D27CDACFA00A6BD95 /* OptionBaseRowCell.m */; };
+		217B3B3727CDACFA00A6BD95 /* OptionRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217B3B2F27CDACFA00A6BD95 /* OptionRowCell.xib */; };
+		217B3B3827CDACFA00A6BD95 /* OptionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 217B3B3227CDACFA00A6BD95 /* OptionItem.m */; };
+		217B3B3927CDACFA00A6BD95 /* OptionsPresentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217B3B3327CDACFA00A6BD95 /* OptionsPresentViewController.xib */; };
+		217B3B3A27CDACFA00A6BD95 /* OptionsPresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 217B3B3427CDACFA00A6BD95 /* OptionsPresentViewController.m */; };
+		21D9327F282A4ED300B6F87C /* BottomOptionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D9327D282A4ED300B6F87C /* BottomOptionsController.m */; };
+		21D93280282A4ED300B6F87C /* BottomOptionsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D9327E282A4ED300B6F87C /* BottomOptionsController.xib */; };
+		21D93284282A4F5E00B6F87C /* OptionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D93282282A4F5E00B6F87C /* OptionsCell.m */; };
+		21D93285282A4F5E00B6F87C /* OptionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D93283282A4F5E00B6F87C /* OptionsCell.xib */; };
+		21DB1C9F27D8AEE700F18102 /* LSSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21DB1C9E27D8AEE700F18102 /* LSSViewController.xib */; };
+		21DB1CA827D8C52E00F18102 /* FeatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DB1CA627D8C52E00F18102 /* FeatCell.m */; };
+		21DB1CA927D8C52E00F18102 /* FeatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21DB1CA727D8C52E00F18102 /* FeatCell.xib */; };
+		2CAB3A52A3D50CF56AEBC2B0 /* Pods_VHYunSDKDemo_LSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA7CE9F2049E1D17BD2CF8E /* Pods_VHYunSDKDemo_LSS.framework */; };
 		4EB3C8E826CA624F00F9DF71 /* WatchTimeshiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB3C8E626CA624F00F9DF71 /* WatchTimeshiftViewController.m */; };
 		4EB3C8E926CA624F00F9DF71 /* WatchTimeshiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EB3C8E726CA624F00F9DF71 /* WatchTimeshiftViewController.xib */; };
 		C009D546230BDB2000F22516 /* VHSkinCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C009D530230BDB2000F22516 /* VHSkinCoverView.m */; };
@@ -24,8 +40,6 @@
 		C0200D962326495A0074C488 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0200D952326495A0074C488 /* libc++.1.tbd */; };
 		C02F5CEF230FF3C200AE2A4B /* VHSmallPlayerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C02F5CEE230FF3C200AE2A4B /* VHSmallPlayerWindow.m */; };
 		C051421522E1723A004E89D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C051421422E1723A004E89D6 /* AppDelegate.m */; };
-		C051421822E1723A004E89D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C051421722E1723A004E89D6 /* ViewController.m */; };
-		C051421B22E1723A004E89D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C051421922E1723A004E89D6 /* Main.storyboard */; };
 		C051421D22E17249004E89D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C051421C22E17249004E89D6 /* Assets.xcassets */; };
 		C051422022E17249004E89D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C051421E22E17249004E89D6 /* LaunchScreen.storyboard */; };
 		C051422322E17249004E89D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C051422222E17249004E89D6 /* main.m */; };
@@ -49,7 +63,7 @@
 		C051B82F256B93E7007B2CD6 /* DLNA_seekbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051B819256B93E7007B2CD6 /* DLNA_seekbar@3x.png */; };
 		C051B830256B93E7007B2CD6 /* DeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C051B81D256B93E7007B2CD6 /* DeviceTableViewCell.m */; };
 		C0958D29231548500008BF75 /* VHPlayerSkinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0958D27231548500008BF75 /* VHPlayerSkinViewController.m */; };
-		C0B8784022E5C4A000054CA8 /* ViewController+vhall.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8782722E5C4A000054CA8 /* ViewController+vhall.m */; };
+		C0B8784022E5C4A000054CA8 /* LSSViewController+vhall.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8782722E5C4A000054CA8 /* LSSViewController+vhall.m */; };
 		C0B8784122E5C4A000054CA8 /* InitSDKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8782822E5C4A000054CA8 /* InitSDKViewController.m */; };
 		C0B8784222E5C4A000054CA8 /* InitSDKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0B8782922E5C4A000054CA8 /* InitSDKViewController.xib */; };
 		C0B8784322E5C4A000054CA8 /* VHStatisticsStystem.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8782C22E5C4A000054CA8 /* VHStatisticsStystem.m */; };
@@ -57,7 +71,7 @@
 		C0B8784522E5C4A000054CA8 /* UIAlertView+ITTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8783022E5C4A000054CA8 /* UIAlertView+ITTAdditions.m */; };
 		C0B8784622E5C4A000054CA8 /* UIView+ITTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8783422E5C4A000054CA8 /* UIView+ITTAdditions.m */; };
 		C0B8784822E5C4A000054CA8 /* MBHUDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8783922E5C4A000054CA8 /* MBHUDHelper.m */; };
-		C0B8784922E5C4A000054CA8 /* VHStystemSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8783C22E5C4A000054CA8 /* VHStystemSetting.m */; };
+		C0B8784922E5C4A000054CA8 /* VHSystemSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8783C22E5C4A000054CA8 /* VHSystemSettings.m */; };
 		C0B8784A22E5C4A000054CA8 /* VHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8783E22E5C4A000054CA8 /* VHBaseViewController.m */; };
 		C0B8785922E5C4E200054CA8 /* WatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0B8784C22E5C4E200054CA8 /* WatchViewController.xib */; };
 		C0B8785A22E5C4E200054CA8 /* WatchVodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0B8784D22E5C4E200054CA8 /* WatchVodViewController.xib */; };
@@ -78,71 +92,57 @@
 		C0B8789E22E6AAB700054CA8 /* VHSettingTextFieldItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8789522E6AAB600054CA8 /* VHSettingTextFieldItem.m */; };
 		C0B8789F22E6AAB700054CA8 /* VHSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8789622E6AAB600054CA8 /* VHSettingViewController.m */; };
 		C0B878A022E6AAB700054CA8 /* VHSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8789722E6AAB600054CA8 /* VHSettingTableViewCell.m */; };
-		C0D859D725DAD38100934807 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D859D625DAD38100934807 /* ReplayKit.framework */; };
-		C0D859DB25DAD38100934807 /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D859DA25DAD38100934807 /* SampleHandler.m */; };
-		C0D859DF25DAD38100934807 /* ScreenLive.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C0D859D525DAD38100934807 /* ScreenLive.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C0D859E825DD607200934807 /* VHScreenShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D859E625DD606900934807 /* VHScreenShare.framework */; };
-		C0D859E925DD607200934807 /* VHScreenShare.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0D859E625DD606900934807 /* VHScreenShare.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FE4D2980C94CFB4D0D7E43D7 /* libPods-VHYunSDKDemo_LSS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB915136CC252B59FD9BB571 /* libPods-VHYunSDKDemo_LSS.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		C0D859DD25DAD38100934807 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C051420822E1723A004E89D6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C0D859D425DAD38100934807;
-			remoteInfo = ScreenLive;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		C051426B22E1B9BA004E89D6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C0D859E025DAD38100934807 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				C0D859DF25DAD38100934807 /* ScreenLive.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0D859EA25DD607200934807 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				C0D859E925DD607200934807 /* VHScreenShare.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		030F9FD7AA3D6C5C0EB6AAB6 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_LSS.release.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS.release.xcconfig"; sourceTree = "<group>"; };
 		03CFE47825502AAD00111B52 /* VHVideoPointPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHVideoPointPopView.h; sourceTree = "<group>"; };
 		03CFE47925502AAD00111B52 /* VHVideoPointPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHVideoPointPopView.m; sourceTree = "<group>"; };
 		03CFE47B25502FC800111B52 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		03CFE47C25502FC900111B52 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		28378BEA8BE1640B26F80AB6 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_LSS.release.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS.release.xcconfig"; sourceTree = "<group>"; };
-		410EAB3E98C959F330465D54 /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_LSS.debug.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS.debug.xcconfig"; sourceTree = "<group>"; };
+		21013E54282E0C6D00CF0A04 /* OptItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptItem.h; sourceTree = "<group>"; };
+		21013E55282E0C6D00CF0A04 /* OptItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OptItem.m; sourceTree = "<group>"; };
+		2102D22A287D3E9500496B76 /* VHYunSDKDemo_LSS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VHYunSDKDemo_LSS.entitlements; sourceTree = "<group>"; };
+		217B3B2A27CDACFA00A6BD95 /* OptionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionItem.h; sourceTree = "<group>"; };
+		217B3B2C27CDACFA00A6BD95 /* OptionRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionRowCell.m; sourceTree = "<group>"; };
+		217B3B2D27CDACFA00A6BD95 /* OptionBaseRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionBaseRowCell.m; sourceTree = "<group>"; };
+		217B3B2E27CDACFA00A6BD95 /* OptionRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionRowCell.h; sourceTree = "<group>"; };
+		217B3B2F27CDACFA00A6BD95 /* OptionRowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionRowCell.xib; sourceTree = "<group>"; };
+		217B3B3027CDACFA00A6BD95 /* OptionBaseRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionBaseRowCell.h; sourceTree = "<group>"; };
+		217B3B3127CDACFA00A6BD95 /* OptionsPresentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsPresentViewController.h; sourceTree = "<group>"; };
+		217B3B3227CDACFA00A6BD95 /* OptionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionItem.m; sourceTree = "<group>"; };
+		217B3B3327CDACFA00A6BD95 /* OptionsPresentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsPresentViewController.xib; sourceTree = "<group>"; };
+		217B3B3427CDACFA00A6BD95 /* OptionsPresentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsPresentViewController.m; sourceTree = "<group>"; };
+		21D9327C282A4ED300B6F87C /* BottomOptionsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BottomOptionsController.h; sourceTree = "<group>"; };
+		21D9327D282A4ED300B6F87C /* BottomOptionsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BottomOptionsController.m; sourceTree = "<group>"; };
+		21D9327E282A4ED300B6F87C /* BottomOptionsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomOptionsController.xib; sourceTree = "<group>"; };
+		21D93281282A4F5E00B6F87C /* OptionsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptionsCell.h; sourceTree = "<group>"; };
+		21D93282282A4F5E00B6F87C /* OptionsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OptionsCell.m; sourceTree = "<group>"; };
+		21D93283282A4F5E00B6F87C /* OptionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsCell.xib; sourceTree = "<group>"; };
+		21DB1C9E27D8AEE700F18102 /* LSSViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSSViewController.xib; sourceTree = "<group>"; };
+		21DB1CA127D8C22A00F18102 /* LSSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSSViewController.h; sourceTree = "<group>"; };
+		21DB1CA227D8C22A00F18102 /* LSSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSSViewController.m; sourceTree = "<group>"; };
+		21DB1CA527D8C52E00F18102 /* FeatCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatCell.h; sourceTree = "<group>"; };
+		21DB1CA627D8C52E00F18102 /* FeatCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeatCell.m; sourceTree = "<group>"; };
+		21DB1CA727D8C52E00F18102 /* FeatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatCell.xib; sourceTree = "<group>"; };
+		21DB941927E2E919009CD932 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		272B232D04BB6BE901DA474D /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_LSS.debug.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS.debug.xcconfig"; sourceTree = "<group>"; };
 		4EB3C8E526CA624F00F9DF71 /* WatchTimeshiftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchTimeshiftViewController.h; sourceTree = "<group>"; };
 		4EB3C8E626CA624F00F9DF71 /* WatchTimeshiftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchTimeshiftViewController.m; sourceTree = "<group>"; };
 		4EB3C8E726CA624F00F9DF71 /* WatchTimeshiftViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchTimeshiftViewController.xib; sourceTree = "<group>"; };
-		9763E14BA1D1812DF75511BA /* Pods_VHYunSDKDemo_LSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VHYunSDKDemo_LSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB915136CC252B59FD9BB571 /* libPods-VHYunSDKDemo_LSS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VHYunSDKDemo_LSS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C009D530230BDB2000F22516 /* VHSkinCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSkinCoverView.m; sourceTree = "<group>"; };
 		C009D532230BDB2000F22516 /* VHCstomMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHCstomMoreView.m; sourceTree = "<group>"; };
 		C009D533230BDB2000F22516 /* VHCustomPlayerSkinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHCustomPlayerSkinView.h; sourceTree = "<group>"; };
@@ -169,9 +169,6 @@
 		C051421022E1723A004E89D6 /* VHYunSDKDemo_LSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VHYunSDKDemo_LSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C051421322E1723A004E89D6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C051421422E1723A004E89D6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C051421622E1723A004E89D6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C051421722E1723A004E89D6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C051421A22E1723A004E89D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C051421C22E17249004E89D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C051421F22E17249004E89D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C051422122E17249004E89D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -202,10 +199,10 @@
 		C0958D27231548500008BF75 /* VHPlayerSkinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHPlayerSkinViewController.m; sourceTree = "<group>"; };
 		C0958D28231548500008BF75 /* VHPlayerSkinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHPlayerSkinViewController.h; sourceTree = "<group>"; };
 		C0B8782622E5C4A000054CA8 /* InitSDKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitSDKViewController.h; sourceTree = "<group>"; };
-		C0B8782722E5C4A000054CA8 /* ViewController+vhall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+vhall.m"; sourceTree = "<group>"; };
+		C0B8782722E5C4A000054CA8 /* LSSViewController+vhall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LSSViewController+vhall.m"; sourceTree = "<group>"; };
 		C0B8782822E5C4A000054CA8 /* InitSDKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitSDKViewController.m; sourceTree = "<group>"; };
 		C0B8782922E5C4A000054CA8 /* InitSDKViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitSDKViewController.xib; sourceTree = "<group>"; };
-		C0B8782A22E5C4A000054CA8 /* ViewController+vhall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+vhall.h"; sourceTree = "<group>"; };
+		C0B8782A22E5C4A000054CA8 /* LSSViewController+vhall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LSSViewController+vhall.h"; sourceTree = "<group>"; };
 		C0B8782C22E5C4A000054CA8 /* VHStatisticsStystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHStatisticsStystem.m; sourceTree = "<group>"; };
 		C0B8782D22E5C4A000054CA8 /* VHStatisticsStystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHStatisticsStystem.h; sourceTree = "<group>"; };
 		C0B8782F22E5C4A000054CA8 /* CALayer+XibConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XibConfiguration.m"; sourceTree = "<group>"; };
@@ -216,8 +213,8 @@
 		C0B8783422E5C4A000054CA8 /* UIView+ITTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ITTAdditions.m"; sourceTree = "<group>"; };
 		C0B8783622E5C4A000054CA8 /* MBHUDHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBHUDHelper.h; sourceTree = "<group>"; };
 		C0B8783922E5C4A000054CA8 /* MBHUDHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHUDHelper.m; sourceTree = "<group>"; };
-		C0B8783B22E5C4A000054CA8 /* VHStystemSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHStystemSetting.h; sourceTree = "<group>"; };
-		C0B8783C22E5C4A000054CA8 /* VHStystemSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHStystemSetting.m; sourceTree = "<group>"; };
+		C0B8783B22E5C4A000054CA8 /* VHSystemSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHSystemSettings.h; sourceTree = "<group>"; };
+		C0B8783C22E5C4A000054CA8 /* VHSystemSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSystemSettings.m; sourceTree = "<group>"; };
 		C0B8783E22E5C4A000054CA8 /* VHBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHBaseViewController.m; sourceTree = "<group>"; };
 		C0B8783F22E5C4A000054CA8 /* VHBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHBaseViewController.h; sourceTree = "<group>"; };
 		C0B8784C22E5C4E200054CA8 /* WatchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WatchViewController.xib; sourceTree = "<group>"; };
@@ -252,12 +249,8 @@
 		C0B8789522E6AAB600054CA8 /* VHSettingTextFieldItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSettingTextFieldItem.m; sourceTree = "<group>"; };
 		C0B8789622E6AAB600054CA8 /* VHSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSettingViewController.m; sourceTree = "<group>"; };
 		C0B8789722E6AAB600054CA8 /* VHSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHSettingTableViewCell.m; sourceTree = "<group>"; };
-		C0D859D525DAD38100934807 /* ScreenLive.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScreenLive.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D859D625DAD38100934807 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
-		C0D859D925DAD38100934807 /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
-		C0D859DA25DAD38100934807 /* SampleHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleHandler.m; sourceTree = "<group>"; };
-		C0D859DC25DAD38100934807 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0D859E625DD606900934807 /* VHScreenShare.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VHScreenShare.framework; path = ../../../vhallyun_sdk_vrtc/VHYunFrameworks/VHScreenShare.framework; sourceTree = "<group>"; };
+		CCA7CE9F2049E1D17BD2CF8E /* Pods_VHYunSDKDemo_LSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VHYunSDKDemo_LSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,29 +260,80 @@
 			files = (
 				C0200D962326495A0074C488 /* libc++.1.tbd in Frameworks */,
 				C051B81E256B93E7007B2CD6 /* libVHDLNA.a in Frameworks */,
-				FE4D2980C94CFB4D0D7E43D7 /* libPods-VHYunSDKDemo_LSS.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0D859D225DAD38100934807 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0D859D725DAD38100934807 /* ReplayKit.framework in Frameworks */,
-				C0D859E825DD607200934807 /* VHScreenShare.framework in Frameworks */,
+				2CAB3A52A3D50CF56AEBC2B0 /* Pods_VHYunSDKDemo_LSS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5AA5C0590DB8C5F8DF51D9AC /* Pods */ = {
+		217B3B2827CDACFA00A6BD95 /* BeautifyControlViews */ = {
 			isa = PBXGroup;
 			children = (
-				410EAB3E98C959F330465D54 /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */,
-				28378BEA8BE1640B26F80AB6 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */,
+				217B3B2927CDACFA00A6BD95 /* Options */,
 			);
-			path = Pods;
+			path = BeautifyControlViews;
+			sourceTree = "<group>";
+		};
+		217B3B2927CDACFA00A6BD95 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				217B3B2A27CDACFA00A6BD95 /* OptionItem.h */,
+				217B3B2B27CDACFA00A6BD95 /* OptionCells */,
+				217B3B3127CDACFA00A6BD95 /* OptionsPresentViewController.h */,
+				217B3B3227CDACFA00A6BD95 /* OptionItem.m */,
+				217B3B3327CDACFA00A6BD95 /* OptionsPresentViewController.xib */,
+				217B3B3427CDACFA00A6BD95 /* OptionsPresentViewController.m */,
+			);
+			path = Options;
+			sourceTree = "<group>";
+		};
+		217B3B2B27CDACFA00A6BD95 /* OptionCells */ = {
+			isa = PBXGroup;
+			children = (
+				217B3B2C27CDACFA00A6BD95 /* OptionRowCell.m */,
+				217B3B2D27CDACFA00A6BD95 /* OptionBaseRowCell.m */,
+				217B3B2E27CDACFA00A6BD95 /* OptionRowCell.h */,
+				217B3B2F27CDACFA00A6BD95 /* OptionRowCell.xib */,
+				217B3B3027CDACFA00A6BD95 /* OptionBaseRowCell.h */,
+			);
+			path = OptionCells;
+			sourceTree = "<group>";
+		};
+		21C55780282A4CF000C35E28 /* OptionsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				21D9327C282A4ED300B6F87C /* BottomOptionsController.h */,
+				21D9327D282A4ED300B6F87C /* BottomOptionsController.m */,
+				21D9327E282A4ED300B6F87C /* BottomOptionsController.xib */,
+				21D93281282A4F5E00B6F87C /* OptionsCell.h */,
+				21D93282282A4F5E00B6F87C /* OptionsCell.m */,
+				21D93283282A4F5E00B6F87C /* OptionsCell.xib */,
+				21013E54282E0C6D00CF0A04 /* OptItem.h */,
+				21013E55282E0C6D00CF0A04 /* OptItem.m */,
+			);
+			path = OptionsViewControllers;
+			sourceTree = "<group>";
+		};
+		21DB1CA427D8C4E000F18102 /* LSS */ = {
+			isa = PBXGroup;
+			children = (
+				21DB1CA127D8C22A00F18102 /* LSSViewController.h */,
+				21DB1CA227D8C22A00F18102 /* LSSViewController.m */,
+				21DB1C9E27D8AEE700F18102 /* LSSViewController.xib */,
+				21DB1CAA27D8C53400F18102 /* Cells */,
+			);
+			path = LSS;
+			sourceTree = "<group>";
+		};
+		21DB1CAA27D8C53400F18102 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				21DB1CA527D8C52E00F18102 /* FeatCell.h */,
+				21DB1CA627D8C52E00F18102 /* FeatCell.m */,
+				21DB1CA727D8C52E00F18102 /* FeatCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		C009D52E230BDB2000F22516 /* VHPlayerSkin */ = {
@@ -357,8 +401,8 @@
 			children = (
 				C0200D952326495A0074C488 /* libc++.1.tbd */,
 				C0D859D625DAD38100934807 /* ReplayKit.framework */,
-				9763E14BA1D1812DF75511BA /* Pods_VHYunSDKDemo_LSS.framework */,
-				AB915136CC252B59FD9BB571 /* libPods-VHYunSDKDemo_LSS.a */,
+				21DB941927E2E919009CD932 /* UIKit.framework */,
+				CCA7CE9F2049E1D17BD2CF8E /* Pods_VHYunSDKDemo_LSS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -367,10 +411,9 @@
 			isa = PBXGroup;
 			children = (
 				C051421222E1723A004E89D6 /* VHYunSDKDemo_LSS */,
-				C0D859D825DAD38100934807 /* ScreenLive */,
 				C051421122E1723A004E89D6 /* Products */,
 				C0200D942326495A0074C488 /* Frameworks */,
-				5AA5C0590DB8C5F8DF51D9AC /* Pods */,
+				EF523031C6C7CCD90F66CC21 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -378,7 +421,6 @@
 			isa = PBXGroup;
 			children = (
 				C051421022E1723A004E89D6 /* VHYunSDKDemo_LSS.app */,
-				C0D859D525DAD38100934807 /* ScreenLive.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -386,15 +428,15 @@
 		C051421222E1723A004E89D6 /* VHYunSDKDemo_LSS */ = {
 			isa = PBXGroup;
 			children = (
+				2102D22A287D3E9500496B76 /* VHYunSDKDemo_LSS.entitlements */,
+				217B3B2827CDACFA00A6BD95 /* BeautifyControlViews */,
 				C009D52E230BDB2000F22516 /* VHPlayerSkin */,
 				C017BA8522F28DB800A103EC /* CONSTS.h */,
 				C051421322E1723A004E89D6 /* AppDelegate.h */,
 				C051421422E1723A004E89D6 /* AppDelegate.m */,
-				C051421622E1723A004E89D6 /* ViewController.h */,
-				C051421722E1723A004E89D6 /* ViewController.m */,
+				21DB1CA427D8C4E000F18102 /* LSS */,
 				C0B8785222E5C4E200054CA8 /* Publish */,
 				C0B8784B22E5C4E200054CA8 /* Watch */,
-				C051421922E1723A004E89D6 /* Main.storyboard */,
 				C051421C22E17249004E89D6 /* Assets.xcassets */,
 				C051421E22E17249004E89D6 /* LaunchScreen.storyboard */,
 				C051422122E17249004E89D6 /* Info.plist */,
@@ -465,8 +507,8 @@
 		C0B8782522E5C4A000054CA8 /* InitSDK */ = {
 			isa = PBXGroup;
 			children = (
-				C0B8782A22E5C4A000054CA8 /* ViewController+vhall.h */,
-				C0B8782722E5C4A000054CA8 /* ViewController+vhall.m */,
+				C0B8782A22E5C4A000054CA8 /* LSSViewController+vhall.h */,
+				C0B8782722E5C4A000054CA8 /* LSSViewController+vhall.m */,
 				C0B8782622E5C4A000054CA8 /* InitSDKViewController.h */,
 				C0B8782822E5C4A000054CA8 /* InitSDKViewController.m */,
 				C0B8782922E5C4A000054CA8 /* InitSDKViewController.xib */,
@@ -513,8 +555,8 @@
 		C0B8783A22E5C4A000054CA8 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				C0B8783B22E5C4A000054CA8 /* VHStystemSetting.h */,
-				C0B8783C22E5C4A000054CA8 /* VHStystemSetting.m */,
+				C0B8783B22E5C4A000054CA8 /* VHSystemSettings.h */,
+				C0B8783C22E5C4A000054CA8 /* VHSystemSettings.m */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -545,6 +587,7 @@
 				C0958D27231548500008BF75 /* VHPlayerSkinViewController.m */,
 				C02F5CED230FF3C200AE2A4B /* VHSmallPlayerWindow.h */,
 				C02F5CEE230FF3C200AE2A4B /* VHSmallPlayerWindow.m */,
+				21C55780282A4CF000C35E28 /* OptionsViewControllers */,
 			);
 			path = Watch;
 			sourceTree = "<group>";
@@ -604,15 +647,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		C0D859D825DAD38100934807 /* ScreenLive */ = {
+		EF523031C6C7CCD90F66CC21 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C0D859E625DD606900934807 /* VHScreenShare.framework */,
-				C0D859D925DAD38100934807 /* SampleHandler.h */,
-				C0D859DA25DAD38100934807 /* SampleHandler.m */,
-				C0D859DC25DAD38100934807 /* Info.plist */,
+				272B232D04BB6BE901DA474D /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */,
+				030F9FD7AA3D6C5C0EB6AAB6 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */,
 			);
-			path = ScreenLive;
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -626,39 +668,18 @@
 				C051420C22E1723A004E89D6 /* Sources */,
 				C051420D22E1723A004E89D6 /* Frameworks */,
 				C051420E22E1723A004E89D6 /* Resources */,
-				C051426B22E1B9BA004E89D6 /* Embed Frameworks */,
-				C01AD0A2241B764800C0DE86 /* ShellScript */,
 				2097BC4946697523C8C5E8B7 /* [CP] Embed Pods Frameworks */,
-				4C1F1AFCF85352C972480FA3 /* [CP] Copy Pods Resources */,
 				C0D859E025DAD38100934807 /* Embed App Extensions */,
+				9DF73032B81418AE9AEFD008 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C0D859DE25DAD38100934807 /* PBXTargetDependency */,
 			);
 			name = VHYunSDKDemo_LSS;
 			productName = VHYunSDKDemo_LSS;
 			productReference = C051421022E1723A004E89D6 /* VHYunSDKDemo_LSS.app */;
 			productType = "com.apple.product-type.application";
-		};
-		C0D859D425DAD38100934807 /* ScreenLive */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C0D859E325DAD38100934807 /* Build configuration list for PBXNativeTarget "ScreenLive" */;
-			buildPhases = (
-				C0D859D125DAD38100934807 /* Sources */,
-				C0D859D225DAD38100934807 /* Frameworks */,
-				C0D859D325DAD38100934807 /* Resources */,
-				C0D859EA25DD607200934807 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ScreenLive;
-			productName = ScreenLive;
-			productReference = C0D859D525DAD38100934807 /* ScreenLive.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -672,9 +693,6 @@
 				TargetAttributes = {
 					C051420F22E1723A004E89D6 = {
 						CreatedOnToolsVersion = 10.2.1;
-					};
-					C0D859D425DAD38100934807 = {
-						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
@@ -692,7 +710,6 @@
 			projectRoot = "";
 			targets = (
 				C051420F22E1723A004E89D6 /* VHYunSDKDemo_LSS */,
-				C0D859D425DAD38100934807 /* ScreenLive */,
 			);
 		};
 /* End PBXProject section */
@@ -702,6 +719,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D93285282A4F5E00B6F87C /* OptionsCell.xib in Resources */,
 				C0B8786022E5C4E200054CA8 /* SampleScreenViewController.xib in Resources */,
 				C009D54D230BDB2000F22516 /* VHSKinBundle.bundle in Resources */,
 				C051B824256B93E7007B2CD6 /* DLNA_Play@3x.png in Resources */,
@@ -713,8 +731,8 @@
 				4EB3C8E926CA624F00F9DF71 /* WatchTimeshiftViewController.xib in Resources */,
 				C051B82D256B93E7007B2CD6 /* DLNA_Pause@2x.png in Resources */,
 				C051421D22E17249004E89D6 /* Assets.xcassets in Resources */,
-				C051421B22E1723A004E89D6 /* Main.storyboard in Resources */,
 				C051B827256B93E7007B2CD6 /* DLNA_hide@2x.png in Resources */,
+				217B3B3727CDACFA00A6BD95 /* OptionRowCell.xib in Resources */,
 				C051B82F256B93E7007B2CD6 /* DLNA_seekbar@3x.png in Resources */,
 				C051B828256B93E7007B2CD6 /* DLNA_hide@3x.png in Resources */,
 				C051B82E256B93E7007B2CD6 /* DLNA_seekbar@2x.png in Resources */,
@@ -722,21 +740,18 @@
 				C051B822256B93E7007B2CD6 /* DLNA_sound_min@2x.png in Resources */,
 				C051B823256B93E7007B2CD6 /* DLNA_sound_min@3x.png in Resources */,
 				C0B8785A22E5C4E200054CA8 /* WatchVodViewController.xib in Resources */,
+				21D93280282A4ED300B6F87C /* BottomOptionsController.xib in Resources */,
+				21DB1C9F27D8AEE700F18102 /* LSSViewController.xib in Resources */,
 				C051B82A256B93E7007B2CD6 /* DLNA_Pause@3x.png in Resources */,
 				C051B82B256B93E7007B2CD6 /* DLNA_show@3x.png in Resources */,
 				C0B8785D22E5C4E200054CA8 /* PublishViewController.xib in Resources */,
 				C0B8789822E6AAB700054CA8 /* VHSettingViewController.xib in Resources */,
 				C051B825256B93E7007B2CD6 /* DLNA_sound_max@3x.png in Resources */,
+				217B3B3927CDACFA00A6BD95 /* OptionsPresentViewController.xib in Resources */,
 				C051B829256B93E7007B2CD6 /* DLNA_close@3x.png in Resources */,
+				21DB1CA927D8C52E00F18102 /* FeatCell.xib in Resources */,
 				C0B8785922E5C4E200054CA8 /* WatchViewController.xib in Resources */,
 				C051B821256B93E7007B2CD6 /* DLNA_Play@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C0D859D325DAD38100934807 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,7 +775,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_LSS/Pods-VHYunSDKDemo_LSS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4C1F1AFCF85352C972480FA3 /* [CP] Copy Pods Resources */ = {
+		9DF73032B81418AE9AEFD008 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -799,24 +814,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C01AD0A2241B764800C0DE86 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "
-";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -828,7 +825,10 @@
 				03CFE47A25502AAD00111B52 /* VHVideoPointPopView.m in Sources */,
 				C0B8788422E5D5A300054CA8 /* ITTXibViewUtils.m in Sources */,
 				C0B8784422E5C4A000054CA8 /* CALayer+XibConfiguration.m in Sources */,
+				21D93284282A4F5E00B6F87C /* OptionsCell.m in Sources */,
 				C0B8784A22E5C4A000054CA8 /* VHBaseViewController.m in Sources */,
+				21013E56282E0C6D00CF0A04 /* OptItem.m in Sources */,
+				217B3B3527CDACFA00A6BD95 /* OptionRowCell.m in Sources */,
 				C0B8785B22E5C4E200054CA8 /* WatchViewController.m in Sources */,
 				4EB3C8E826CA624F00F9DF71 /* WatchTimeshiftViewController.m in Sources */,
 				C0B878A022E6AAB700054CA8 /* VHSettingTableViewCell.m in Sources */,
@@ -836,11 +836,12 @@
 				C0B8785F22E5C4E200054CA8 /* PublishViewController.m in Sources */,
 				C009D54A230BDB2000F22516 /* VHBaseSkinPlayerView.m in Sources */,
 				C009D549230BDB2000F22516 /* VHCustomPlayerSkinView.m in Sources */,
+				217B3B3A27CDACFA00A6BD95 /* OptionsPresentViewController.m in Sources */,
 				C0958D29231548500008BF75 /* VHPlayerSkinViewController.m in Sources */,
 				C0B8784522E5C4A000054CA8 /* UIAlertView+ITTAdditions.m in Sources */,
 				C0B8784822E5C4A000054CA8 /* MBHUDHelper.m in Sources */,
+				21D9327F282A4ED300B6F87C /* BottomOptionsController.m in Sources */,
 				C0B8788522E5D5A300054CA8 /* ITTXibView.m in Sources */,
-				C051421822E1723A004E89D6 /* ViewController.m in Sources */,
 				C0B8789F22E6AAB700054CA8 /* VHSettingViewController.m in Sources */,
 				C0B8789D22E6AAB700054CA8 /* VHSettingArrowItem.m in Sources */,
 				C0B8784122E5C4A000054CA8 /* InitSDKViewController.m in Sources */,
@@ -852,14 +853,18 @@
 				C0B8789B22E6AAB700054CA8 /* VHSettingItem.m in Sources */,
 				C051B81F256B93E7007B2CD6 /* DLNAView.m in Sources */,
 				C0B8789A22E6AAB700054CA8 /* CustomPickerView.m in Sources */,
+				21DB1CA827D8C52E00F18102 /* FeatCell.m in Sources */,
 				C009D54E230BDB2000F22516 /* VHPlaySlider.m in Sources */,
-				C0B8784022E5C4A000054CA8 /* ViewController+vhall.m in Sources */,
+				C0B8784022E5C4A000054CA8 /* LSSViewController+vhall.m in Sources */,
+				217B3B3627CDACFA00A6BD95 /* OptionBaseRowCell.m in Sources */,
+				2169453227D8D08000A597FB /* LSSViewController.m in Sources */,
 				C0B8784322E5C4A000054CA8 /* VHStatisticsStystem.m in Sources */,
 				C0B8789922E6AAB700054CA8 /* VHSettingGroup.m in Sources */,
 				C009D54B230BDB2000F22516 /* VHPlayerSkinTool.m in Sources */,
+				217B3B3827CDACFA00A6BD95 /* OptionItem.m in Sources */,
 				C0B8785C22E5C4E200054CA8 /* WatchVodViewController.m in Sources */,
 				C009D54F230BDB2000F22516 /* VHSwitch.m in Sources */,
-				C0B8784922E5C4A000054CA8 /* VHStystemSetting.m in Sources */,
+				C0B8784922E5C4A000054CA8 /* VHSystemSettings.m in Sources */,
 				C009D548230BDB2000F22516 /* VHCstomResolutionView.m in Sources */,
 				C009D546230BDB2000F22516 /* VHSkinCoverView.m in Sources */,
 				C051421522E1723A004E89D6 /* AppDelegate.m in Sources */,
@@ -868,33 +873,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0D859D125DAD38100934807 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C0D859DB25DAD38100934807 /* SampleHandler.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		C0D859DE25DAD38100934807 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C0D859D425DAD38100934807 /* ScreenLive */;
-			targetProxy = C0D859DD25DAD38100934807 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		C051421922E1723A004E89D6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C051421A22E1723A004E89D6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C051421E22E17249004E89D6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -960,7 +941,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1020,22 +1000,30 @@
 		};
 		C051422722E17249004E89D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 410EAB3E98C959F330465D54 /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */;
+			baseConfigurationReference = 272B232D04BB6BE901DA474D /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VHYunSDKDemo_LSS/VHYunSDKDemo_LSS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEPLOYMENT_POSTPROCESSING = NO;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"${PODS_ROOT}/../../../vhallyun_sdk_base/VHYunFrameworks\"",
-					"\"${PODS_ROOT}/../../VHYunFrameworks\"",
+					"\"$(SRCROOT)/../vhall_live_ios_sdk_output/sdk/libs\"",
+					"\"$(SRCROOT)/../../SDK_Release/VHBasePlatform_2.3.1_online\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/CONSTS.h";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../vhallyun_sdk_base/VHBasePlatform\"/**",
 				);
 				INFOPLIST_FILE = VHYunSDKDemo_LSS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1044,51 +1032,47 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/VHYunSDKDemo_LSS/Watch/DLNA",
 				);
-				MARKETING_VERSION = 2.4.0;
+				MARKETING_VERSION = 2.7.1;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"Masonry\"",
-					"-l\"SDWebImage\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"ImageIO\"",
-					"-framework",
-					"\"UIKit\"",
-					"-framework",
-					"\"VHCore\"",
-					"-framework",
-					"\"VHLSS\"",
-					"-framework",
-					"\"VhallLiveBaseApi\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.lss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 x86_64";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
 		C051422822E17249004E89D6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28378BEA8BE1640B26F80AB6 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */;
+			baseConfigurationReference = 030F9FD7AA3D6C5C0EB6AAB6 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VHYunSDKDemo_LSS/VHYunSDKDemo_LSS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEPLOYMENT_POSTPROCESSING = YES;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"${PODS_ROOT}/../../../vhallyun_sdk_base/VHYunFrameworks\"",
-					"\"${PODS_ROOT}/../../VHYunFrameworks\"",
+					"\"$(SRCROOT)/../vhall_live_ios_sdk_output/sdk/libs\"",
+					"\"$(SRCROOT)/../../SDK_Release/VHBasePlatform_2.3.1_online\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/CONSTS.h";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../vhallyun_sdk_base/VHBasePlatform\"/**",
 				);
 				INFOPLIST_FILE = VHYunSDKDemo_LSS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1097,76 +1081,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/VHYunSDKDemo_LSS/Watch/DLNA",
 				);
-				MARKETING_VERSION = 2.4.0;
+				MARKETING_VERSION = 2.7.1;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"Masonry\"",
-					"-l\"SDWebImage\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"ImageIO\"",
-					"-framework",
-					"\"UIKit\"",
-					"-framework",
-					"\"VHCore\"",
-					"-framework",
-					"\"VHLSS\"",
-					"-framework",
-					"\"VhallLiveBaseApi\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.lss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 x86_64";
-			};
-			name = Release;
-		};
-		C0D859E125DAD38100934807 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H49DK955B9;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
-				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/../../vhallyun_sdk_vrtc/VHYunFrameworks";
-				INFOPLIST_FILE = ScreenLive/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.lss.ScreenLive;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		C0D859E225DAD38100934807 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H49DK955B9;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
-				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/../../vhallyun_sdk_vrtc/VHYunFrameworks";
-				INFOPLIST_FILE = ScreenLive/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.lss.ScreenLive;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
@@ -1187,15 +1113,6 @@
 			buildConfigurations = (
 				C051422722E17249004E89D6 /* Debug */,
 				C051422822E17249004E89D6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C0D859E325DAD38100934807 /* Build configuration list for PBXNativeTarget "ScreenLive" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C0D859E125DAD38100934807 /* Debug */,
-				C0D859E225DAD38100934807 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

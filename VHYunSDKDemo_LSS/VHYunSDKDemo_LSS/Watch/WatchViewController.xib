@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WatchViewController">
             <connections>
                 <outlet property="definitionBtn" destination="t29-Us-Odh" id="7TN-bP-dyd"/>
-                <outlet property="definitionBtn0" destination="hyV-zz-wav" id="nSB-rB-JiQ"/>
-                <outlet property="definitionBtn1" destination="8wf-bh-W5e" id="mRa-zw-aLn"/>
-                <outlet property="definitionBtn2" destination="3xX-kZ-adp" id="xb9-pF-8ch"/>
-                <outlet property="definitionBtn3" destination="AgZ-Bn-U6d" id="yci-If-CnN"/>
-                <outlet property="definitionBtn4" destination="k3n-bs-OsK" id="pod-b8-yT7"/>
-                <outlet property="definitionsView" destination="SVU-Te-gCZ" id="Dir-Dc-dZp"/>
                 <outlet property="downloadSpeedLabel" destination="RkK-CT-DHE" id="9Ae-sa-u8q"/>
                 <outlet property="infoLabel" destination="200-3P-nZ3" id="ZTS-EI-uJ6"/>
                 <outlet property="logView" destination="DMa-LK-hnN" id="s05-WT-Q9Y"/>
-                <outlet property="operationView" destination="TCe-cb-a2y" id="Fth-Sy-dJR"/>
                 <outlet property="preView" destination="UlU-vZ-Tin" id="kvz-0w-LmG"/>
+                <outlet property="scalingButton" destination="Zx7-6i-wgs" id="cAq-Vt-kXe"/>
                 <outlet property="screenShareBtn" destination="u7D-2T-pRz" id="nL9-mO-2k9"/>
+                <outlet property="stack_operation" destination="sKS-Nj-Sxb" id="FDP-07-UKQ"/>
                 <outlet property="stratBtn" destination="BY3-ik-R2r" id="VGU-TI-orH"/>
                 <outlet property="subtitle_btn" destination="pGe-Ft-NPq" id="CqB-tX-zlk"/>
+                <outlet property="switch_resolution" destination="IhS-N7-8TH" id="NCO-6o-e5c"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -33,287 +30,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UlU-vZ-Tin">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UlU-vZ-Tin" userLabel="preview">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vhallLogo" translatesAutoresizingMaskIntoConstraints="NO" id="DMa-LK-hnN">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <color key="backgroundColor" red="0.76470588240000004" green="0.76470588240000004" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BY3-ik-R2r">
-                            <rect key="frame" x="157.5" y="576" width="60" height="60"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="60" id="C72-yH-XQs"/>
-                                <constraint firstAttribute="width" constant="60" id="Lmi-6P-uHP"/>
-                            </constraints>
-                            <state key="normal" image="播放"/>
-                            <state key="selected" image="暂停"/>
-                            <connections>
-                                <action selector="stratBtnClicked:" destination="-1" eventType="touchUpInside" id="JFq-1G-gqU"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 kb/s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkK-CT-DHE">
-                            <rect key="frame" x="345" y="15" width="30" height="12"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                            <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCe-cb-a2y">
-                            <rect key="frame" x="53" y="20" width="273" height="30"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuP-qd-fDE">
-                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="speaker_enable"/>
-                                    <state key="selected" image="speaker_disable"/>
-                                    <connections>
-                                        <action selector="speakerBtnClicked:" destination="-1" eventType="touchUpInside" id="iOW-ca-47N"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t29-Us-Odh">
-                                    <rect key="frame" x="38" y="0.0" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="0.6963011188271605" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="原画">
-                                        <color key="titleColor" red="1" green="0.17254901959999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="disabled">
-                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="selected" title="原画">
-                                        <color key="titleColor" red="1" green="0.17254901959999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="definitionsBtnClicked:" destination="-1" eventType="touchUpInside" id="jXR-3K-mYu"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zx7-6i-wgs">
-                                    <rect key="frame" x="76" y="0.0" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="0.69630111880000001" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="适应">
-                                        <color key="titleColor" red="1" green="0.17254901959999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="disabled">
-                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="selected" title="铺满">
-                                        <color key="titleColor" red="1" green="0.17254901959999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="scalingModeBtnClicked:" destination="-1" eventType="touchUpInside" id="Old-LC-tXB"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGW-YZ-zN8">
-                                    <rect key="frame" x="114" y="0.0" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="0.70173373279999995" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="截图">
-                                        <color key="titleColor" red="1" green="0.046545039429999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="takeAPhotoBtnClicked:" destination="-1" eventType="touchUpInside" id="UTk-x4-YK5"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7D-2T-pRz">
-                                    <rect key="frame" x="152" y="0.0" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="0.70173373279999995" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="投屏">
-                                        <color key="titleColor" red="1" green="0.046545039429999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="screenShareBtnClicked:" destination="-1" eventType="touchUpInside" id="nvi-GL-yqx"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGe-Ft-NPq">
-                                    <rect key="frame" x="190" y="0.0" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="0.70173373279999995" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="关幕">
-                                        <color key="titleColor" red="1" green="0.046545039429999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="selected" title="开幕"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="selectSubtitle:" destination="-1" eventType="touchUpInside" id="rc4-Dz-Zc8"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="6mI-ym-aDS"/>
-                            </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVU-Te-gCZ">
-                            <rect key="frame" x="53" y="56" width="172" height="32"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyV-zz-wav">
-                                    <rect key="frame" x="1" y="1" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="0.69630111880000001" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="原画">
-                                        <color key="titleColor" red="0.1647058824" green="0.17254901959999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="disabled">
-                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="selected" title="原画">
-                                        <color key="titleColor" red="1" green="0.17254901959999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="definitionBtnClicked:" destination="-1" eventType="touchUpInside" id="q07-vy-03O"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wf-bh-W5e">
-                                    <rect key="frame" x="36" y="1" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="0.69630111880000001" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="超清">
-                                        <color key="titleColor" red="0.1647058824" green="0.17254901959999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="disabled">
-                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="selected">
-                                        <color key="titleColor" red="1" green="0.17254901959999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="definitionBtnClicked:" destination="-1" eventType="touchUpInside" id="R5u-yV-64T"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xX-kZ-adp">
-                                    <rect key="frame" x="71" y="1" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="0.69630111880000001" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="高清">
-                                        <color key="titleColor" red="0.1647058824" green="0.17254901959999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="disabled">
-                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="selected">
-                                        <color key="titleColor" red="1" green="0.17254901959999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="definitionBtnClicked:" destination="-1" eventType="touchUpInside" id="Skv-Tl-2Ip"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgZ-Bn-U6d">
-                                    <rect key="frame" x="106" y="1" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="0.69630111880000001" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="标清">
-                                        <color key="titleColor" red="0.1647058824" green="0.17254901959999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="disabled">
-                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="selected">
-                                        <color key="titleColor" red="1" green="0.17254901959999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="definitionBtnClicked:" destination="-1" eventType="touchUpInside" id="5Hm-rI-CZX"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3n-bs-OsK">
-                                    <rect key="frame" x="141" y="1" width="30" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="0.69630111880000001" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <state key="normal" title="音频">
-                                        <color key="titleColor" red="0.1647058824" green="0.17254901959999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <state key="disabled">
-                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="selected">
-                                        <color key="titleColor" red="1" green="0.17254901959999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="15"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="definitionBtnClicked:" destination="-1" eventType="touchUpInside" id="aj4-9q-piU"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" red="0.1647058824" green="0.17254901959999999" blue="0.19215686269999999" alpha="0.29899691360000002" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="172" id="oKt-OX-pkF"/>
-                                <constraint firstAttribute="height" constant="32" id="wgM-ed-iLA"/>
-                            </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="16"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                            </userDefinedRuntimeAttributes>
-                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="200-3P-nZ3">
                             <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="8"/>
@@ -321,27 +44,166 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="200-3P-nZ3" secondAttribute="trailing" id="DTZ-XE-sb9"/>
                         <constraint firstAttribute="trailing" secondItem="DMa-LK-hnN" secondAttribute="trailing" id="FgU-h1-Dsa"/>
                         <constraint firstItem="200-3P-nZ3" firstAttribute="leading" secondItem="UlU-vZ-Tin" secondAttribute="leading" id="FwO-pc-ASv"/>
-                        <constraint firstItem="RkK-CT-DHE" firstAttribute="top" secondItem="UlU-vZ-Tin" secondAttribute="top" constant="15" id="Fwm-JO-zsq"/>
-                        <constraint firstItem="TCe-cb-a2y" firstAttribute="top" secondItem="UlU-vZ-Tin" secondAttribute="top" constant="20" id="GdH-Ni-9JT"/>
-                        <constraint firstItem="TCe-cb-a2y" firstAttribute="leading" secondItem="UlU-vZ-Tin" secondAttribute="leading" constant="53" id="HBW-Kx-bqw"/>
-                        <constraint firstItem="BY3-ik-R2r" firstAttribute="centerX" secondItem="UlU-vZ-Tin" secondAttribute="centerX" id="Mi1-aT-JG5"/>
-                        <constraint firstItem="SVU-Te-gCZ" firstAttribute="top" secondItem="TCe-cb-a2y" secondAttribute="bottom" constant="6" id="N3n-mV-Xmh"/>
-                        <constraint firstItem="RkK-CT-DHE" firstAttribute="leading" secondItem="TCe-cb-a2y" secondAttribute="trailing" constant="19" id="Ofu-A7-smx"/>
-                        <constraint firstAttribute="trailing" secondItem="RkK-CT-DHE" secondAttribute="trailing" id="UMz-k9-5Nr"/>
                         <constraint firstItem="DMa-LK-hnN" firstAttribute="leading" secondItem="UlU-vZ-Tin" secondAttribute="leading" id="Xnq-fT-a93"/>
-                        <constraint firstItem="SVU-Te-gCZ" firstAttribute="leading" secondItem="TCe-cb-a2y" secondAttribute="leading" id="YN2-Vd-jsP"/>
-                        <constraint firstAttribute="bottom" secondItem="BY3-ik-R2r" secondAttribute="bottom" constant="31" id="gnL-w8-qZD"/>
                         <constraint firstAttribute="bottom" secondItem="200-3P-nZ3" secondAttribute="bottom" id="rhU-WZ-JQ6"/>
                         <constraint firstItem="DMa-LK-hnN" firstAttribute="top" secondItem="UlU-vZ-Tin" secondAttribute="top" id="t8M-Y1-hUd"/>
                         <constraint firstAttribute="bottom" secondItem="DMa-LK-hnN" secondAttribute="bottom" id="wHu-dO-SyS"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huv-eh-OcC">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 kb/s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkK-CT-DHE">
+                    <rect key="frame" x="330" y="15" width="30" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sKS-Nj-Sxb">
+                    <rect key="frame" x="315" y="194" width="55" height="279"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xsj-MN-6pK">
+                            <rect key="frame" x="0.0" y="0.0" width="55" height="48"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="静音" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aaj-Ve-sKV" userLabel="静音">
+                                    <rect key="frame" x="0.0" y="0.0" width="55" height="17"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" title="mute" translatesAutoresizingMaskIntoConstraints="NO" id="LjY-SA-9AZ">
+                                    <rect key="frame" x="0.0" y="17" width="57" height="31"/>
+                                    <connections>
+                                        <action selector="onSwitchChangeMute:" destination="-1" eventType="valueChanged" id="bPR-wy-7RJ"/>
+                                    </connections>
+                                </switch>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t29-Us-Odh">
+                            <rect key="frame" x="0.0" y="56" width="55" height="28"/>
+                            <color key="backgroundColor" white="1" alpha="0.6963011188271605" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="清晰度">
+                                <color key="titleColor" red="1" green="0.17254901959999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="disabled">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" title="原画">
+                                <color key="titleColor" red="1" green="0.17254901959999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onClickDefinitionButton:" destination="-1" eventType="touchUpInside" id="yO5-uh-lde"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zx7-6i-wgs">
+                            <rect key="frame" x="0.0" y="92" width="55" height="28"/>
+                            <color key="backgroundColor" white="1" alpha="0.69630111880000001" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="适应">
+                                <color key="titleColor" red="1" green="0.17254901959999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="disabled">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="1" green="0.17254901959999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onClickScalingModeButton:" destination="-1" eventType="touchUpInside" id="KWU-by-T9o"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGW-YZ-zN8">
+                            <rect key="frame" x="0.0" y="128" width="55" height="28"/>
+                            <color key="backgroundColor" white="1" alpha="0.70173373279999995" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="截图">
+                                <color key="titleColor" red="1" green="0.046545039429999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="takeAPhotoBtnClicked:" destination="-1" eventType="touchUpInside" id="UTk-x4-YK5"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7D-2T-pRz">
+                            <rect key="frame" x="0.0" y="164" width="55" height="28"/>
+                            <color key="backgroundColor" white="1" alpha="0.70173373279999995" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="投屏">
+                                <color key="titleColor" red="1" green="0.046545039429999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="screenShareBtnClicked:" destination="-1" eventType="touchUpInside" id="nvi-GL-yqx"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGe-Ft-NPq">
+                            <rect key="frame" x="0.0" y="200" width="55" height="28"/>
+                            <color key="backgroundColor" white="1" alpha="0.70173373279999995" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="关幕">
+                                <color key="titleColor" red="1" green="0.046545039429999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="开幕"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="selectSubtitle:" destination="-1" eventType="touchUpInside" id="rc4-Dz-Zc8"/>
+                            </connections>
+                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="faF-fZ-o0s">
+                            <rect key="frame" x="0.0" y="236" width="55" height="43"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小流&lt;&gt;大流" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIO-W2-2nL">
+                                    <rect key="frame" x="0.0" y="0.0" width="55" height="12"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="55" id="gIC-Jm-fhg"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="小" translatesAutoresizingMaskIntoConstraints="NO" id="IhS-N7-8TH">
+                                    <rect key="frame" x="0.0" y="12" width="57" height="31"/>
+                                    <connections>
+                                        <action selector="onSwitchChangeResolution:" destination="-1" eventType="valueChanged" id="2zd-TN-zTH"/>
+                                    </connections>
+                                </switch>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huv-eh-OcC" userLabel="back">
                     <rect key="frame" x="10" y="20" width="28" height="28"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="28" id="dub-kQ-ofK"/>
@@ -352,26 +214,45 @@
                         <action selector="backBtnClicked:" destination="-1" eventType="touchUpInside" id="I1A-DO-U2a"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BY3-ik-R2r" userLabel="play">
+                    <rect key="frame" x="300" y="592" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="C72-yH-XQs"/>
+                        <constraint firstAttribute="width" constant="60" id="Lmi-6P-uHP"/>
+                    </constraints>
+                    <state key="normal" image="播放"/>
+                    <state key="selected" image="暂停"/>
+                    <connections>
+                        <action selector="stratBtnClicked:" destination="-1" eventType="touchUpInside" id="JFq-1G-gqU"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="huv-eh-OcC" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="21h-f6-OTz"/>
                 <constraint firstItem="UlU-vZ-Tin" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="2D9-oP-Vyr"/>
+                <constraint firstItem="sKS-Nj-Sxb" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="4Fh-Y5-9gF"/>
                 <constraint firstItem="UlU-vZ-Tin" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="6Yx-4W-gV3"/>
                 <constraint firstItem="huv-eh-OcC" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="7tD-X4-UCe"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="RkK-CT-DHE" secondAttribute="trailing" constant="15" id="AHL-nC-9sY"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="sKS-Nj-Sxb" secondAttribute="trailing" constant="5" id="LNT-zy-cfJ"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="BY3-ik-R2r" secondAttribute="bottom" constant="15" id="MPp-B3-PW9"/>
                 <constraint firstItem="UlU-vZ-Tin" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="m7s-3y-3KU"/>
+                <constraint firstItem="RkK-CT-DHE" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="15" id="rQj-Q8-tnv"/>
                 <constraint firstItem="UlU-vZ-Tin" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="u36-QQ-hfd"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="BY3-ik-R2r" secondAttribute="trailing" constant="15" id="zHx-m2-rfS"/>
             </constraints>
             <point key="canvasLocation" x="-140" y="51"/>
         </view>
     </objects>
     <resources>
-        <image name="speaker_disable" width="35" height="35"/>
-        <image name="speaker_enable" width="35" height="35"/>
         <image name="vhallLogo" width="60" height="60"/>
         <image name="播放" width="60" height="60"/>
         <image name="暂停" width="60" height="60"/>
         <image name="返回" width="28" height="28"/>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

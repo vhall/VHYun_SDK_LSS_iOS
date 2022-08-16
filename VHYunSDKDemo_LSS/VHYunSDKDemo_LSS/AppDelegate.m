@@ -7,45 +7,62 @@
 //
 
 #import "AppDelegate.h"
-
-@interface AppDelegate ()
-
-@end
+#import "LSSViewController.h"
 
 @implementation AppDelegate
 
+- (NSArray *)datas {
 
+#error 步骤
+/// 1、关闭bitcode
+/// 2、设置plist中 App Transport Security Settings -> Allow Arbitrary Loads 设置为YES
+/// 3、设置plist中 Privacy - Camera Usage Description      是否允许使用相机
+/// 4、设置plist中 Privacy - Microphone Usage Description  是否允许使用麦克风
+/// 5、设置以下数据 检查 Bundle ID 即可观看直播
+
+#error 请进行相应参数设置
+/// 参数参考 : https://www.vhallyun.com/docs/show/2
+    return @[@{
+        @"settings":@{
+            @"AppID"             : @"", // 必须
+            @"AccessToken"       : @"", // 必须
+            @"PublishRoomID"     : @"", // 必须
+            @"PlayerRoomID"      : @"", // 可选
+            @"RecordID"          : @"", // 可选
+            @"DocChannelID"      : @"", // 可选
+            @"IMChannelID"       : @"", // 可选
+            @"InteractiveID"     : @"" // 可选
+        }}];
+}
+
+/// < 无需修改 > 运行App前的相关设置，用于内部开发环境和外部配置信息
+- (void)preLaunchConfigure {
+    NSDictionary *configure;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"configure" ofType:@"data"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    BOOL VHDevMode = NO;
+    if(data){
+        configure = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    }
+    NSArray *envdatas = configure ? configure[@"envs"] : [self datas];
+    VHDevMode = configure!=nil;
+    GLEnvs *envs = [GLEnvs defaultWithEnvironments:envdatas];
+    [envs setShowTopLine:VHDevMode];
+    [envs enableWithShakeMotion:VHDevMode defaultIndex:0];
+    envs.handleListenerWillChange = ^BOOL(NSDictionary *curEnv, NSDictionary *toEnv) {
+        return NO;
+    };
+    [GLEnvs manualChangeEnv:0];
+    VHDevMode ? ((void(*)(id,SEL,BOOL))objc_msgSend)(NSClassFromString(configure[@"yundev"][@"class"]),NSSelectorFromString(configure[@"yundev"][@"sel"]),VHDevMode) : nil;
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [self preLaunchConfigure];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [LSSViewController new];
+    [self.window makeKeyAndVisible];
     return YES;
 }
-
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-}
-
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-}
-
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    VHSystemArchive();  // 保存设置的变量环境
 }
-
-
 @end

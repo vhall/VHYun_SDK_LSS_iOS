@@ -1,48 +1,17 @@
 # Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+use_frameworks!
 
+source 'https://cdn.cocoapods.org'
 
 target 'VHYunSDKDemo_LSS' do
-  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-#  use_frameworks!
-  platform :ios, '9.0'
+  pod 'VHYun_LSS'       # 微吼云直播模块
+  pod 'VHYun_Beautify'  # 微吼云美颜模块
   
-  pod 'VHCore'
-  pod 'VHYun_LSS'
-  
-
+  pod 'GLEnvs'
   pod 'Masonry'
+  pod 'GLExtensions'
+  pod 'YYModel'
   pod 'SDWebImage'
-end
-
-#target 'ScreenLive' do
-#  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-#  use_frameworks!
-#
-#  platform :ios, '12.0'
-#
-#  pod 'VHYun_ScreenShare',:path=>'../../vhallyun_sdk_vrtc/VHYun_ScreenShare.podspec'
-#end
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['ENABLE_BITCODE'] = 'YES'
-
-      if config.name == 'Release'
-          config.build_settings['BITCODE_GENERATION_MODE'] = 'bitcode'
-      else
-          config.build_settings['BITCODE_GENERATION_MODE'] = 'marker'
-      end
-
-      cflags = config.build_settings['OTHER_CFLAGS'] || ['$(inherited)']
-
-      if config.name == 'Release'
-          cflags << '-fembed-bitcode'
-      else
-          cflags << '-fembed-bitcode-marker'
-      end
-
-      config.build_settings['OTHER_CFLAGS'] = cflags
-    end
-  end
+  pod 'IQKeyboardManager'
 end

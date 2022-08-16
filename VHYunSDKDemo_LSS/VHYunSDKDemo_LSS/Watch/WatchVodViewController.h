@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "VHBaseViewController.h"
+#import <VHLSS/VHVodPlayer.h>
 
 @interface WatchVodViewController : VHBaseViewController
-@property(nonatomic,copy)NSString * recordID;
-@property(nonatomic,copy)NSString * accessToken;
-@property(nonatomic, assign)BOOL      seekMode;
-
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithRecordID:(NSString *)recordID accessToken:(NSString *)accessToken seekMode:(VHVodPlayerSeeekModel)seekMode;
 @end

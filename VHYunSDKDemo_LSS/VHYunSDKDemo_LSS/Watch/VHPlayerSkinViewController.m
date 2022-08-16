@@ -58,6 +58,7 @@
 }
 - (VHLivePlayer *)livePlayer {
     if (!_livePlayer) {
+//        _livePlayer = [[VHLivePlayer alloc] initWithFastPlayerInteractID:nil];    // 快直播
         _livePlayer = [[VHLivePlayer alloc] init];
         _livePlayer.delegate = self;
     }
