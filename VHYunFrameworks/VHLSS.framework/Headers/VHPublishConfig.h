@@ -214,6 +214,9 @@ typedef enum : NSUInteger {
 @property(nonatomic,assign)int customVideoWidth;
 @property(nonatomic,assign)int customVideoHeight;
 
+/// 返回当前尺寸，如果 customVideoWidth/Height 未设置则使用 Resolution 换算Size，所以必然不为 0
+@property (nonatomic, readonly) CGSize customVideoSize;
+
 /**
  * 高级功能 用于自定义采集模块
  * 自定义参数 用于自定义采集模块
