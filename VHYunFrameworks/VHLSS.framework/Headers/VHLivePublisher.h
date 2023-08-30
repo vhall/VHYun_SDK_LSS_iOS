@@ -13,12 +13,12 @@
 #import "IVHBeautifyModule.h"
 
 typedef NS_ENUM(NSInteger, VHPublishStatus) {
-    VHPublishStatusNone,//
-    VHPublishStatusPushConnectSucceed,//直播连接成功
-    VHPublishStatusUploadSpeed,//直播上传速率
-    VHPublishStatusUploadNetworkException,//发起端网络环境差
-    VHPublishStatusUploadNetworkOK, //发起端网络环境恢复正常
-    VHPublishStatusStoped//发起端停止推流
+    VHPublishStatusNone						= 0, //
+    VHPublishStatusPushConnectSucceed		= 1, // 直播连接成功
+    VHPublishStatusUploadSpeed				= 2, // 直播上传速率
+    VHPublishStatusUploadNetworkException	= 3, // 发起端网络环境差
+    VHPublishStatusUploadNetworkOK			= 4, // 发起端网络环境恢复正常
+    VHPublishStatusStoped					= 5 // 发起端停止推流
 };
 
 typedef NS_ENUM(NSInteger, VHPublishError) {
@@ -27,6 +27,13 @@ typedef NS_ENUM(NSInteger, VHPublishError) {
     VHPublishErrorAuthError,         //  接口\验证等相关错误
     VHPublishErrorParamError,        //  参数相关错误
     VHPublishErrorCaptureError,      //  采集相关错误
+};
+
+typedef NS_ENUM(NSInteger, VHPublishStreamStatus) { //流状态
+    VHPublishStreamStatusStoped,       // 停止
+    VHPublishStreamStatusStarting,     // 开始
+    VHPublishStreamStatusPublishing,   // 推流中
+    VHPublishStreamStatusPasue,        // 暂停
 };
 
 @protocol VHLivePublisherDelegate;
@@ -52,20 +59,25 @@ typedef NS_ENUM(NSInteger, VHPublishError) {
 @property (nonatomic,assign)BOOL enableMute;
 
 /**
- *  获取推流参数
- */
-@property (nonatomic,strong,readonly)VHPublishConfig* config;
-
-
-/**
  *  推流前可设置视频码率
  */
 @property (nonatomic,assign)int videoBitRate;
 
 /**
+ *  获取推流参数
+ */
+@property (nonatomic,strong,readonly)VHPublishConfig* config;
+
+/**
  *  推流状态
  */
 @property (nonatomic,assign,readonly)BOOL isPublishing;
+
+/**
+ *  推流状态
+ */
+@property (nonatomic,assign,readonly)VHPublishStreamStatus streamStatus;
+
 
 /**
  *  初始化
@@ -168,6 +180,12 @@ typedef NS_ENUM(NSInteger, VHPublishError) {
  */
 - (void)setContentMode:(VHVideoCaptureContentMode)contentMode;
 
+/**
+ *  镜像摄像头
+ *  @param mirror YES:镜像 NO:不镜像
+ */
+- (void)camVidMirror:(BOOL)mirror;
+
 // 打开噪声抑制 直播开始后有效
 -(void)openNoiseSuppresion:(BOOL)enable;
 
@@ -214,6 +232,11 @@ typedef NS_ENUM(NSInteger, VHPublishError) {
  *  推流状态回调
  *  @param status   状态类型
  *  @param info     状态信息
+ *      VHPublishStatusPushConnectSucceed,//直播连接成功
+ *      VHPublishStatusUploadSpeed,//直播上传速率
+ *      VHPublishStatusUploadNetworkException,//发起端网络环境差
+ *      VHPublishStatusUploadNetworkOK, //发起端网络环境恢复正常
+ *      VHPublishStatusStoped//发起端停止推流
  */
 - (void)onPublishStatus:(VHPublishStatus)status info:(NSDictionary*)info;
 
@@ -221,8 +244,12 @@ typedef NS_ENUM(NSInteger, VHPublishError) {
  *  错误回调
  *  @param error    错误类型
  *  @param info     错误信息
+ *  	VHPublishErrorPusherError,       //  推流相关错误@{code："10001" ,content: "xxxxx"}
+ *  	VHPublishErrorAuthError,         //  接口\验证等相关错误
+ *  	VHPublishErrorParamError,        //  参数相关错误
+ *  	VHPublishErrorCaptureError,      //  采集相关错误
  */
-- (void)onPublishError:(VHPublishError)error info:(NSDictionary*)info;//@{code："" ,content: ""}
+- (void)onPublishError:(VHPublishError)error info:(NSDictionary*)info;
 
 @end
 

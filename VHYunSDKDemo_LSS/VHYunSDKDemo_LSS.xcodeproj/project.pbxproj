@@ -653,7 +653,6 @@
 				272B232D04BB6BE901DA474D /* Pods-VHYunSDKDemo_LSS.debug.xcconfig */,
 				030F9FD7AA3D6C5C0EB6AAB6 /* Pods-VHYunSDKDemo_LSS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -1007,7 +1006,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEPLOYMENT_POSTPROCESSING = NO;
-				DEVELOPMENT_TEAM = H49DK955B9;
+				DEVELOPMENT_TEAM = S82ZX9394G;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
@@ -1056,7 +1055,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEPLOYMENT_POSTPROCESSING = YES;
-				DEVELOPMENT_TEAM = H49DK955B9;
+				DEVELOPMENT_TEAM = S82ZX9394G;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";

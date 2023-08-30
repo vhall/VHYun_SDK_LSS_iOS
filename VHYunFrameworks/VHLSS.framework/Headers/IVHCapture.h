@@ -119,7 +119,11 @@ typedef void(^OnErrorBlock)(NSDictionary* errorInfo);
  *  预览填充模式
  */
 - (void)setContentMode:(VHVideoCaptureContentMode)contentMode;
-
+/**
+ *  镜像摄像头
+ *  @param mirror YES:镜像 NO:不镜像
+ */
+- (void)camVidMirror:(BOOL)mirror;
 
 /**
  *  切换摄像头

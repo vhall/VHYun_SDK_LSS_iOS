@@ -6,11 +6,12 @@ source 'https://cdn.cocoapods.org'
 
 target 'VHYunSDKDemo_LSS' do
   pod 'VHYun_LSS'       # 微吼云直播模块
-  pod 'VHYun_Beautify'  # 微吼云美颜模块
+  pod 'VHYun_Beautify', '1.0.6'  # 微吼云美颜模块
+  pod 'FURenderKit', '8.3.0'
   
   pod 'GLEnvs'
   pod 'Masonry'
-  pod 'GLExtensions'
+  pod 'GLExtensions', '1.1.3'
   pod 'YYModel'
   pod 'SDWebImage'
   pod 'IQKeyboardManager'

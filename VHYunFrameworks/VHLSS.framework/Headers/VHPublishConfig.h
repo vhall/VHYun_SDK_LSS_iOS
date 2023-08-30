@@ -12,11 +12,11 @@
  *  推流状态
  */
 typedef NS_ENUM(NSInteger, VHallPublishStatus) {
-    VHallPublishStatusNone,//
-    VHallPublishStatusPushConnectSucceed,//直播连接成功
-    VHallPublishStatusUploadSpeed,//直播上传速率
-    VHallPublishStatusUploadNetworkException,//发起端网络环境差
-    VHallPublishStatusUploadNetworkOK //发起端网络环境恢复正常
+    VHallPublishStatusNone = 0,					//
+    VHallPublishStatusPushConnectSucceed = 1,	//直播连接成功
+    VHallPublishStatusUploadSpeed = 2,			//直播上传速率
+    VHallPublishStatusUploadNetworkException = 3, //发起端网络环境差
+    VHallPublishStatusUploadNetworkOK = 4		//发起端网络环境恢复正常
 };
 
 /**

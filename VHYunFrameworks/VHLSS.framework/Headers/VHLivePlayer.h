@@ -58,7 +58,7 @@ typedef NS_ENUM (NSInteger,VHLivePlayErrorType){
 @property (nonatomic) int scalingMode;
 /// 静音
 @property (nonatomic) BOOL mute;
-/// 重试次数 [默认3]
+/// 重试次数 [默认3] (仅对快直播有效)
 @property (nonatomic) NSUInteger retryCount;
 /// 水印 ImageView 设置水印图片 及显示位置  注：只要使用了改属性 PaaS 控制台设置图片方式便失效
 @property (nonatomic, readonly) UIImageView* watermarkImageView;
@@ -155,8 +155,8 @@ typedef NS_ENUM (NSInteger,VHLivePlayErrorType){
 ///  @param player      播放器实例
 ///  @param size        当前播放视频宽髙
 ///  @param resolution  大小流: 1 大流 2 小流  [快直播使用]
-- (void)player:(VHLivePlayer*)player videoSize:(CGSize)size;
 - (void)player:(VHLivePlayer*)player videoSize:(CGSize)size resolution:(int)resolution;
+- (void)player:(VHLivePlayer*)player videoSize:(CGSize)size;
 
 ///  视频是否开通字幕
 ///  @param player          播放器实例
