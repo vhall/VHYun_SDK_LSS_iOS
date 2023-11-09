@@ -31,10 +31,6 @@ typedef NS_ENUM (NSInteger,VHLivePlayErrorType){
 
 @property (nonatomic,weak) id <VHLivePlayerDelegate>  delegate;
 
-@property (nonatomic) NSString *fastLiveID;
-
-@property (nonatomic) MovieRtcPlayerInterface *fastLiveRTCPlayer;
-
 @property (nonatomic, readonly) UIView *view;
 /// 播放器状态 [详见 VHPlayerStatus 的定义]
 @property (nonatomic, readonly) int playerState;
@@ -62,7 +58,12 @@ typedef NS_ENUM (NSInteger,VHLivePlayErrorType){
 @property (nonatomic) NSUInteger retryCount;
 /// 水印 ImageView 设置水印图片 及显示位置  注：只要使用了改属性 PaaS 控制台设置图片方式便失效
 @property (nonatomic, readonly) UIImageView* watermarkImageView;
-
+/// 快直播id
+@property (nonatomic) NSString *fastLiveID;
+/// 快直播player
+@property (nonatomic) MovieRtcPlayerInterface *fastLiveRTCPlayer;
+/// 是否开启画中画直播
+@property (nonatomic, assign) BOOL isOpenPIP;
 
 /// 初始化
 - (instancetype)init;
@@ -71,49 +72,51 @@ typedef NS_ENUM (NSInteger,VHLivePlayErrorType){
 /// @param logParam log信息
 - (instancetype)initWithLogParam:(NSDictionary*)logParam;
 
+/// 初始化
+/// @param logParam log信息
+/// @param isOpenPIP 是否开启画中画(画中画必须用hls)
+/// @param isHLS 是否使用hls流
+- (instancetype)initWithLogParam:(NSDictionary*)logParam isHLS:(BOOL)isHLS isOpenPIP:(BOOL)isOpenPIP;
+
 /// 开始播放
 /// @param roomID       房间ID
 /// @param accessToken  accessToken
 - (BOOL)startPlay:(NSString *)roomID accessToken:(NSString *)accessToken;
 
-
 ///  暂停播放
 - (BOOL)pause;
-
 
 ///  恢复播放
 - (BOOL)resume;
 
-
 ///  结束播放
 - (BOOL)stopPlay;
-
 
 ///  销毁播放器
 - (BOOL)destroyPlayer;
 
-
 ///  获得当前时间视频截图
 - (void)takeVideoScreenshot:(void (^)(UIImage* image))screenshotBlock;
-
 
 /// 设置播放器皮肤
 /// @param skinView 播放器皮肤，继承于VHPlayerSkinView的子类view。
 /// @discussion 可继承VHPlayerSkinView自定义播放器皮肤，并实现父类的相关方法。也可不使用此方法，完全自定义播放器皮肤并添加到播放器view上。
 - (void)setPlayerSkinView:(VHPlayerSkinView *)skinView;
 
+/// 设置投屏对象，返回YES 可投屏，NO不可投屏 (投屏功能使用步骤：1、设置DLNAobj
+/// 2、收到DLNAobj设备列表回调后，设置投屏设备
+/// 3、DLNAobj初始化播放。如果播放过程中多个player使用对同一个DLNAobj，则DLNAobj需要重新初始化播放)
+/// @param DLNAobj 投屏VHDLNAControl对象
+- (BOOL)dlnaMappingObject:(VHDLNAControl *)DLNAobj;
+
+/// 开启画中画
+- (BOOL)openPIPSupported;
+
+/// 关闭画中画
+- (void)closePIPSupported;
 
 ///  获得当前SDK版本号
 + (NSString *)getSDKVersion;
-
-/// 设置投屏对象
-/// @param DLNAobj 投屏VHDLNAControl对象
-/// @return 是否可投屏
-/// @discussion 投屏功能使用步骤：
-///     1、设置DLNAobj
-///     2、收到DLNAobj设备列表回调后，设置投屏设备
-///     3、DLNAobj初始化播放。如果播放过程中多个player使用对同一个DLNAobj，则DLNAobj需要重新初始化播放
-- (BOOL)dlnaMappingObject:(VHDLNAControl *)DLNAobj;
 
 @end
 
@@ -162,5 +165,22 @@ typedef NS_ENUM (NSInteger,VHLivePlayErrorType){
 ///  @param player          播放器实例
 ///  @param isLiveSubtitle  1 开通 0 未开通
 - (void)player:(VHLivePlayer*)player isLiveSubtitle:(BOOL)isLiveSubtitle;
+
+#pragma mark - 画中画
+
+/// 即将开启画中画
+- (void)pictureInPictureControllerWillStart;
+/// 已经开启画中画
+- (void)pictureInPictureControllerDidStart;
+/// 开启画中画失败
+/// - Parameter error: 错误信息
+- (void)pictureInPictureWithFailedToStartPictureInPictureWithError:(NSError *)error;
+/// 即将关闭画中画
+- (void)pictureInPictureControllerWillStop;
+/// 已经关闭画中画
+- (void)pictureInPictureControllerDidStop;
+/// 关闭画中画且恢复播放界面
+/// - Parameter completionHandler: 恢复是否完成
+- (void)pictureInPictureWithRestoreUserInterfaceForPictureInPictureStopWithCompletionHandler:(void (^)(BOOL restored))completionHandler;
 
 @end

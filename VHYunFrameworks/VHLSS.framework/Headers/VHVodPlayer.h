@@ -21,7 +21,7 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 };
 
 @interface VHVodPlayer : NSObject
-- (instancetype)initWithLogParam:(NSDictionary*)logParam;
+
 @property (nonatomic,weak) id <VHVodPlayerDelegate>      delegate;
 @property (nonatomic,strong,readonly) UIView             *view;
 @property (nonatomic,assign,readonly) VHPlayerStatus     playerState; //播放器状态  详见 VHPlayerStatus 的定义.
@@ -34,96 +34,71 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 @property (nonatomic,assign) float rate;        //播放速率  0.50, 0.67, 0.80, 1.0, 1.25, 1.50, and 2.0
 @property (nonatomic,assign) BOOL mute;  //是否静音
 
-/**
- *  设置默认播放的清晰度 默认原画
- */
-@property(nonatomic,assign)VHDefinition             defaultDefinition;
+/// 设置默认播放的清晰度 默认原画
+@property(nonatomic, assign)VHDefinition             defaultDefinition;
 
-/**
- * 当前播放的清晰度 默认原画 只有在播放开始后调用 并在支持的清晰度列表中
- */
+/// 当前播放的清晰度 默认原画 只有在播放开始后调用 并在支持的清晰度列表中
 @property(nonatomic,assign)VHDefinition             curDefinition;
-/**
- * 点播视播放器seek模式设置 注意：需要播放前调用
- */
+
+/// 点播视播放器seek模式设置 注意：需要播放前调用
 @property (nonatomic, assign) VHVodPlayerSeeekModel seekModel;
 
-/**
- * 水印 ImageView 设置水印图片 及显示位置  注：只要使用了该属性 PaaS 控制台设置图片方式便失效
- */
+/// 水印 ImageView 设置水印图片 及显示位置  注：只要使用了该属性 PaaS 控制台设置图片方式便失效
 @property (nonatomic,readonly) UIImageView* watermarkImageView;
 
-/**
- * 是否使用直播实移 YES:使用 NO:不使用  默认为NO
- */
+/// 是否使用直播实移 YES:使用 NO:不使用  默认为NO
 @property(nonatomic, assign) BOOL isTimeshift;
-/**
- * 使用直播实移 当前播放时长 (直播实移才生效)
- */
-@property(nonatomic, assign) NSInteger live_duration;
 
-/**
- * 点播视播放器seek模式设置 注意：需要播放前调用
- * 如果是seekModel == VHVodPlayerSeeekModelPlayed 为指定播放过时间
- */
+/// 使用直播实移 当前播放时长 (直播实移才生效)
+@property (nonatomic, assign) NSInteger live_duration;
+/// 是否开启画中画直播
+@property (nonatomic, assign) BOOL isOpenPIP;
+
+- (instancetype)initWithLogParam:(NSDictionary*)logParam;
+
+/// 初始化
+/// @param logParam log信息
+/// @param isOpenPIP 是否开启画中画
+- (instancetype)initWithLogParam:(NSDictionary*)logParam isOpenPIP:(BOOL)isOpenPIP;
+
+/// 点播视播放器seek模式设置 注意：需要播放前调用
+/// @param seekModel 如果是seekModel == VHVodPlayerSeeekModelPlayed
+/// @param maxTime 为指定播放过时间
 - (void)setSeekModel:(VHVodPlayerSeeekModel)seekModel maxTime:(NSTimeInterval)maxTime;
 
-/**
- *  开始播放
- *  @param recordID       房间ID
- *  @param accessToken  accessToken
- */
+/// 开始播放
+/// @param recordID       房间ID
+/// @param accessToken  accessToken
 - (BOOL)startPlay:(NSString*)recordID accessToken:(NSString*)accessToken;
 
-/**
- *  暂停播放
- */
+/// 暂停播放
 - (BOOL)pause;
 
-/**
- *  恢复播放
- */
+/// 恢复播放
 - (BOOL)resume;
 
-/**
- *  结束播放
- */
+/// 结束播放
 - (BOOL)stopPlay;
 
-/*
- seek 播放跳转到音视频流某个时间
- * time: 流时间，单位为秒
- */
+/// seek 播放跳转到音视频流某个时间
+/// @param time 流时间，单位为秒
 - (BOOL)seek:(float)time;
 
-/**
- *  销毁播放器，销毁播放器后需将VHVodPlayer对象制为nil。
- */
+/// 销毁播放器，销毁播放器后需将VHVodPlayer对象制为nil。
 - (BOOL)destroyPlayer;
 
-/**
- *  获得当前SDK版本号
- */
-+ (NSString *) getSDKVersion;
-
-/**
- *  获得当前时间视频截图
- */
+/// 获得当前时间视频截图
 - (void)takeVideoScreenshot:(void (^)(UIImage* image))screenshotBlock;
 
-/**
- 设置播放器皮肤
- @param skinView 播放器皮肤，继承于VHPlayerSkinView的子类view。
- @discussion 可继承VHPlayerSkinView自定义播放器皮肤，并实现父类的相关方法。也可不使用此方法，完全自定义播放器皮肤并添加到播放器view上。
- */
+/// 设置播放器皮肤
+/// @param skinView 播放器皮肤，继承于VHPlayerSkinView的子类view。
+/// @param @discussion 可继承VHPlayerSkinView自定义播放器皮肤，并实现父类的相关方法。也可不使用此方法，完全自定义播放器皮肤并添加到播放器view上。
 - (void)setPlayerSkinView:(VHPlayerSkinView *)skinView;
-
 
 /// 是否显示播放器自带字幕，如果未选择字幕，则显示默认字幕
 /// @param show YES：开启 NO：关闭
 /// @param completion 完成回调，回调当前字幕
 - (void)showSubTitle:(BOOL)show completion:(void(^)(VHVidoeSubtitleModel *subtitle))completion;
-
 
 /// 选择字幕
 /// @param subtitleModel 选择字幕（可从字幕列表回调中获取）
@@ -132,15 +107,20 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 - (void)selectSubtitleModel:(VHVidoeSubtitleModel *)subtitleModel success:(void(^)(NSArray <VHVidoeSubtitleItemModel *> *subtitleItems))success fail:(void(^)(NSError *error))fail;
 
 
-/// 设置投屏对象，返回YES 可投屏，NO不可投屏 (投屏功能使用步骤：1、设置DLNAobj 2、收到DLNAobj设备列表回调后，设置投屏设备 3、DLNAobj初始化播放。如果播放过程中多个player使用对同一个DLNAobj，则DLNAobj需要重新初始化播放)
+/// 设置投屏对象，返回YES 可投屏，NO不可投屏 (投屏功能使用步骤：1、设置DLNAobj
+/// 2、收到DLNAobj设备列表回调后，设置投屏设备
+/// 3、DLNAobj初始化播放。如果播放过程中多个player使用对同一个DLNAobj，则DLNAobj需要重新初始化播放)
 /// @param DLNAobj 投屏VHDLNAControl对象
 - (BOOL)dlnaMappingObject:(VHDLNAControl *)DLNAobj;
 
-/** 开启画中画 */
+/// 开启画中画
 - (BOOL)openPIPSupported;
 
-/** 关闭画中画 */
+/// 关闭画中画
 - (void)closePIPSupported;
+
+/// 获得当前SDK版本号
++ (NSString *) getSDKVersion;
 
 @end
 
@@ -197,14 +177,29 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 /// @param pointArr 已打点的数据
 - (void)player:(VHVodPlayer *)player videoPointArr:(NSArray <VHVidoePointModel *> *)pointArr;
 
-
-
 #pragma mark - 字幕
 
 /// 当前视频所支持的字幕列表 
 /// @param player 播放器实例
 /// @param subTitleArr 当前视频支持的字幕数组（若无字幕，则返回空）
 - (void)player:(VHVodPlayer *)player videoSubtitleArr:(NSArray <VHVidoeSubtitleModel *> *)subTitleArr;
+
+#pragma mark - 画中画
+
+/// 即将开启画中画
+- (void)pictureInPictureControllerWillStart;
+/// 已经开启画中画
+- (void)pictureInPictureControllerDidStart;
+/// 开启画中画失败
+/// - Parameter error: 错误信息
+- (void)pictureInPictureWithFailedToStartPictureInPictureWithError:(NSError *)error;
+/// 即将关闭画中画
+- (void)pictureInPictureControllerWillStop;
+/// 已经关闭画中画
+- (void)pictureInPictureControllerDidStop;
+/// 关闭画中画且恢复播放界面
+/// - Parameter completionHandler: 恢复是否完成
+- (void)pictureInPictureWithRestoreUserInterfaceForPictureInPictureStopWithCompletionHandler:(void (^)(BOOL restored))completionHandler;
 
 @end
 
