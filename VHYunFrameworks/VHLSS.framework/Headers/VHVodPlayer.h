@@ -51,8 +51,13 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 
 /// 使用直播实移 当前播放时长 (直播实移才生效)
 @property (nonatomic, assign) NSInteger live_duration;
+
 /// 是否开启画中画直播
 @property (nonatomic, assign) BOOL isOpenPIP;
+
+/// seek之后是否还自动播放
+@property (nonatomic, assign) BOOL isSeekAutoplay;
+
 
 - (instancetype)initWithLogParam:(NSDictionary*)logParam;
 
