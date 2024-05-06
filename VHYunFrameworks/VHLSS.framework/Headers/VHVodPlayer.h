@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "VHPlayerTypeDef.h"
 #import "VHPlayerCommonModel.h"
+#import "VHMarqueeOptionModel.h"
+
 @class VHPlayerSkinView;
 @class VHDLNAControl;
 @protocol VHVodPlayerDelegate;
@@ -46,6 +48,9 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 /// 水印 ImageView 设置水印图片 及显示位置  注：只要使用了该属性 PaaS 控制台设置图片方式便失效
 @property (nonatomic,readonly) UIImageView* watermarkImageView;
 
+/// 跑马灯
+@property (nonatomic, strong) VHMarqueeOptionModel *marqueeOptionConfig;
+
 /// 是否使用直播实移 YES:使用 NO:不使用  默认为NO
 @property(nonatomic, assign) BOOL isTimeshift;
 
@@ -58,13 +63,22 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 /// seek之后是否还自动播放
 @property (nonatomic, assign) BOOL isSeekAutoplay;
 
+/// 是否自动播放
+@property (nonatomic, assign) BOOL shouldAutoplay;
 
+/// 初始化
+/// @param logParam log信息
 - (instancetype)initWithLogParam:(NSDictionary*)logParam;
 
 /// 初始化
 /// @param logParam log信息
 /// @param isOpenPIP 是否开启画中画
 - (instancetype)initWithLogParam:(NSDictionary*)logParam isOpenPIP:(BOOL)isOpenPIP;
+
+/// 初始化
+/// @param logParam log信息
+/// @param shouldAutoplay 是否自动播放
+- (instancetype)initWithLogParam:(NSDictionary*)logParam shouldAutoplay:(BOOL)shouldAutoplay;
 
 /// 点播视播放器seek模式设置 注意：需要播放前调用
 /// @param seekModel 如果是seekModel == VHVodPlayerSeeekModelPlayed
@@ -188,6 +202,10 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 /// @param player 播放器实例
 /// @param subTitleArr 当前视频支持的字幕数组（若无字幕，则返回空）
 - (void)player:(VHVodPlayer *)player videoSubtitleArr:(NSArray <VHVidoeSubtitleModel *> *)subTitleArr;
+
+/// 视频已经准备好,可以直接播放
+/// @param palyer 播放器实例
+- (void)playerAble:(VHVodPlayer *)palyer;
 
 #pragma mark - 画中画
 

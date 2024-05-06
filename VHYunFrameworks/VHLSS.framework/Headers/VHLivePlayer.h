@@ -9,6 +9,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 #import "VHPlayerTypeDef.h"
+#import "VHMarqueeOptionModel.h"
 
 @class VHDLNAControl;
 @class VHPlayerSkinView;
@@ -58,6 +59,8 @@ typedef NS_ENUM (NSInteger,VHLivePlayErrorType){
 @property (nonatomic) NSUInteger retryCount;
 /// 水印 ImageView 设置水印图片 及显示位置  注：只要使用了改属性 PaaS 控制台设置图片方式便失效
 @property (nonatomic, readonly) UIImageView* watermarkImageView;
+/// 跑马灯
+@property (nonatomic, strong) VHMarqueeOptionModel *marqueeOptionConfig;
 /// 快直播id
 @property (nonatomic) NSString *fastLiveID;
 /// 快直播player

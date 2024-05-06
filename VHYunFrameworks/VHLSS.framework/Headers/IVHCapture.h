@@ -115,6 +115,9 @@ typedef void(^OnErrorBlock)(NSDictionary* errorInfo);
  */
 - (AVCaptureDevicePosition)captureDevicePosition;
 
+/// 当前摄像头对焦位置
+- (CGPoint)focusPoint;
+
 /**
  *  预览填充模式
  */

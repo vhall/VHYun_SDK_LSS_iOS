@@ -68,6 +68,11 @@ typedef NS_ENUM(int,VHStreamType){
  */
 - (void)onPublishError:(VHallPublishError)error info:(NSDictionary*)info;//@{code："" ,content: ""}
 
+/**
+ *  人脸位置检测
+ *  @param bounds   位置
+ */
+- (void)faceBoxToTransformedBounds:(CGRect)bounds;
 @end
 
 #pragma mark - VHPublishConfig

@@ -51,7 +51,8 @@ typedef NS_ENUM(NSInteger, VHPublishStreamStatus) { //流状态
  *  判断用户使用是前置还是后置摄像头
  */
 @property (nonatomic,assign,readonly)AVCaptureDevicePosition captureDevicePosition;
-
+/// 当前摄像头对焦位置
+@property (nonatomic,assign,readonly) CGPoint focusPoint;
 /// 静视频。回显以及观众看到的是黑屏，不影响音频相关内容
 @property (nonatomic) BOOL cameraMute;
 
@@ -250,6 +251,12 @@ typedef NS_ENUM(NSInteger, VHPublishStreamStatus) { //流状态
  *  	VHPublishErrorCaptureError,      //  采集相关错误
  */
 - (void)onPublishError:(VHPublishError)error info:(NSDictionary*)info;
+
+/**
+ *  人脸位置检测
+ *  @param bounds   位置
+ */
+- (void)faceBoxToTransformedBounds:(CGRect)bounds;
 
 @end
 

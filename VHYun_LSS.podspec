@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "VHYun_LSS"
-  s.version       = "2.8.0"
+  s.version       = "2.8.1"
   s.summary       = "VHall iOS SDK #{s.name.to_s}"
   s.homepage     = 'https://www.vhall.com'
   s.author       = { "GuoChao" => "chao.guo@vhall.com" }
@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
     'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/**',
     'HEADER_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/**'
   }
-  s.dependency 'VHCore','>=2.3.5'
+  s.dependency 'VHCore','>=2.3.7'
 end
