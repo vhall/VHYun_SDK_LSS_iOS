@@ -54,11 +54,11 @@
 		</data>
 		<key>Headers/VHVodPlayer.h</key>
 		<data>
-		Ol9o+yCtIIr6qFGGfExZhHkfjMU=
+		gKOEJceDDYkMbXVqP4a1oPqg450=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		gP/d4m9oL7Qyf9yXEGExvpTlqTk=
+		zjvdKINlObkHi0gdblKkE9FNV94=
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
@@ -69,10 +69,6 @@
 	<dict>
 		<key>Headers/IVHBeautifyModule.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			haxmcAtpJ13RUz9O0avIWyU/Le4=
-			</data>
 			<key>hash2</key>
 			<data>
 			XMAMpXfHxVaOApBaF0eHrATU6gGW5GsYH9N9W4yhNIw=
@@ -80,10 +76,6 @@
 		</dict>
 		<key>Headers/IVHCapture.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MGF4IrDNhuZRYPeOrAHMk3wYTsI=
-			</data>
 			<key>hash2</key>
 			<data>
 			1uaZ8Xti88X8/N0sLpaeLPR3T7v/MN3Wl5FgvU92vu0=
@@ -91,10 +83,6 @@
 		</dict>
 		<key>Headers/VHLivePlayer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			kCRJIv22uuGJdSeOAXQYiU1Qr2U=
-			</data>
 			<key>hash2</key>
 			<data>
 			KOvJf9s8XtzftJlUbF6Sqihnlyxqq7gZzzy4KfNV7Vw=
@@ -102,10 +90,6 @@
 		</dict>
 		<key>Headers/VHLivePublisher.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			n8a7dJHWZgxky7uC2r7nWaHU9DU=
-			</data>
 			<key>hash2</key>
 			<data>
 			zp9xk7TLDMCoxnzrvt1Dr3HIlrIkN1lJQQUcMxoYU/k=
@@ -113,10 +97,6 @@
 		</dict>
 		<key>Headers/VHMarqueeOptionModel.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			pbCk+Kz/NNB0BhEl6meVWJiyqGc=
-			</data>
 			<key>hash2</key>
 			<data>
 			QqUTMmHlhBO0eL2V9fbYlmCAz1juuYxLcbePDEVCxv4=
@@ -124,10 +104,6 @@
 		</dict>
 		<key>Headers/VHPlayerCommonModel.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nT9V/szAmJv47COChm1ccRebtKc=
-			</data>
 			<key>hash2</key>
 			<data>
 			4vlTG/7jm4Ddqz28eb4wsgzFviRkR+l5HmWS04Iytgc=
@@ -135,10 +111,6 @@
 		</dict>
 		<key>Headers/VHPlayerSkinView.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nXMppT2ZRn/MXFdCO5fA/eBGZBA=
-			</data>
 			<key>hash2</key>
 			<data>
 			uVmSHPlpgsvYxRCVhSkcqZC2rQEXl3079snr0jPUlw0=
@@ -146,10 +118,6 @@
 		</dict>
 		<key>Headers/VHPlayerTypeDef.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			qxh7HjnlSusqdZ6R4TARsIbfwjY=
-			</data>
 			<key>hash2</key>
 			<data>
 			MuTpNIiMBINjzQZIXFkUivAxMt40n11vhyGKxbdaRgg=
@@ -157,10 +125,6 @@
 		</dict>
 		<key>Headers/VHPublishConfig.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			dWhqgUm1kazBI3EE325WWLERTFk=
-			</data>
 			<key>hash2</key>
 			<data>
 			hyA1Tr01/0F3Us1hcxk0BQ8Bq+Xk8+4jSn5DBjnLXgY=
@@ -168,10 +132,6 @@
 		</dict>
 		<key>Headers/VHScreenLivePublisher.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LlupPYEO+eGDN+6KxptISUlU6Jo=
-			</data>
 			<key>hash2</key>
 			<data>
 			NFwUXjJPS0UFWSZaprnjO17vkeiVH3dVho/XSPPHldU=
@@ -179,10 +139,6 @@
 		</dict>
 		<key>Headers/VHTimeshiftPlayer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bfB0ZGv9jSbSJ9GPxwg1XscOYeo=
-			</data>
 			<key>hash2</key>
 			<data>
 			mxOm5f+V7vRTeJHkaN+IZkzkywfoVY0BJbLkV05oaVw=
@@ -190,10 +146,6 @@
 		</dict>
 		<key>Headers/VHTimeshiftPlayerModel.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			XnwPXLJy1CI/Hmdz07I6BK4ajyc=
-			</data>
 			<key>hash2</key>
 			<data>
 			uLFTPnkbfNp9PG0oqy4MZXhPi6IHZMM6hmm/XnQwNtI=
@@ -201,21 +153,13 @@
 		</dict>
 		<key>Headers/VHVodPlayer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Ol9o+yCtIIr6qFGGfExZhHkfjMU=
-			</data>
 			<key>hash2</key>
 			<data>
-			jHgewcSzEFfcUY4+yQIin13bbiRIR5Y8+LUJUCtjjLI=
+			YkjCK5CHLVIcjuawnONYRFfmJXCTQxMlWQPakVM7lOI=
 			</data>
 		</dict>
 		<key>PrivacyInfo.xcprivacy</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			iUBNWarf94U+D+vPFlN95W5pXSg=
-			</data>
 			<key>hash2</key>
 			<data>
 			V9+VWxYxidAj0wCLTd9FBpGzm43p9UW7HnwUD+1TOHs=

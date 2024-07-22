@@ -188,6 +188,13 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
  */
 - (void)player:(VHVodPlayer*)player videoSize:(CGSize)size;
 
+/**
+ *  视频是否是加密视频
+ *  @param player   播放器实例
+ *  @param isEncryptedVideo    是否为加密视频
+ */
+- (void)player:(VHVodPlayer*)player isEncryptedVideo:(BOOL)isEncryptedVideo;
+
 
 #pragma mark - 打点
 
