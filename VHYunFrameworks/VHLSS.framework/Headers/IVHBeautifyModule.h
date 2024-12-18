@@ -19,6 +19,8 @@ typedef void(^handleOutputWithProcess)(CMSampleBufferRef ref, uint64_t ts);
 @protocol IVHBeautifyModule <NSObject>
 @required
 
+@property (nonatomic, copy) NSString * faceBundlePath; // 路径
+
 /// 初始化
 + (instancetype)BeautifyModule;
 

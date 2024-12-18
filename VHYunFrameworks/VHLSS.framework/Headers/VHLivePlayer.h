@@ -65,8 +65,6 @@ typedef NS_ENUM (NSInteger,VHLivePlayErrorType){
 @property (nonatomic) NSString *fastLiveID;
 /// 快直播player
 @property (nonatomic) MovieRtcPlayerInterface *fastLiveRTCPlayer;
-/// 是否开启画中画直播
-@property (nonatomic, assign) BOOL isOpenPIP;
 
 /// 初始化
 - (instancetype)init;
@@ -117,6 +115,12 @@ typedef NS_ENUM (NSInteger,VHLivePlayErrorType){
 
 /// 关闭画中画
 - (void)closePIPSupported;
+
+/// 是否开启画中画
+- (void)setIsOpenPIP:(BOOL)isOpenPIP;
+
+/// 获取画中画状态
+- (BOOL)getIsOpenPIP;
 
 ///  获得当前SDK版本号
 + (NSString *)getSDKVersion;
