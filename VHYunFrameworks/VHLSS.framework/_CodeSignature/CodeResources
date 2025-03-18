@@ -12,21 +12,41 @@
 		<data>
 		MGF4IrDNhuZRYPeOrAHMk3wYTsI=
 		</data>
+		<key>Headers/OpenCONSTS.h</key>
+		<data>
+		Yol29b2GA7NRei9dwoXsNGJ8BZo=
+		</data>
+		<key>Headers/VHFilterCapture.h</key>
+		<data>
+		JImal/BHJ+Gb+htk/uWCt/pyJBk=
+		</data>
 		<key>Headers/VHLivePlayer.h</key>
 		<data>
 		zkn4DD/H07Q6gOUkVtiJASWVYxc=
 		</data>
 		<key>Headers/VHLivePublisher.h</key>
 		<data>
-		n8a7dJHWZgxky7uC2r7nWaHU9DU=
+		tlIauByYTElcXQhzDMwjumxOEmY=
 		</data>
 		<key>Headers/VHMarqueeOptionModel.h</key>
 		<data>
 		pbCk+Kz/NNB0BhEl6meVWJiyqGc=
 		</data>
+		<key>Headers/VHOriginAudioCapture.h</key>
+		<data>
+		Ujsm0KgUAFFlpjFJiSPhg5OpXUQ=
+		</data>
+		<key>Headers/VHOriginCapture.h</key>
+		<data>
+		QbwvGpW6yMozAAlrQXiiBNfBAk8=
+		</data>
 		<key>Headers/VHPlayerCommonModel.h</key>
 		<data>
 		nT9V/szAmJv47COChm1ccRebtKc=
+		</data>
+		<key>Headers/VHPlayerController.h</key>
+		<data>
+		aDn29g3VVNWgu/3/4miM2MedMpI=
 		</data>
 		<key>Headers/VHPlayerSkinView.h</key>
 		<data>
@@ -38,7 +58,7 @@
 		</data>
 		<key>Headers/VHPublishConfig.h</key>
 		<data>
-		dWhqgUm1kazBI3EE325WWLERTFk=
+		d22kBBAaIJgTFRbavdsOeidkpzE=
 		</data>
 		<key>Headers/VHScreenLivePublisher.h</key>
 		<data>
@@ -56,9 +76,13 @@
 		<data>
 		heLYzKxKdNAWuJhcTVk+oN5a0mA=
 		</data>
+		<key>Headers/VHallPublisher.h</key>
+		<data>
+		5iMSC/0nQzGutLn2jyY3TSxXBC0=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		exjUmS/5p/8zq/sPEaeiCJZbld4=
+		XKridnD0Llri2BetnY9xJdUEuRQ=
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
@@ -81,6 +105,20 @@
 			1uaZ8Xti88X8/N0sLpaeLPR3T7v/MN3Wl5FgvU92vu0=
 			</data>
 		</dict>
+		<key>Headers/OpenCONSTS.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			pnIvewoXuwacekpib7kECnGhW2f2aP0pna4pSe3KHec=
+			</data>
+		</dict>
+		<key>Headers/VHFilterCapture.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			jpmtKduhQUO3KG62oX1OR3LG0otxiaCpKrjNjGAl/ns=
+			</data>
+		</dict>
 		<key>Headers/VHLivePlayer.h</key>
 		<dict>
 			<key>hash2</key>
@@ -92,7 +130,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zp9xk7TLDMCoxnzrvt1Dr3HIlrIkN1lJQQUcMxoYU/k=
+			ByLixtisIXwR2nBlgzJrZ1BQS/jK47KIWnrHLnKCJZE=
 			</data>
 		</dict>
 		<key>Headers/VHMarqueeOptionModel.h</key>
@@ -102,11 +140,32 @@
 			QqUTMmHlhBO0eL2V9fbYlmCAz1juuYxLcbePDEVCxv4=
 			</data>
 		</dict>
+		<key>Headers/VHOriginAudioCapture.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			4olgZBp/vpZUxAiud8wWoPSKnGjfbRcejmxfh6V2WnQ=
+			</data>
+		</dict>
+		<key>Headers/VHOriginCapture.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			yuY9erC0cHiMImYywrxpWFuWBqYTSR6Ja/8O3VoXUuM=
+			</data>
+		</dict>
 		<key>Headers/VHPlayerCommonModel.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			4vlTG/7jm4Ddqz28eb4wsgzFviRkR+l5HmWS04Iytgc=
+			</data>
+		</dict>
+		<key>Headers/VHPlayerController.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			JlOMcCmhIIdVFvBsUGJ5K3nj/semh/LzGHLEaHan2ww=
 			</data>
 		</dict>
 		<key>Headers/VHPlayerSkinView.h</key>
@@ -127,7 +186,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hyA1Tr01/0F3Us1hcxk0BQ8Bq+Xk8+4jSn5DBjnLXgY=
+			eMXryVPtr9kdv24IhHG9HrFV2Wr3MG3wiPAeBsUQCbk=
 			</data>
 		</dict>
 		<key>Headers/VHScreenLivePublisher.h</key>
@@ -156,6 +215,13 @@
 			<key>hash2</key>
 			<data>
 			wRb/I5VNdkFIVz0WOKqDTS1ag2X788jw2KydYN2coG0=
+			</data>
+		</dict>
+		<key>Headers/VHallPublisher.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			0ha3vTWRX7gpQQNb+rRN2Kv+DwPcbxNWsdrMwLCo29A=
 			</data>
 		</dict>
 		<key>PrivacyInfo.xcprivacy</key>

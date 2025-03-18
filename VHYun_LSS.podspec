@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name          = "VHYun_LSS"
-  s.version       = "2.8.3"
+  s.version       = "2.8.4"
   s.summary       = "VHall iOS SDK #{s.name.to_s}"
   s.homepage     = 'https://www.vhall.com'
-  s.author       = { "GuoChao" => "chao.guo@vhall.com" }
+  s.author       = { "GuoChao" => "guochao751082551@163.com" }
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.source          = { :git => "https://github.com/vhall/VHYun_SDK_LSS_iOS.git", :tag => s.version.to_s}
   s.requires_arc    = true

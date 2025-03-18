@@ -18,7 +18,8 @@ typedef NS_ENUM(NSInteger, VHPublishStatus) {
     VHPublishStatusUploadSpeed				= 2, // 直播上传速率
     VHPublishStatusUploadNetworkException	= 3, // 发起端网络环境差
     VHPublishStatusUploadNetworkOK			= 4, // 发起端网络环境恢复正常
-    VHPublishStatusStoped					= 5 // 发起端停止推流
+    VHPublishStatusStoped                   = 5, // 发起端停止推流
+    VHPublishStatusReconnecting             = 6  // 重连
 };
 
 typedef NS_ENUM(NSInteger, VHPublishError) {
@@ -212,6 +213,14 @@ typedef NS_ENUM(NSInteger, VHPublishStreamStatus) { //流状态
  */
 - (void)setBeautify:(CGFloat)beautify Brightness:(CGFloat)brightness Saturation:(CGFloat)saturation Sharpness:(CGFloat)sharpness;
 
+/// 重新设置分辨率及其他主要采集参数
+/// - Parameters:
+///   - videoWidth: 宽
+///   - videoHeight: 高
+///   - videoBitRate: bit
+///   - videoCaptureFPS: fps
+- (void)updateVideoCaptureWidth:(int)videoWidth videoHeight:(int)videoHeight videoBitRate:(NSInteger)videoBitRate videoCaptureFPS:(NSInteger)videoCaptureFPS;
+
 /**
  *  获得当前SDK版本号
  */
@@ -238,6 +247,7 @@ typedef NS_ENUM(NSInteger, VHPublishStreamStatus) { //流状态
  *      VHPublishStatusUploadNetworkException,//发起端网络环境差
  *      VHPublishStatusUploadNetworkOK, //发起端网络环境恢复正常
  *      VHPublishStatusStoped//发起端停止推流
+ *      VHPublishStatusReconnecting//重连
  */
 - (void)onPublishStatus:(VHPublishStatus)status info:(NSDictionary*)info;
 
