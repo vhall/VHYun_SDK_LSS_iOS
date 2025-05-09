@@ -17,7 +17,7 @@ typedef NSString *VHBEffectFilterValue NS_TYPED_EXTENSIBLE_ENUM;
 typedef void(^handleOutputWithProcess)(CMSampleBufferRef ref, uint64_t ts);
 
 @protocol IVHBeautifyModule <NSObject>
-@required
+@required 
 
 @property (nonatomic, copy) NSString * faceBundlePath; // 路径
 
@@ -29,6 +29,9 @@ typedef void(^handleOutputWithProcess)(CMSampleBufferRef ref, uint64_t ts);
 /// @param ts 原时间(可直接传出)
 /// @param handle 操作结束后传出的数据
 - (void)processedSampleBuffer:(CMSampleBufferRef)sampleBuffer pts:(uint64_t)ts handle:(handleOutputWithProcess)handle;
+
+/// 针对pixelBuffer进行操作
+- (void)processedPixelBuffer:(CVPixelBufferRef)pixelBuffer handle:(void(^)(CVPixelBufferRef ref))handle;
 
 /// 本地预览画面
 - (UIView *)preView;
