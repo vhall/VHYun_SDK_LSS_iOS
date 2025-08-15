@@ -158,9 +158,11 @@ typedef NS_ENUM (int,VHPlayerSeeekModel){
 /// 已经关闭画中画
 - (void)pictureInPictureControllerDidStop;
 /// 关闭画中画且恢复播放界面
-/// - Parameter completionHandler: 恢复是否完成
+/// - Parameter completionHandler: 恢复是否完成。默认设置为YES即可
 - (void)pictureInPictureWithRestoreUserInterfaceForPictureInPictureStopWithCompletionHandler:(void (^)(BOOL restored))completionHandler;
-
+///画中画模式下点击画中画中播放&暂停按键状态变化回调
+/// - Parameter  （isPlaying为YES表示播放，NO表示暂停）
+- (void)pictureInPicturePlaybackStateDidChange:(BOOL)isPlaying;
 /// AVPlayerItemStatusReadyToPlay
 /// @param palyer 播放器实例
 - (void)playerAble:(VHPlayerController*)palyer;
@@ -360,9 +362,13 @@ typedef NS_ENUM (int,VHPlayerSeeekModel){
 
 // 是否开启画中画
 - (void)setIsOpenPIP:(BOOL)isOpenPIP;
-
+- (void)setPictureInPictureControls:(BOOL)enable;
 - (BOOL)getIsOpenPIP;
-
+/// 调用后，应用退到后台时音频会继续播放
+- (void)enableBackgroundAudioPlayback;
+/// 关闭后台音频播放功能
+/// 调用后，应用退到后台时音频会停止播放
+- (void)disableBackgroundAudioPlayback;
 /// 快直播切换大小流
 - (void)fastplayerSetResolution:(NSInteger)resolution;
 @end

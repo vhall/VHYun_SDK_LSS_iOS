@@ -138,6 +138,17 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 /// 是否开启画中画
 - (void)setIsOpenPIP:(BOOL)isOpenPIP;
 
+////如果enable设置为NO 画中画窗口快进&快退&播放器进度条无法操作。
+- (void)setPictureInPictureControls:(BOOL)enable;
+
+/// 开启后台音频播放功能
+/// 调用后，应用退到后台时音频会继续播放
+- (void)enableBackgroundAudioPlayback;
+
+/// 关闭后台音频播放功能
+/// 调用后，应用退到后台时音频会停止播放
+- (void)disableBackgroundAudioPlayback;
+
 /// 获取画中画状态
 - (BOOL)getIsOpenPIP;
 
@@ -233,6 +244,9 @@ typedef NS_ENUM(int,VHVodPlayerSeeekModel){
 /// 关闭画中画且恢复播放界面
 /// - Parameter completionHandler: 恢复是否完成
 - (void)pictureInPictureWithRestoreUserInterfaceForPictureInPictureStopWithCompletionHandler:(void (^)(BOOL restored))completionHandler;
+///画中画模式下点击画中画中播放&暂停按键状态变化回调
+/// - Parameter  （isPlaying为YES表示播放，NO表示暂停）
+- (void)pictureInPicturePlaybackStateDidChange:(BOOL)isPlaying;
 
 @end
 
